@@ -5,8 +5,16 @@
 </template>
 
 <script>
+import Rem from "./assets/rem.js"
 export default {
-  name: 'App'
+  name: 'App',
+  methods: {
+    
+  },
+  mounted () {
+    Rem.setRem();
+    window.onresize=Rem.setRem;
+  }
 }
 </script>
 

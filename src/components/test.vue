@@ -15,6 +15,8 @@
       <div class="swiper-button-next" slot="button-next"></div>
       <div class="swiper-scrollbar"   slot="scrollbar"></div>
     </swiper>
+    <div><input type="text" v-model="num" @input="sdf">{{num}}</div>
+    <div>{{$store.state.num}}{{$store.getters.numa}}{{$store.state.a.a}}{{$store.state.b.c}}</div>
   </div>
 </template>
 
@@ -23,6 +25,7 @@ export default {
     name: 'carrousel',
     data() {
       return {
+        num:this.$store.state.num,
         swiperOption: {
           // some swiper options/callbacks
           // 所有的参数同 swiper 官方 api 参数
@@ -37,6 +40,11 @@ export default {
     computed: {
       swiper() {
         return this.$refs.mySwiper.swiper
+      }
+    },
+    methods:{
+      sdf(){
+        this.$store.commit('change',this.num)
       }
     },
     mounted() {
