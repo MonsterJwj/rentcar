@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Rem from "./assets/rem.js"
+import Rem from "./assets/js/rem.js"
 export default {
   name: 'App',
   methods: {
@@ -20,6 +20,6 @@ export default {
 
 <style>
 #app {
-  
+  margin: 0;
 }
 </style>

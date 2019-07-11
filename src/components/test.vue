@@ -1,59 +1,45 @@
 <template>
   <div class="test">
-    <swiper :options="swiperOption" ref="mySwiper">
-      <!-- slides -->
-      <swiper-slide>I'm Slide 1</swiper-slide>
-      <swiper-slide>I'm Slide 2</swiper-slide>
-      <swiper-slide>I'm Slide 3</swiper-slide>
-      <swiper-slide>I'm Slide 4</swiper-slide>
-      <swiper-slide>I'm Slide 5</swiper-slide>
-      <swiper-slide>I'm Slide 6</swiper-slide>
-      <swiper-slide>I'm Slide 7</swiper-slide>
-      <!-- Optional controls -->
-      <div class="swiper-pagination"  slot="pagination"></div>
-      <div class="swiper-button-prev" slot="button-prev"></div>
-      <div class="swiper-button-next" slot="button-next"></div>
-      <div class="swiper-scrollbar"   slot="scrollbar"></div>
-    </swiper>
-    <div><input type="text" v-model="num" @input="sdf">{{num}}</div>
-    <div>{{$store.state.num}}{{$store.getters.numa}}{{$store.state.a.a}}{{$store.state.b.c}}</div>
+        <el-row>
+      <el-button>默认按钮</el-button>
+      <el-button type="primary">主要按钮</el-button>
+      <el-button type="success">成功按钮</el-button>
+      <el-button type="info">信息按钮</el-button>
+      <el-button type="warning">警告按钮</el-button>
+      <el-button type="danger">危险按钮</el-button>
+    </el-row>
+
+    <el-row>
+      <el-button plain>朴素按钮</el-button>
+      <el-button type="primary" plain>主要按钮</el-button>
+      <el-button type="success" plain>成功按钮</el-button>
+      <el-button type="info" plain>信息按钮</el-button>
+      <el-button type="warning" plain>警告按钮</el-button>
+      <el-button type="danger" plain>危险按钮</el-button>
+    </el-row>
+
+    <el-row>
+      <el-button round>圆角按钮</el-button>
+      <el-button type="primary" round>主要按钮</el-button>
+      <el-button type="success" round>成功按钮</el-button>
+      <el-button type="info" round>信息按钮</el-button>
+      <el-button type="warning" round>警告按钮</el-button>
+      <el-button type="danger" round>危险按钮</el-button>
+    </el-row>
+
+    <el-row>
+      <el-button icon="el-icon-search" circle></el-button>
+      <el-button type="primary" icon="el-icon-edit" circle></el-button>
+      <el-button type="success" icon="el-icon-check" circle></el-button>
+      <el-button type="info" icon="el-icon-message" circle></el-button>
+      <el-button type="warning" icon="el-icon-star-off" circle></el-button>
+      <el-button type="danger" icon="el-icon-delete" circle></el-button>
+    </el-row>
   </div>
 </template>
 
 <script>
 export default {
-    name: 'carrousel',
-    data() {
-      return {
-        num:this.$store.state.num,
-        swiperOption: {
-          // some swiper options/callbacks
-          // 所有的参数同 swiper 官方 api 参数
-          // ...
-          loop:true,
-          autoplay:{
-            delay:1000
-          }
-        }
-      }
-    },
-    computed: {
-      swiper() {
-        return this.$refs.mySwiper.swiper
-      }
-    },
-    methods:{
-      sdf(){
-        this.$store.commit('change',this.num)
-      }
-    },
-    mounted() {
-      // current swiper instance
-      // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
-      // console.log('this is current swiper instance object', this.swiper)
-      // this.swiper.slideTo(3, 1000, false)
-      this.$axios.get('https://api.apiopen.top/musicBroadcasting').then((a)=>{console.log(a)}).catch((err)=>{console.log(err)})
-    }
 }
 </script>
 
