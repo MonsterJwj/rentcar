@@ -19,6 +19,15 @@ export default {
 </script>
 
 <style>
+body,html,#app{
+  width:100%;
+  height:100%;
+}
+/* 样式重置文件 */
+body,html,h1,h2,h3,h4,h5,h6,ul,p{
+  list-style: none;
+  margin: 0;padding: 0;
+}
 #app {
   margin: 0;
 }
