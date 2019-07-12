@@ -1,6 +1,6 @@
 <template>
   <div>
-    example
+      门店
   </div>
 </template>
 
