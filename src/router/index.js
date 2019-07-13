@@ -110,5 +110,5 @@ let a=new Router({
     },
   ]
 })
-a.push('/mend')
+a.push('/login')
 export default a
