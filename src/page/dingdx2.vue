@@ -1,9 +1,6 @@
 <template>
   <div>
-      <!-- 头 -->
-      <div>
-        
-      </div>
+      订单信息2
   </div>
 </template>
 
