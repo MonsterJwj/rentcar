@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="mend">
       <ul class="header">
         <li>
@@ -64,6 +65,10 @@
           <p>日租价 <span class="jiage">￥500</span></p>
         </div>
       </div>
+=======
+  <div>
+      门店
+>>>>>>> upstream/master
   </div>
 </template>
 
@@ -83,6 +88,7 @@ export default {
 }
 </script>
 
+<<<<<<< HEAD
 <style scoped lang='less'>
 .mend{
   background: #FAFAFA;
@@ -287,5 +293,8 @@ export default {
   }
   }
 }
+=======
+<style scoped>
+>>>>>>> upstream/master
 
 </style>
