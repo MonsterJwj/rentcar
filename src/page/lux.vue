@@ -1,4 +1,8 @@
 <template>
+<<<<<<< HEAD
+  <div>
+      路线页
+=======
   <div class="router">
       <div class="top">
         <a href="#"><img src="../assets/img/route/向右@2x.png" alt=""></a>路线
@@ -30,11 +34,15 @@
         </div>
       </div>
       <div class="btn">立即用车</div>
+>>>>>>> upstream/master
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
+=======
 import Map from "../components/map"
+>>>>>>> upstream/master
 export default {
   data() {
     return {
@@ -45,11 +53,19 @@ export default {
 
   },
   components: {
+<<<<<<< HEAD
+
+=======
     Map
+>>>>>>> upstream/master
   }
 }
 </script>
 
+<<<<<<< HEAD
+<style scoped>
+
+=======
 <style scoped lang="less">
   .router{
     background: rgb(250,250,250);
@@ -139,4 +155,5 @@ export default {
       border-radius: .44rem;
     }
   }
+>>>>>>> upstream/master
 </style>

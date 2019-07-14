@@ -110,5 +110,5 @@ let a=new Router({
     },
   ]
 })
-a.push('/lux')
+a.push('/mend')
 export default a
