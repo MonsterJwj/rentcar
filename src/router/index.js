@@ -7,6 +7,7 @@ import Chex from '../page/chex'
 import Chongz from '../page/chongz'
 import Dingd from '../page/dingd'
 import Dingdx from '../page/dingdx'
+import Dingdx2 from '../page/dingdx2'
 import Jiag from '../page/jiag'
 import Login from '../page/login'
 import Lux from '../page/lux'
@@ -24,8 +25,7 @@ Vue.use(Router)
 
 let a=new Router({
   routes: [
-    {
-      path: '/guide',
+    {path: '/guide',
       name: 'Guide',
       component: Guide
     },
@@ -53,6 +53,11 @@ let a=new Router({
       path: '/dingdx',
       name: 'Dingdx',
       component: Dingdx
+    },
+    {
+      path:'/dingdx2',
+      name:'Dingdx2',
+      component:Dingdx2
     },
     {
       path: '/jiag',

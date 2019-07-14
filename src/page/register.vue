@@ -124,5 +124,10 @@ export default {
       
       }
     }
+     .router-link-active{
+    span{
+     color: #f8df2f;
+    }
+  }
   }
 </style>
