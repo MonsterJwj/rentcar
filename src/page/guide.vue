@@ -1,4 +1,8 @@
 <template>
+<<<<<<< HEAD
+  <div>
+      引导页
+=======
   <div class="box">
     <!-- 引导页swiper -->
     <swiper :options="swiperOption" ref="mySwiper" class="box2">
@@ -11,6 +15,7 @@
   </swiper>
 
 
+>>>>>>> upstream/master
   </div>
 </template>
 
@@ -18,11 +23,15 @@
 export default {
   data() {
     return {
+<<<<<<< HEAD
+
+=======
  swiperOption: {
    pagination: {
      el: '.swiper-pagination'
         }
      }
+>>>>>>> upstream/master
     }
   },
   methods: {
@@ -34,6 +43,10 @@ export default {
 }
 </script>
 
+<<<<<<< HEAD
+<style scoped>
+
+=======
 <style scoped lang="less">
   .box{
     width:100%;
@@ -71,4 +84,5 @@ export default {
       }
     }
   }
+>>>>>>> upstream/master
 </style>

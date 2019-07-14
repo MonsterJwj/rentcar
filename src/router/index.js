@@ -115,5 +115,9 @@ let a=new Router({
     },
   ]
 })
+<<<<<<< HEAD
 a.push('/guide')
+=======
+a.push('/mend')
+>>>>>>> dava/master
 export default a

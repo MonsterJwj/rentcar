@@ -15,6 +15,12 @@ Vue.use(ElementUI);
 import axios from "axios";
 Vue.prototype.$axios=axios;
 
+//百度地图
+import BaiduMap from "vue-baidu-map"
+Vue.use(BaiduMap,{
+  ak:'twn2V16VWzgtNurwTPfoGhvd6mnQ1k3E'
+})
+
 import Vuex from "Vuex";
 Vue.use(Vuex);
 
