@@ -6,6 +6,7 @@
         <li>
             <img src="../assets/img/route/向右@2x.png">
             <span>订单信息</span>
+            <img src="../assets/img/dingdan/icon-01.png">
         </li>
       </ul>
 
@@ -52,11 +53,17 @@ export default {
         align-items: center;
         align-content: center;
         height:.92rem;
-        img{
+        img:nth-child(1){
           width:.2rem;
           height:.34rem;
           position: absolute;
           left:33px;
+        }
+        img:nth-child(3){
+          width:.48rem;
+          height:.48rem;
+          position: absolute;
+          right:29px;
         }
         span{
           font-size:.36rem;
