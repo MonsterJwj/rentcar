@@ -18,7 +18,8 @@ import Shiz from '../page/shiz'
 import Shunf from '../page/shunf'
 import Wod from '../page/wod'
 import Xuanz from '../page/xuanz'
-
+import Register from '../page/register'
+import Chong_first from '../page/chong_first'
 Vue.use(Router)
 
 let a=new Router({
@@ -107,6 +108,16 @@ let a=new Router({
       path: '/xuanz',
       name: 'Xuanz',
       component: Xuanz
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register
+    },
+    {
+      path: '/chong_first',
+      name: 'Chong_first',
+      component: Chong_first
     },
   ]
 })
