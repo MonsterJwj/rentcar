@@ -115,5 +115,5 @@ let a=new Router({
     },
   ]
 })
-a.push('/lux')
+a.push('/guide')
 export default a
