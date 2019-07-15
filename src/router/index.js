@@ -143,5 +143,5 @@ let a=new Router({
     },
   ]
 })
-a.push('/Chong_fourthly')
+a.push('/pingj')
 export default a

@@ -48,7 +48,7 @@
 
       <div class="weibu">
         <div class="weibu_left lei">
-        <img src="./../assets/mend_img/img-01@2x.png" alt="">
+        <img src="./../assets/img/hourrent/img-01@2x.png" alt="">
           <p>
             <span class="huodong">特惠</span>
             大众朗逸
@@ -56,7 +56,25 @@
           <p>日租价 <span class="jiage">￥100</span></p>
         </div>
         <div class="weibu_right lei">
-        <img src="./../assets/mend_img/img-01@2x.png" alt="">
+        <img src="./../assets/img/hourrent/img-02@2x.png" alt="">
+          <p>
+            <span class="huodong">热销</span>
+            雷克萨斯-ES
+          </p>
+          <p>日租价 <span class="jiage">￥500</span></p>
+        </div>
+      </div>
+      <div class="weibu">
+        <div class="weibu_left lei">
+        <img src="./../assets/img/hourrent/img-01@2x.png" alt="">
+          <p>
+            <span class="huodong">特惠</span>
+            大众朗逸
+          </p>
+          <p>日租价 <span class="jiage">￥100</span></p>
+        </div>
+        <div class="weibu_right lei">
+        <img src="./../assets/img/hourrent/img-02@2x.png" alt="">
           <p>
             <span class="huodong">热销</span>
             雷克萨斯-ES
@@ -98,9 +116,9 @@ export default {
       padding: .65rem .35rem .29rem .32rem;
       .fanhui{
         display: block;
-        width: .4rem;
-        height: .68rem;
-        background: url('./../assets/mend_img/icon-02@2x.png')no-repeat center center;
+        width: .2rem;
+        height: .34rem;
+        background: url('./../assets/img/route/向右@2x.png')no-repeat center center;
         background-size: cover;
       }
       .fanhui1{
@@ -183,7 +201,8 @@ export default {
         width:.9rem;
         height: .9rem;
         border-radius:50%;
-        background: black; 
+        background: url('./../assets/img/my/img-2-png@2x.png')no-repeat center center;
+        background-size:cover;  
       }
       h1{
         text-indent: .1rem;
@@ -195,9 +214,11 @@ export default {
         overflow: hidden; 
         .icon_car{
           display: block;
-          width: .4rem;
+          width: .42rem;
           height: .29rem;
-          background: yellow;
+          margin-top: .12rem;
+          background: url('./../assets/img/pingjl/icon-03@2x.png')no-repeat center center;
+          background-size:cover; 
           float: left;
           margin-left: .1rem;
         }
@@ -246,6 +267,7 @@ export default {
     background:linear-gradient(90deg,rgba(251,236,129,1) 0%,rgba(255,236,15,1) 100%);
   }
   .weibu{
+    margin-top: .32rem;
     overflow: hidden;
     .lei{
     width: 3.31rem;
