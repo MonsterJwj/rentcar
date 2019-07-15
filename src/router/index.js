@@ -115,5 +115,5 @@ let a=new Router({
     },
   ]
 })
-a.push('/mend');
+a.push('/wod');
 export default a
