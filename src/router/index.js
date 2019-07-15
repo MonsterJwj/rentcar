@@ -4,7 +4,7 @@ import Router from 'vue-router'
 import Guide from '../page/guide'
 import Changz from '../page/changz'
 import Chex from '../page/chex'
-import Chongz from '../page/chongz'
+import Chongz from '../components/chongz'
 import Dingd from '../page/dingd'
 import Dingdx from '../page/dingdx'
 import Dingdx2 from '../page/dingdx2'
@@ -21,8 +21,10 @@ import Wod from '../page/wod'
 import Xuanz from '../page/xuanz'
 import Register from '../page/register'
 import Chong_first from '../page/chong_first'
+import Chong_second from '../page/chong_second'
+import Chong_thirdly from '../page/chong_thirdly'
+import Chong_fourthly from '../page/chong_fourthly'
 Vue.use(Router)
-
 let a=new Router({
   routes: [
     {path: '/guide',
@@ -124,7 +126,22 @@ let a=new Router({
       name: 'Chong_first',
       component: Chong_first
     },
+    {
+      path: '/chong_second',
+      name: 'Chong_second',
+      component: Chong_second
+    },
+    {
+      path: '/chong_thirdly',
+      name: 'Chong_thirdly',
+      component: Chong_thirdly
+    },
+    {
+      path: '/chong_fourthly',
+      name: 'Chong_fourthly',
+      component: Chong_fourthly
+    },
   ]
 })
-a.push('/login')
+a.push('/Chong_fourthly')
 export default a
