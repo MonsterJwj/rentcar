@@ -20,6 +20,7 @@ import Shunf from '../page/shunf'
 import Wod from '../page/wod'
 import Xuanz from '../page/xuanz'
 import Register from '../page/register'
+//充值
 import Chong_first from '../page/chong_first'
 import Chong_second from '../page/chong_second'
 import Chong_thirdly from '../page/chong_thirdly'
@@ -121,6 +122,7 @@ let a=new Router({
       name: 'Register',
       component: Register
     },
+    //chaonzhi
     {
       path: '/chong_first',
       name: 'Chong_first',
