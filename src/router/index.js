@@ -89,7 +89,6 @@ let a=new Router({
     },
     {
       path: '/pingj',
-      name: 'Pingj',
       component: Pingj
     },
     {
@@ -145,5 +144,5 @@ let a=new Router({
     },
   ]
 })
-a.push('/pingj')
+a.push('Login')
 export default a

@@ -62,13 +62,6 @@ export default {
           font-size:.36rem;
         }
       }
-    }
-    
-    
-    
-    
-    
-    
-    
+    }   
 }
 </style>

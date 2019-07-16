@@ -5,18 +5,18 @@
      <img src="./../assets/img/register/矢量智能对象@2x(1).png" alt="">
     </div>
     <div class="user">
-    <router-link to='/login'><span>登录</span></router-link>
+    <router-link to='/login'><span >登录</span></router-link>
     <router-link to='/register'><span>注册</span></router-link>
     </div>
       <div class="input">
        <span class="ico_1"></span>
-       <p><input type="text" placeholder="请输入用户名"></p>
+       <p><input type="text"  placeholder="请输入用户名" id="str" @blur="checkname"></p>
        <span class="ico_2"></span>
-       <p><input type="text" placeholder="请输入密码"></p>
+       <p><input type="password" placeholder="请输入密码" id="pwd" @blur="checkpwd"></p>
       </div>
            <p class="password">忘记密码</p>
         <div class="third">
-          <img src="./../assets/img/login/组 1@2x(1).png" alt="">
+          <img src="./../assets/img/login/组 1@2x(1).png" alt=""  @click="tiaozhuan">
           <p>第三方登录</p><hr>
         </div>
         <ul>
@@ -24,18 +24,50 @@
             <li><img src="./../assets/img/login/组 1@2x(2).png" alt=""></li>
             <li><img src="./../assets/img/login/组 1@2x(3).png" alt=""></li>
         </ul>
+         <div id='warning' v-show="wt_show">
+           <p id='wt_'>用户名</p><span @click="wt_show=false">x</span>
+         </div>
   </div>
 </template>
 
 <script>
+ 
 export default {
   data() {
     return {
-
+   wt_show:false
     }
   },
   methods: {
-
+    checkname(str){
+        var str = document.getElementById('str').value;
+        var warning=document.getElementById('wt_')
+        var user =/[\u4e00-\u9fa5]/gm;
+       
+        if (user.test(str))
+         {
+           warning.innerHTML="";
+            }
+        else {
+         
+              warning.innerHTML="请输入正确的用户名";
+            this.wt_show=true
+        } 
+    },
+    checkpwd(){
+       var pwd = document.getElementById('pwd').value
+         var pwds =/^[a-z0-9]+$/i
+        if(pwds.test(pwd)){
+            
+        }
+       else{
+       
+       }
+    },
+    tiaozhuan(){
+       alert("登录成功");
+      //  router.push("/")
+    }
   },
   components: {
 
@@ -75,14 +107,15 @@ export default {
       margin-top:.86rem;
       p{
          border-bottom: 1px solid #cccccc;
+         margin-right: .32rem;
           margin-top:1rem;
       }
        input{
         border: none;
-        width: 6rem;
+        width: 4rem;
         position: relative;
         left: .93rem;
-       outline: none;
+        outline: none;
       }
        .ico_1{
       display:block;
@@ -96,11 +129,11 @@ export default {
      .ico_2{
       display:block;
       width: .36rem;
-      height: .35rem;
+      height: .42rem;
       background: url('./../assets/img/login/矢量智能对象@2x(1).png')no-repeat center center;
       background-size:cover;
       position:absolute;
-      top: 6.7rem;
+      top: 6.6rem;
     }
     }
    .password{
@@ -146,6 +179,34 @@ export default {
     span{
 color: #f8df2f;
     }
+  }
+  #warning{
+    position: fixed;
+    top:0;
+    left:0;
+   background: rgba(0, 0, 0, .3);
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+    span{
+      position:absolute;
+      top:40%;
+      right:80%;
+      font-size: .4rem;
+    }
+  }
+  #wt_{
+    height: 20%;
+    width: 70%;
+    font-size: .24rem;
+     display: flex;
+   justify-content: center;
+   align-items: center;
+    border-radius: 20px;
+    background: #ffffff;
+   
   }
   }
 </style>
