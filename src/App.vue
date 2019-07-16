@@ -6,6 +6,7 @@
 
 <script>
 import Rem from "./assets/js/rem.js"
+ import $ from 'jquery';
 export default {
   name: 'App',
   methods: {
@@ -30,10 +31,7 @@ body,html,h1,h2,h3,h4,h5,h6,ul,p{
 }
 #app {
   margin: 0;
-<<<<<<< HEAD
-=======
   width:100%;
   height:100%;
->>>>>>> upstream/master
 }
 </style>
