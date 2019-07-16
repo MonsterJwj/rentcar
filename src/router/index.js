@@ -19,6 +19,7 @@ import Shiz from '../page/shiz'
 import Shunf from '../page/shunf'
 import Wod from '../page/wod'
 import Xuanz from '../page/xuanz'
+import Ok from '../page/ok'
 import Register from '../page/register'
 //充值
 import Chong_first from '../page/chong_first'
@@ -116,6 +117,11 @@ let a=new Router({
       path: '/xuanz',
       name: 'Xuanz',
       component: Xuanz
+    },
+    {
+      path:'/ok',
+      name:'Ok',
+      component:Ok
     },
     {
       path: '/register',

@@ -6,6 +6,7 @@
 
 <script>
 import Rem from "./assets/js/rem.js"
+ import $ from 'jquery';
 export default {
   name: 'App',
   methods: {
