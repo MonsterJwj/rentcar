@@ -15,27 +15,15 @@
             <li>取车门店 郑州金水路店</li>
             <li>
               手续办理
-              <span class="yellow"></span>
-              <span class="yellow"></span>
-              <span class="yellow"></span>
-              <span class="yellow"></span>
-              <span class="yellow"></span>
+              <span class="yellow" v-for="(item,index) in show" :key='index' @click="fn(index)" :class="{yellow1:item.boolen,yellow:!item.boolen}"></span>
             </li>
             <li>
               车辆情况
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
+              <span v-for="(item,index) in 5" :key='index'></span>
             </li>
             <li>
               服务态度
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
+              <span v-for="(item,index) in 5" :key='index'></span>
             </li>
           </ul>
 
@@ -44,19 +32,11 @@
             <li>换车门店 郑州郑汴路店</li>
             <li>
               手续办理
-              <span class="yellow"></span>
-              <span class="yellow"></span>
-              <span class="yellow"></span>
-              <span class="yellow"></span>
-              <span class="yellow"></span>
+              <span class="yellow" v-for="(item,index) in 5" :key='index'></span>
             </li>
             <li>
               服务态度
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
+              <span v-for="(item,index) in 5" :key='index'></span>
             </li>
           </ul>
 
@@ -66,10 +46,8 @@
 
 
         </div>
-        <p class="btn">提交</p>
-      </div>
-
-      
+        <p class="btn"> <router-link to="/pingjl">提交</router-link> </p>
+      </div>      
   </div>
 </template>
 
@@ -77,11 +55,25 @@
 export default {
   data() {
     return {
-
+        value: 3,
+        show:[
+          {boolen:false},
+          {boolen:false},
+          {boolen:false},
+          {boolen:false},
+          {boolen:false}
+        ]
     }
   },
   methods: {
-
+    fn(a){
+      for(let i=0;i<this.show.length;i++){
+        this.show[i].boolen=true
+      }
+      for(let i=0;i<=a;i++){
+        this.show[i].boolen=false
+      }
+    }
   },
   components: {
 
@@ -157,6 +149,13 @@ export default {
           background: url('./../assets/img/pingj/icon-1-png@2x.png')no-repeat center .11rem;
           background-size: cover;
         }
+        .yellow1{
+          width: .48rem;
+          height: .48rem;
+          display: inline-block;
+          background: url('./../assets/img/pingj/icon-2-png@2x.png')no-repeat center .11rem;
+          background-size: cover;
+        }
       }
     }
     .text{
@@ -176,6 +175,9 @@ export default {
       text-indent: .75rem;
       margin-top: .32rem;
     }
+  }
+  a{
+      color: #333333FF;
   }
 }
 </style>

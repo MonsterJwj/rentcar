@@ -1,6 +1,6 @@
 <template>
   <div>
-      登陆/注册页
+      登陆/注册页 
   </div>
 </template>
 

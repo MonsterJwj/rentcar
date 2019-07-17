@@ -18,6 +18,7 @@ import Shiz from '../page/shiz'
 import Shunf from '../page/shunf'
 import Wod from '../page/wod'
 import Xuanz from '../page/xuanz'
+import Pingjw from '../page/pingjw'
 
 Vue.use(Router)
 
@@ -107,6 +108,11 @@ let a=new Router({
       path: '/xuanz',
       name: 'Xuanz',
       component: Xuanz
+    },
+    {
+      path: '/pingjw',
+      name: 'Pingjw',
+      component: Pingjw
     },
   ]
 })
