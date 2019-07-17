@@ -90,7 +90,6 @@ let a=new Router({
     },
     {
       path: '/pingj',
-      name: 'Pingj',
       component: Pingj
     },
     {

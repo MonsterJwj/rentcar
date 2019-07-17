@@ -77,6 +77,7 @@ export default {
           font-size:.36rem;
         }
       }
+    }   
     }
     .box2{
       width:6.86rem;
@@ -152,6 +153,4 @@ export default {
       line-height:.88rem;
       margin:4rem .32rem 0 .32rem;
     }
-    
-}
 </style>
