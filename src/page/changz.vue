@@ -9,23 +9,23 @@
           <div class="city">
             <div class="cheng">
               <p class="tit">取换城市</p>
-              <p>郑州<img src="../assets/img/longrent/xia.png" alt=""></p>
-              <p>郑州<img src="../assets/img/longrent/xia.png" alt=""></p>
+              <p @click="from">{{fcity}}<img src="../assets/img/longrent/xia.png" alt=""></p>
+              <p @click="to">{{tcity}}<img src="../assets/img/longrent/xia.png" alt=""></p>
             </div>
             <div class="dian">
               <p class="tit">取换点</p>
-              <p>盛润国际广自助点<img src="../assets/img/longrent/xia.png" alt=""></p>
-              <p>盛润国际广自助点<img src="../assets/img/longrent/xia.png" alt=""></p>
+              <p>{{fcity}}国际广自助点<img src="../assets/img/longrent/xia.png" alt=""></p>
+              <p>{{tcity}}国际广自助点<img src="../assets/img/longrent/xia.png" alt=""></p>
             </div>
           </div>
           <div class="fromto">
-            <div class="from">
+            <div class="from" @click="ftime">
               <p>2019年</p>
               <p>07年10日</p>
               <p>周三</p>
             </div>
             <div class="time">30天</div>
-            <div class="to">
+            <div class="to" @click="ttime">
               <p>2019年</p>
               <p>08年10日</p>
               <p>周五</p>
@@ -57,6 +57,21 @@
         </div>
         <div class="btn">立即选车</div>
       </div>
+      <div class="timepic">
+        
+        <van-popup
+          v-model="show"
+          position="bottom"
+          :style="{ height: '40%' }"
+        >
+        <van-datetime-picker
+          v-model="currentDate"
+          type="datetime"
+          :min-date="minDate"
+          :max-date="maxDate"
+          class="time"
+        /></van-popup>
+      </div>
   </div>
 </template>
 
@@ -66,11 +81,42 @@ import Map from "../components/map"
 export default {
   data() {
     return {
-
+      show:false,
+      minHour: 10,
+      maxHour: 20,
+      minMinute:0,
+      maxMinute:1,
+      minDate: new Date(),
+      maxDate: new Date(2019, 12, 31),
+      currentDate: new Date()
     }
   },
   methods: {
-
+    ftime(){
+      this.show=true;
+    },
+    ttime(){
+      this.show=true;
+    },
+    getContainer() {
+      return document.querySelector('.my-container');
+    },
+    from(){
+      this.$store.commit('changd','fcity');
+      this.$router.push('/xuanz');
+    },
+    to(){
+      this.$store.commit('changd','tcity');
+      this.$router.push('/xuanz');
+    }
+  },
+  computed: {
+    fcity(){
+      return this.$store.state.fcity;
+    },
+    tcity(){
+      return this.$store.state.tcity;
+    }
   },
   components: {
     Pjsf,
@@ -83,7 +129,22 @@ export default {
   .changz{
     display: flex;
     flex-direction: column;
-    height: 100%;
+    min-height: 100%;
+    width: 100%;
+    .timepic{
+      // position: fixed;
+      // top: 0;
+      // left: 0;
+      // width: 100%;
+      // height: 100%;
+      // background: rgba(0,0,0,.5);
+      z-index: 999999;
+      .time{
+        // position: absolute;
+        // bottom: 0;
+        width: 100%;
+      }
+    }
     .all{
       flex: 1;
       margin-top: 2.18rem;

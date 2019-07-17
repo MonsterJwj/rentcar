@@ -29,15 +29,15 @@
         </ul>
         <ul>
           <li>
-            <router-link to="/xuanz">郑州</router-link>
+            <router-link to="/xuanz" @click="from">{{fcity}}</router-link>
           <img src="../assets/img/dingdan/icon-03@2x.png"></li>
-          <li>盛润国际广自助点</li>
+          <li>{{fcity}}国际广自助点</li>
         </ul>
         <ul>
           <li>
-            <router-link to="/xuanz">郑州</router-link>
+            <router-link to="/xuanz">{{fcity}}</router-link>
             <img src="../assets/img/dingdan/icon-03@2x.png"></li>
-          <li>盛润国际广自助点</li>
+          <li>{{fcity}}国际广自助点</li>
         </ul>
         <ul>
           <li>
@@ -87,10 +87,28 @@ export default {
     }
   },
   methods: {
+    from(){
+      this.$store.commit('changd','fcity');
+      this.$router.push('/xuanz');
+    }
   },
   components: {
 
-  }
+  },
+  computed:{
+    fcity(){
+      return this.$store.state.fcity;
+    }
+  },
+  // mounted(){
+  //   this.$axios.get('http://172.25.1.224:8080/carinfo/selectAll')
+  // .then(function (res) {
+  //   console.log(res);
+  // })
+  // .catch(function (err) {
+  //   console.log(err);
+  // });
+  // }
 }
 </script>
 
@@ -191,6 +209,7 @@ export default {
         display:flex;
         margin:.47rem .58rem 0rem .32rem;
         li{
+          display: flex;
           width:50%;
           font-size:.32rem;
           color:#333333;
@@ -203,7 +222,8 @@ export default {
       ul:nth-child(3){
         display: flex;
         margin:.35rem .59rem 0 .32rem;
-        li{
+        li{ 
+          display: flex;
           width:50%;
           font-size:.32rem;
           color:#333333;
