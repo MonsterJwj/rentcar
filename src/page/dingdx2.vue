@@ -28,11 +28,15 @@
           <li>取还点</li>
         </ul>
         <ul>
-          <li>郑州<img src="../assets/img/dingdan/icon-03@2x.png"></li>
+          <li>
+            <router-link to="/xuanz">郑州</router-link>
+          <img src="../assets/img/dingdan/icon-03@2x.png"></li>
           <li>盛润国际广自助点</li>
         </ul>
         <ul>
-          <li>郑州<img src="../assets/img/dingdan/icon-03@2x.png"></li>
+          <li>
+            <router-link to="/xuanz">郑州</router-link>
+            <img src="../assets/img/dingdan/icon-03@2x.png"></li>
           <li>盛润国际广自助点</li>
         </ul>
         <ul>
@@ -66,7 +70,9 @@
           <img src="../assets/img/dingdan/icon-07.png">
           <img src="../assets/img/dingdan/icon-08.png">
         </div>
-        <p><img src="../assets/img/dingdan/icon-09.png"> <span>同意评价分时租车租凭协议</span></p>
+        <p><img src="../assets/img/dingdan/icon-09.png">       
+          <span>同意评价分时租车租凭协议</span>
+          </p>
       </div>
       <!-- 提交 -->
       <div class="box6">提交订单</div>
@@ -81,7 +87,6 @@ export default {
     }
   },
   methods: {
-
   },
   components: {
 
@@ -289,7 +294,5 @@ export default {
         line-height:.88rem;
         margin:.72rem .33rem 0 .31rem;
       }
-    
-    
 }
 </style>
