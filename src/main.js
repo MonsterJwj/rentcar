@@ -38,11 +38,19 @@ let store=new Vuex.Store({
   state:{
     fcity:'郑州',
     tcity:'郑州',
-    deract:'fcity'
+    deract:'fcity',
+    fday:new Date(),
+    tday:new Date()
   },
   mutations: {
     changd(state,a){
       state.deract=a;
+    },
+    ff(state,a){
+      state.fday=a;
+    },
+    tt(state,a){
+      state.tday=a;
     },
     change(state,a){
       if(state.deract=="fcity"){

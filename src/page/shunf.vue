@@ -24,7 +24,6 @@
 
 <script>
 import Pjsf from "../components/pjsf"
-import Map from "../components/map"
 export default {
   data() {
     return {
@@ -40,6 +39,22 @@ export default {
   },
   methods: {
 
+  },
+  mounted () {
+    this.$axios.get('http://qaq12123.in.8866.org:30102/account/findOrderList').then(
+      (a)=>{
+        console.log(a)
+        this.list=[];
+        a.data.forEach((a)=>{
+          this.list.push({from:'郑州',fromtime:'07年10日 周一',carimg:require("../assets/img/hourrent/img-01@2x.png"),day:"30",to:"广州",totime:"08年10日 周三",cartype:"大众朗逸"})
+          console.log(a);
+        })
+        },
+      (a)=>{console.log(a)})
+      .catch(
+        (err)=>{
+          console.log(err)
+        })
   },
   components: {
     Pjsf,
