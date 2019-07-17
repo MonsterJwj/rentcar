@@ -74,6 +74,7 @@ export default {
    button{
      width: 6.84rem;
      height:.88rem;
+    font-size: .36rem;
      border-radius:28px;
      border: none;
       outline: none;
