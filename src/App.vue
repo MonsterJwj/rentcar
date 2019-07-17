@@ -6,6 +6,7 @@
 
 <script>
 import Rem from "./assets/js/rem.js"
+ import $ from 'jquery';
 export default {
   name: 'App',
   methods: {
@@ -27,6 +28,11 @@ body,html,#app{
 body,html,h1,h2,h3,h4,h5,h6,ul,p{
   list-style: none;
   margin: 0;padding: 0;
+}
+a{
+  display: block;
+  text-decoration: none;
+  color: black;
 }
 #app {
   margin: 0;

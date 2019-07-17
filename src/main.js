@@ -32,26 +32,24 @@ Vue.use(Vuex);
 
 Vue.config.productionTip = false;
 
-let mokuai1={
-  state:{
-    a:'aaaa',
-    b:'bbbb'
-  }
-}
-let mokuai2={
-  state:{
-    c:'acccc',
-    d:'ddddd'
-  }
-}
+
 /* eslint-disable no-new */
 let store=new Vuex.Store({
   state:{
-    num:97
+    fcity:'郑州',
+    tcity:'郑州',
+    deract:'fcity'
   },
   mutations: {
+    changd(state,a){
+      state.deract=a;
+    },
     change(state,a){
-      state.num=a;
+      if(state.deract=="fcity"){
+        state.fcity=a;
+      }else if(state.deract=="tcity"){
+        state.tcity=a;
+      }
     }
   },
   getters:{
@@ -59,10 +57,6 @@ let store=new Vuex.Store({
       let a=parseInt(state.num)+1
       return a;
     }
-  },
-  modules: {
-    a:mokuai1,
-    b:mokuai2
   }
 })
 
