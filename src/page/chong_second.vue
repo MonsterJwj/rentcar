@@ -7,7 +7,11 @@
       <img src="./../assets/img/recharge/img-1-png@2x.png" alt />
       <div class="my">
         <p>我的余额 <span>5500</span></p>
-        <p>充值金额:<input type="text" v-model="a"> <router-link to="chong_fourthly"><button>充值</button></router-link></p> 
+        <p>充值金额:<input type="text" v-model="a">
+         <router-link to="chong_fourthly">
+           <button>充值</button>
+           </router-link>
+           </p> 
       </div>
       <ul>
         <li @click='btn'>
@@ -95,6 +99,7 @@ export default {
              width: 1.54rem;
              height: .5rem;
               border: none;
+              margin-top:-.5rem;
               margin-right: .33rem;
              background:linear-gradient(90deg,rgba(251,236,129,1),rgba(255,224,9,1));
              border-radius: 25px;
