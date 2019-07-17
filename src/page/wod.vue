@@ -74,8 +74,8 @@ export default {
       display: block;
     }
     .info{
-      height: 4.9rem;
-      padding-top: .5rem;
+      height: 4.5rem;
+      padding-top: .4rem;
       background: rgb(255,224,9);
       font-size: 0;
       img{

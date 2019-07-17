@@ -150,5 +150,5 @@ let a=new Router({
     },
   ]
 })
-a.push('/login');
+a.push('/changz');
 export default a
