@@ -150,5 +150,5 @@ let a=new Router({
     },
   ]
 })
-a.push('/chong_second');
+a.push('/xuanz');
 export default a

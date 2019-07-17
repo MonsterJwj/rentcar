@@ -20,15 +20,15 @@
           </div>
           <div class="fromto">
             <div class="from" @click="ftime">
-              <p>2019年</p>
-              <p>07年10日</p>
-              <p>周三</p>
+              <p>{{fday|year}}</p>
+              <p>{{fday|yue}}</p>
+              <p>{{fday|day}}</p>
             </div>
-            <div class="time">30天</div>
+            <div class="time">{{time}}</div>
             <div class="to" @click="ttime">
-              <p>2019年</p>
-              <p>08年10日</p>
-              <p>周五</p>
+              <p>{{tday|year}}</p>
+              <p>{{tday|yue}}</p>
+              <p>{{tday|day}}</p>
             </div>
           </div>
           <p>长租说明</p>
@@ -66,10 +66,11 @@
         >
         <van-datetime-picker
           v-model="currentDate"
-          type="datetime"
+          type="date"
           :min-date="minDate"
-          :max-date="maxDate"
-          class="time"
+          @change="change"
+          @confirm='confirm'
+          @cancel="cancel"
         /></van-popup>
       </div>
   </div>
@@ -84,18 +85,69 @@ export default {
       show:false,
       minHour: 10,
       maxHour: 20,
-      minMinute:0,
-      maxMinute:1,
       minDate: new Date(),
       maxDate: new Date(2019, 12, 31),
-      currentDate: new Date()
+      currentDate: new Date(),
+      fday:new Date(),
+      tday:new Date(),
+      chose:'fday'
     }
   },
+  filters:{
+    year(a){
+      let date=new Date(a);
+      return date.getFullYear()+"年";
+    },
+    yue(a){
+      let date=new Date(a);
+      return date.getMonth()+1+"月"+date.getDate()+"日";
+    },
+    day(a){
+      let date=new Date(a);
+      // console.log(date.getDay())
+      switch (date.getDay()) {
+        case 1:return '星期一'
+        case 2:return '星期二'
+        case 3:return '星期三'
+        case 4:return '星期四'
+        case 5:return '星期五'
+        case 6:return '星期六'
+        case 0:return '星期日'
+        default:return "未知"
+      }
+    },
+  },
   methods: {
+    change(a){
+      // console.log("年："+a.columns[0].values[a.children[0].currentIndex])
+      // console.log("月："+a.columns[1].values[a.children[1].currentIndex])
+      // console.log("日："+a.columns[2].values[a.children[2].currentIndex])
+    },
+    confirm(a){
+      if(this.chose=='tday'){
+        console.log(this.fday.getTime(),a.getTime())
+        a.getTime()-this.fday.getTime()<0?this.fday=a:a;
+        this.tday=a;
+        this.$store.commit('tt',a);
+        // console.log(this.$store.state.tday)
+      }else{
+        this.tday.getTime()-a.getTime()<0?this.tday=a:a;
+        this.fday=a;
+        this.$store.commit('ff',a)
+        // console.log(this.$store.state.fday)
+      }
+      // console.log(a);
+      this.show=false
+    },
+    cancel(){
+      this.show=false;
+    },
     ftime(){
+      this.chose='fday'
       this.show=true;
     },
     ttime(){
+      this.chose='tday'
       this.show=true;
     },
     getContainer() {
@@ -111,6 +163,11 @@ export default {
     }
   },
   computed: {
+    time(){
+      let a=new Date(this.fday);
+      let b=new Date(this.tday);
+      return Math.ceil((b.getTime()-a.getTime())/86400000)+'天';
+    },
     fcity(){
       return this.$store.state.fcity;
     },

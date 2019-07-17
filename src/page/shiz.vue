@@ -46,8 +46,8 @@ export default {
     height: 100%;
     .map{
       flex:1;
-      position: relative;
-      z-index: -1;
+      // position: relative;
+      // z-index: -1;
       margin-top: 1.28rem;
     }
     .chel{

@@ -12,11 +12,15 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
-// import { DatetimePicker } from 'vant';
-// Vue.use(DatetimePicker);
+// vant
+// import {Rate} from 'vant';
+// import 'vant/lib/index.css';
+// Vue.use(Rate);
 import Vant from 'vant';
 import 'vant/lib/index.css';
+
 Vue.use(Vant);
+
 
 import axios from "axios";
 Vue.prototype.$axios=axios;
@@ -38,11 +42,19 @@ let store=new Vuex.Store({
   state:{
     fcity:'郑州',
     tcity:'郑州',
-    deract:'fcity'
+    deract:'fcity',
+    fday:new Date(),
+    tday:new Date()
   },
   mutations: {
     changd(state,a){
       state.deract=a;
+    },
+    ff(state,a){
+      state.fday=a;
+    },
+    tt(state,a){
+      state.tday=a;
     },
     change(state,a){
       if(state.deract=="fcity"){

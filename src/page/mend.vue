@@ -124,9 +124,9 @@ export default {
       .fanhui1{
         float: right;
         display: block;
-        width: .4rem;
+        width: .52rem;
         height: .68rem;
-        background: url('./../assets/mend_img/icon-02@2x.png')no-repeat center center;
+        background: url('./../assets/img/mend/icon.-01@2x.png ')no-repeat center -.1rem;
         background-size: cover;
       }
     }
