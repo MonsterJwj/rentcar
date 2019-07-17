@@ -125,10 +125,13 @@ export default {
     },
     confirm(a){
       if(this.chose=='tday'){
+        console.log(this.fday.getTime(),a.getTime())
+        a.getTime()-this.fday.getTime()<0?this.fday=a:a;
         this.tday=a;
         this.$store.commit('tt',a);
         // console.log(this.$store.state.tday)
       }else{
+        this.tday.getTime()-a.getTime()<0?this.tday=a:a;
         this.fday=a;
         this.$store.commit('ff',a)
         // console.log(this.$store.state.fday)
@@ -163,7 +166,7 @@ export default {
     time(){
       let a=new Date(this.fday);
       let b=new Date(this.tday);
-      return Math.round((b.getTime()-a.getTime())/86400000)+'天';
+      return Math.ceil((b.getTime()-a.getTime())/86400000)+'天';
     },
     fcity(){
       return this.$store.state.fcity;

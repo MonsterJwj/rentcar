@@ -90,7 +90,6 @@ let a=new Router({
     },
     {
       path: '/pingj',
-      name: 'Pingj',
       component: Pingj
     },
     {
@@ -151,5 +150,5 @@ let a=new Router({
     },
   ]
 })
-a.push('/chong_first');
+a.push('/xuanz');
 export default a

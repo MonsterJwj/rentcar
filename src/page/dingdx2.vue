@@ -28,12 +28,16 @@
           <li>取还点</li>
         </ul>
         <ul>
-          <li>郑州<img src="../assets/img/dingdan/icon-03@2x.png"></li>
-          <li>盛润国际广自助点</li>
+          <li>
+            <router-link to="/xuanz" @click="from">{{fcity}}</router-link>
+          <img src="../assets/img/dingdan/icon-03@2x.png"></li>
+          <li>{{fcity}}国际广自助点</li>
         </ul>
         <ul>
-          <li>郑州<img src="../assets/img/dingdan/icon-03@2x.png"></li>
-          <li>盛润国际广自助点</li>
+          <li>
+            <router-link to="/xuanz">{{fcity}}</router-link>
+            <img src="../assets/img/dingdan/icon-03@2x.png"></li>
+          <li>{{fcity}}国际广自助点</li>
         </ul>
         <ul>
           <li>
@@ -66,7 +70,9 @@
           <img src="../assets/img/dingdan/icon-07.png">
           <img src="../assets/img/dingdan/icon-08.png">
         </div>
-        <p><img src="../assets/img/dingdan/icon-09.png"> <span>同意评价分时租车租凭协议</span></p>
+        <p><img src="../assets/img/dingdan/icon-09.png">       
+          <span>同意评价分时租车租凭协议</span>
+          </p>
       </div>
       <!-- 提交 -->
       <div class="box6">提交订单</div>
@@ -81,11 +87,28 @@ export default {
     }
   },
   methods: {
-
+    from(){
+      this.$store.commit('changd','fcity');
+      this.$router.push('/xuanz');
+    }
   },
   components: {
 
-  }
+  },
+  computed:{
+    fcity(){
+      return this.$store.state.fcity;
+    }
+  },
+  // mounted(){
+  //   this.$axios.get('http://172.25.1.224:8080/carinfo/selectAll')
+  // .then(function (res) {
+  //   console.log(res);
+  // })
+  // .catch(function (err) {
+  //   console.log(err);
+  // });
+  // }
 }
 </script>
 
@@ -186,6 +209,7 @@ export default {
         display:flex;
         margin:.47rem .58rem 0rem .32rem;
         li{
+          display: flex;
           width:50%;
           font-size:.32rem;
           color:#333333;
@@ -198,7 +222,8 @@ export default {
       ul:nth-child(3){
         display: flex;
         margin:.35rem .59rem 0 .32rem;
-        li{
+        li{ 
+          display: flex;
           width:50%;
           font-size:.32rem;
           color:#333333;
@@ -289,7 +314,5 @@ export default {
         line-height:.88rem;
         margin:.72rem .33rem 0 .31rem;
       }
-    
-    
 }
 </style>

@@ -71,6 +71,7 @@ export default {
     bian(a){
       this.text=a;
       this.$store.commit('change',a);
+      this.$router.go(this.back);
     },
     add(){
       this.back--
