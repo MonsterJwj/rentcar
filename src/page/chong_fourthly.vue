@@ -4,7 +4,7 @@
       <p slot="text">充值</p>
     </Chongz>
     <div class="conent">
-      <img src="./../assets/img/recharge/支付成功插画@2x.png" alt />
+      <img src="./../assets/img/recharge/支付成功插画@2x.png" alt="">
       <p>充值金额</p>
       <p>1000</p>
       <ul>
@@ -31,7 +31,7 @@
       <div>
         <input type="radio" radio />同意平驾分时租车租赁协议
       </div>
-          <p class="pay"><button>支付</button></p>
+          <p class="pay"> <router-link to="chong_thirdly"><button>支付</button></router-link></p>
     </div>
   </div>
 </template>
@@ -42,7 +42,9 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+   
+  },
   components: {
     Chongz
   }

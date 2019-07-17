@@ -25,7 +25,10 @@
             <li><img src="./../assets/img/login/组 1@2x(3).png" alt=""></li>
         </ul>
          <div id='warning' v-show="wt_show">
-           <p id='wt_'>用户名</p><span @click="wt_show=false">x</span>
+           <p id='wt_'></p><span @click="wt_show=false">x</span>
+         </div>
+         <div id='hint' v-show="hint">
+           <p id='wt_'></p><span @click="wt_show=false">x</span>
          </div>
   </div>
 </template>
@@ -35,7 +38,8 @@
 export default {
   data() {
     return {
-   wt_show:false
+   wt_show:false,
+   hint:false
     }
   },
   methods: {
@@ -43,7 +47,6 @@ export default {
         var str = document.getElementById('str').value;
         var warning=document.getElementById('wt_')
         var user =/[\u4e00-\u9fa5]/gm;
-       
         if (user.test(str))
          {
            warning.innerHTML="";
@@ -54,19 +57,21 @@ export default {
             this.wt_show=true
         } 
     },
-    checkpwd(){
-       var pwd = document.getElementById('pwd').value
-         var pwds =/^[a-z0-9]+$/i
+    checkpwd(pwd){
+       var pwd = document.getElementById('pwd').value;
+        var hint=document.getElementById('wt_')
+         var pwds =/^[a-z0-9]+$/i;
         if(pwds.test(pwd)){
-            
+             hint.innerHTML="";
         }
        else{
-       
+           hint.innerHTML="请输入正确的密码";
+            this.wt_show=true
        }
     },
     tiaozhuan(){
-       alert("登录成功");
-      //  router.push("/")
+      //  alert("登录成功");
+       this.$router.push("/changz")
     }
   },
   components: {
@@ -115,6 +120,7 @@ export default {
         width: 4rem;
         position: relative;
         left: .93rem;
+        font-size: .3rem;
         outline: none;
       }
        .ico_1{
@@ -180,6 +186,7 @@ export default {
 color: #f8df2f;
     }
   }
+  //弹出层
   #warning{
     position: fixed;
     top:0;
@@ -206,7 +213,37 @@ color: #f8df2f;
    align-items: center;
     border-radius: 20px;
     background: #ffffff;
-   
+  }
+
+
+
+
+  #hint{
+    position: fixed;
+    top:0;
+    left:0;
+   background: rgba(0, 0, 0, .3);
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+    span{
+      position:absolute;
+      top:40%;
+      right:80%;
+      font-size: .4rem;
+    }
+  }
+  #wt_{
+    height: 20%;
+    width: 70%;
+    font-size: .24rem;
+     display: flex;
+   justify-content: center;
+   align-items: center;
+    border-radius: 20px;
+    background: #ffffff;
   }
   }
 </style>
