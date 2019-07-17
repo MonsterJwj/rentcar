@@ -145,5 +145,5 @@ let a=new Router({
     },
   ]
 })
-a.push('/wod');
+a.push('/changz');
 export default a
