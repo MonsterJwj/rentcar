@@ -6,60 +6,55 @@
     <div class="conent">
       <img src="./../assets/img/recharge/img-1-png@2x.png" alt />
       <div class="my">
-        <p>我的余额 <span>5500</span></p>
-        <p>充值金额:<input type="text" v-model="a">
+        <p>我的余额 <span v-text="num"></span></p>
+        <p>充值金额:<input type="text">
          <router-link to="chong_fourthly">
-           <button>充值</button>
+           <button >充值</button>
            </router-link>
            </p> 
       </div>
       <ul>
-        <li @click='btn'>
-          <p><span>{{b}}</span>元</p>
-          <p>送<span>{{c}}</span>积分</p>
-        </li>
-        <li @click='btn2'>
-          <p><span>{{d}}</span>元</p>
-          <p>送<span>{{e}}</span>积分</p>
-        </li>
-        <li @click='btn3'>
-          <p><span>{{f}}</span>元</p>
-          <p>送<span>{{g}}</span>积分</p>
+        <li v-for="(item, index) in list" :key="index" @click="add(index)">
+          <p><span>{{item.jine}}</span>元</p>
+          <p>送<span>{{item.jifen}}</span>积分</p>
         </li>
       </ul>
       <p class="explain">1积分=1元，每单最高可使用积分冲抵40%的租车费用</p>
     </div>
   </div>
 </template>
-
 <script>
 import Chongz from "./../components/chongz";
 export default {
   data() {
     return {
-      a:'',
-      b:1000,
-      c:100,
-      d:2000,
-      e:300,
-      f:5000,
-      g:1000,
+      num:0,
+      list:[{
+       jine:1000,
+       jifen:100
+      },
+      {
+       jine:2000,
+       jifen:300
+      },
+      {
+       jine:5000,
+       jifen:1000
+      }
+      ]
     };
   },
   methods: {
-    btn(){
-      this.a=this.b+this.c; 
-    },
-     btn2(){
-       this.a=this.d+this.e;
-    },
-      btn3(){
-      this.a=this.f+this.g;
-      },
+      add(index){
+        if(index==0){
+          this.$store.commit('addmoney',this.list[0].jine);
+        }
+      }
   },
   components: {
     Chongz
   }
+
 };
 </script>
 <style scoped lang='less'>
