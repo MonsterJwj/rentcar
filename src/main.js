@@ -44,7 +44,8 @@ let store=new Vuex.Store({
     tcity:'郑州',
     deract:'fcity',
     fday:new Date(),
-    tday:new Date()
+    tday:new Date(),
+    money:''
   },
   mutations: {
     changd(state,a){
@@ -62,7 +63,10 @@ let store=new Vuex.Store({
       }else if(state.deract=="tcity"){
         state.tcity=a;
       }
-    }
+    },
+    addmoney(state,b){
+      state.money=b;
+    },  
   },
   getters:{
     numa(state){

@@ -6,7 +6,7 @@
     <div class="conent">
       <img src="./../assets/img/recharge/支付成功插画@2x.png" alt="">
       <p>充值金额</p>
-      <p>1000</p>
+      <p>{{$store.state.money}}</p>
       <ul>
         <li>支付方式</li>
         <li><span>微信支付</span>  

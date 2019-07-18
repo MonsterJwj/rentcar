@@ -5,8 +5,8 @@
     </Chongz>
     <div class="conent">
        <img src="./../assets/img/recharge/QQ图片20190711133106.png" alt />
-        <p>成功充值1000元</p>
-        <p>您以成功充值1000元，可以去租车了</p>
+        <p>成功充值{{$store.state.money}}元</p>
+        <p>您以成功充值{{$store.state.money}}元，可以去租车了</p>
     </div>
         <button>立即租车</button>
   </div>
