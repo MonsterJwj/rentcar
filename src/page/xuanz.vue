@@ -97,12 +97,31 @@ export default {
   mounted () {
     this.$axios('http://qaq12123.in.8866.org:30102/account/findAllCityMap').then(
       (a)=>{
-        console.log(a.data)
-      // for(let i=0;i<this.city.length;i++){
-      //   for(let m=0;m<this.city[i].list.length;m++){
-      //     this.acity.push(this.city[i].list[m])
-      //   }
-      // }
+        let lll=Object.keys(a.data);//所有键名
+        let ooo=Object.values(a.data);//所有键值
+        // console.log(a.data)
+        this.city=[]
+        for(let i=0;i<lll.length;i++){
+          let m=[];
+          let p='';//城市
+          let q='';//缩写
+          // console.log(ooo[i].length)
+          for(let x=0;x<ooo[i].length;x++){
+            if(x%2==1){
+              q=ooo[i][x];
+              m.push({name:p,abb:q})
+            }else{
+              p=ooo[i][x];
+            }
+          }
+          this.city.push({word:lll[i],list:m})
+        }
+        // console.log(this.city)
+      for(let i=0;i<this.city.length;i++){
+        for(let m=0;m<this.city[i].list.length;m++){
+          this.acity.push(this.city[i].list[m])
+        }
+      }
     },(a)=>{
       console.log(a)
       for(let i=0;i<this.city.length;i++){

@@ -22,31 +22,39 @@
       <img src="../assets/img/my/bg.png" alt="">
     </div>
     <div class="power">
-      <div class="kuai">
+
+      <div class="kuai" @click="showPopup">
         <img src="../assets/img/my/icon-1-png@2x.png" alt="">
         <p>我的钱包</p>
       </div>
-      <div class="kuai">
+      <div class="kuai" @click="showPopup">
         <img src="../assets/img/my/icon-2-png@2x.png" alt="">
         <p>我的订单</p>
       </div>
-      <div class="kuai">
+      <div class="kuai" @click="showPopup">
         <img src="../assets/img/my/icon-3-png@2x.png" alt="">
         <p>用户反馈</p>
       </div>
-      <div class="kuai">
+      <div class="kuai" @click="showPopup">
         <img src="../assets/img/my/icon-4-png@2x.png" alt="">
         <p>帮助中心</p>
       </div>
-      <div class="kuai">
+      <div class="kuai" @click="showPopup">
         <img src="../assets/img/my/icon-5-png@2x.png" alt="">
         <p>设置</p>
       </div>
-      <div class="kuai">
+      <div class="kuai" @click="showPopup">
         <img src="../assets/img/my/icon-6-png@2x.png" alt="">
         <p>版本检测</p>
       </div>
     </div>
+    <van-popup v-model="show" round>
+      <div class="tip">
+        <p class="tit">提示</p>
+        <p>暂未开放该功能</p>
+        <p class="btn" @click="qr">确认</p>
+      </div>
+    </van-popup>
   </div>
 </template>
 
@@ -54,11 +62,16 @@
 export default {
   data() {
     return {
-
+      show: false
     }
   },
   methods: {
-
+    showPopup() {
+      this.show = true;
+    },
+    qr(){
+      this.show = false;
+    }
   },
   components: {
 
@@ -70,6 +83,29 @@ export default {
   .my{
     width: 100%;
     min-height:100%;
+    .tip{
+      border-radius: .5rem;
+      width: 6rem;
+      height: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-sizing: border-box;
+      padding: .3rem 0;
+      p{
+        font-size: .4rem;
+        text-align: center;
+        color: rgb(153,153,153);
+        // line-height: 1rem;
+      }
+      .tit{
+        color:black;
+        // border-bottom: 1px solid rgb(153,153,153);
+      }
+      .btn{
+        color: rgb(241, 210, 6);
+      }
+    }
     a{
       display: block;
     }

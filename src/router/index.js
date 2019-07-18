@@ -151,5 +151,5 @@ let a=new Router({
     },
   ]
 })
-a.push('/xuanz');
+a.push('/wod');
 export default a

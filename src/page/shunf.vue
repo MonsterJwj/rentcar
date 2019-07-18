@@ -60,9 +60,9 @@ export default {
     }
   },
   mounted () {
-    this.$axios.get('http://qaq12123.in.8866.org:30102/account/findOrderLis').then(
+    this.$axios.get('http://qaq12123.in.8866.org:30102/account/findOrderList').then(
       (a)=>{
-        console.log(a)
+        // console.log(a)
         this.list=[];
         a.data.forEach((b)=>{
           let img;
@@ -105,7 +105,7 @@ export default {
               break;
           }
           this.list.push({from:b.collectionCity,fromtime:b.startday,carimg:img,day:b.rentTime,to:b.returnCity,totime:b.endday,cartype:b.brand})
-          console.log(img)
+          // console.log(img)
         })
           let l=this.list.length;
           let ran=[];
@@ -120,8 +120,8 @@ export default {
           for(let i=0;i<ran.length;i++){
             this.slist.push(this.list[ran[i]])
           }
-          console.log(this.slist)
-          console.log(this.list);
+          // console.log(this.slist)
+          // console.log(this.list);
         },
       (a)=>{
         console.log(a)
