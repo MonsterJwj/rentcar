@@ -45,7 +45,8 @@ let store=new Vuex.Store({
     deract:'fcity',
     fday:new Date(),
     tday:new Date(),
-    money:''
+    money:0,
+    addmoney:0
   },
   mutations: {
     changd(state,a){
@@ -65,8 +66,9 @@ let store=new Vuex.Store({
       }
     },
     addmoney(state,b){
-      state.money=b;
-    },  
+      state.money+=b;
+      state.addmoney=b;
+    },
   },
   getters:{
     numa(state){

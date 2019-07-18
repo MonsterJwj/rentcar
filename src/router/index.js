@@ -158,5 +158,5 @@ let a=new Router({
     },
   ]
 })
-a.push('/wod');
+a.push('/chong_second');
 export default a

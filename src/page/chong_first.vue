@@ -1,16 +1,16 @@
 <template>
   <div class="chong_first">
     <Chongz>
-      <p slot='text'>平驾租车</p>
+      <p slot='text'>我的余额</p>
     </Chongz>
          <div class='conent'>
-          <p>我的平驾币</p> 
-          <h1>2030<span>枚</span></h1>
+          <p>我的余额</p> 
+          <h1>{{$store.state.money}}<span>元</span></h1>
             <ul>
               <li>说明：</li>
-              <li>1 、1平驾币=1元</li>
-              <li>2、平驾币可用于冲抵租车消费</li>
-              <li>3、平驾币不可取现</li>
+              <li>1、首次租车享6折优惠</li>
+              <li>2、邀请好友加入平驾租车获50元代金券</li>
+              <li>3、代金券与打折优惠不能同时享受</li>
             </ul>
           </div>
            <div class='conent'>

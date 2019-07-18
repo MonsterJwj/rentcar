@@ -6,15 +6,13 @@
     <div class="conent">
       <img src="./../assets/img/recharge/img-1-png@2x.png" alt />
       <div class="my">
-        <p>我的余额 <span v-text="num"></span></p>
-        <p>充值金额:<input type="text">
-         <router-link to="chong_fourthly">
-           <button >充值</button>
-           </router-link>
+        <p>我的余额: <span>{{$store.state.money}}元</span></p>
+        <p>充值金额: <input type="text" v-model="num">
+        <button @click="tt">充值</button>
            </p> 
       </div>
       <ul>
-        <li v-for="(item, index) in list" :key="index" @click="add(index)">
+        <li v-for="(item, index) in list" :key="index" @click="add(item.jine)">
           <p><span>{{item.jine}}</span>元</p>
           <p>送<span>{{item.jifen}}</span>积分</p>
         </li>
@@ -45,10 +43,12 @@ export default {
     };
   },
   methods: {
-      add(index){
-        if(index==0){
-          this.$store.commit('addmoney',this.list[0].jine);
-        }
+      add(a){
+        this.num=a;
+      },
+      tt(){
+        this.$store.commit('addmoney',this.num)
+        this.$router.push('/chong_thirdly')
       }
   },
   components: {
