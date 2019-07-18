@@ -49,7 +49,6 @@ export default {
         {word:"H",list:[{name:'杭州',abb:"hz"},{name:'哈尔滨',abb:"heb"}]},
         {word:"J",list:[{name:'济南',abb:"jn"}]},
         {word:"N",list:[{name:'南京',abb:"nj"},{name:'宁波',abb:"nb"},{name:'南通',abb:"nt"}]},
-        {word:"O",list:[{name:'安徽',abb:"ah"}]},
         {word:"Q",list:[{name:'青岛',abb:"qd"}]},
         {word:"S",list:[{name:'上海',abb:"sh"},{name:'深圳',abb:"sz"},{name:'苏州',abb:"sz"},{name:'沈阳',abb:"sy"},{name:'石家庄',abb:"sjz"}]},
         {word:"T",list:[{name:'天津',abb:"tj"}]},
@@ -96,19 +95,27 @@ export default {
     }
   },
   mounted () {
-    for(let i=0;i<this.city.length;i++){
-      for(let m=0;m<this.city[i].list.length;m++){
-        this.acity.push(this.city[i].list[m])
+    this.$axios('http://qaq12123.in.8866.org:30102/account/findAllCityMap').then(
+      (a)=>{
+        console.log(a.data)
+      // for(let i=0;i<this.city.length;i++){
+      //   for(let m=0;m<this.city[i].list.length;m++){
+      //     this.acity.push(this.city[i].list[m])
+      //   }
+      // }
+    },(a)=>{
+      console.log(a)
+      for(let i=0;i<this.city.length;i++){
+        for(let m=0;m<this.city[i].list.length;m++){
+          this.acity.push(this.city[i].list[m])
+        }
       }
-    }
+    }).catch(
+      (err)=>{
+        console.log(err)
+    })
   },
   updated () {
-    if(this.time){
-      this.time=false;
-      
-    
-    }
-    setTimeout(()=>{this.time=true},500)
   },
   components: {
 

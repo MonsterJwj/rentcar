@@ -29,7 +29,8 @@ import Chong_fourthly from '../page/chong_fourthly'
 Vue.use(Router)
 let a=new Router({
   routes: [
-    {path: '/guide',
+    {
+      path: '/guide',
       name: 'Guide',
       component: Guide
     },
