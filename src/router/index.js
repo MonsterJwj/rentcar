@@ -28,9 +28,49 @@ import Chong_thirdly from '../page/chong_thirdly'
 import Chong_fourthly from '../page/chong_fourthly'
 //评价
 import Pingjw  from './../page/pingjw'
+//车型价格
+import Cartype from "../page/cartype.vue"
+import Car from "../page/car.vue"
+import Type from "../page/type.vue"
+import Shus from "../components/shus.vue"
+import Haoh from "../components/haoh.vue"
+import Zhongb from "../components/zhongb.vue"
+import Suv from "../components/suv.vue"
+import Bot from "../components/bot.vue"
+import Midb from "../components/midb.vue"
+import Midt from "../components/midt.vue"
+import Top from "../components/top.vue"
 Vue.use(Router)
 let a=new Router({
   routes: [
+    {
+      path:'/cartype',
+      name:'cartype',
+      component:Cartype,
+      children: [
+        {path:'/',redirect: "type"},
+        { 
+          path: 'type', name: 'Type', component: Type,
+          children: [
+            {path:'/',redirect: "haoh"},
+            {path: 'shus', name: 'haoh', component: Shus},
+            {path: 'haoh', name: 'Haoh', component: Haoh},
+            {path: 'zhongb', name: 'Zhongb', component: Zhongb},
+            {path: 'suv', name: 'Suv', component: Suv}
+          ]
+        },
+        { 
+          path: 'car', name: 'Car', component: Car,
+          children: [
+            {path:'/',redirect: "bot"},
+            {path: 'top', name: 'Top', component: Top},
+            {path: 'midt', name: 'Midt', component: Midt},
+            {path: 'midb', name: 'Midb', component: Midb},
+            {path: 'bot', name: 'Bot', component: Bot},
+          ]
+        }
+      ]
+    },
     {
       path: '/guide',
       name: 'Guide',
@@ -158,5 +198,5 @@ let a=new Router({
     },
   ]
 })
-a.push('/chong_second');
+a.push('/cartype');
 export default a

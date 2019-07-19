@@ -23,7 +23,7 @@
     </div>
     <div class="power">
 
-      <div class="kuai" @click="showPopup">
+      <div class="kuai" @click="yue">
         <img src="../assets/img/my/icon-1-png@2x.png" alt="">
         <p>我的钱包</p>
       </div>
@@ -71,6 +71,9 @@ export default {
     },
     qr(){
       this.show = false;
+    },
+    yue(){
+      this.$router.push('/chong_first')
     }
   },
   components: {
