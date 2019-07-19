@@ -2,7 +2,7 @@
   <div class="mend">
       <ul class="header">
         <li>
-          <span class="fanhui"></span>
+          <span class="fanhui" @click="q2"></span>
         </li>
         <li>门店</li>
         <li>
@@ -38,11 +38,10 @@
             <p class="car"> <span class="icon_car"></span> <span class="icon_car"></span> <span class="icon_car"></span> <span class="icon_car"></span> <span class="icon_car"></span> </p>
             <span class="pin">租车很方便，服务态度热情，车型多，价格也很便宜。</span>
             <br>
-            <p class="quanbu">查看全部评价</p>
+            <p class="quanbu" @click="q1">查看全部评价</p>
           </div>
         </div>
       </div>
-
       <p class="liji">立即选车</p>
 
 
@@ -82,6 +81,7 @@
           <p>日租价 <span class="jiage">￥500</span></p>
         </div>
       </div>
+      <br>
   </div>
 </template>
 
@@ -93,7 +93,12 @@ export default {
     }
   },
   methods: {
-
+    q1(){
+       this.$router.push('/pingj');
+    },
+    q2(){
+      this.$router.go(-1);
+    }
   },
   components: {
 
@@ -238,6 +243,7 @@ export default {
         text-align: center;
         line-height: .6rem;
         margin-left: 1.9rem;
+        margin-top:-.2rem ;
       }
     }
     .biaoqian{
@@ -260,11 +266,16 @@ export default {
     color: #333;
     text-align: center;
     line-height: .88rem;
-    margin: 0 auto;
-    margin-top: .5rem;
+    // margin: 0 auto;
+    // margin-top: .5rem;
+    position: fixed;
+    margin-left:50%;
+    transform: translateX(-3.43rem);
+    bottom:0px;
     font-size: .36rem;
     border-radius:41px;
     background:linear-gradient(90deg,rgba(251,236,129,1) 0%,rgba(255,236,15,1) 100%);
+  
   }
   .weibu{
     margin-top: .32rem;
