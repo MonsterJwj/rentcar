@@ -17,6 +17,7 @@
               {{a.name}}
               <span v-for="(m,n) in a.show" :key='n' @click="fn(b,n)" :class="{yellow:m,yellow1:!m}"></span>
             </li>
+            
             <!-- <li>
               车辆情况
               <span v-for="(item,index) in 5" :key='index'></span>
@@ -53,7 +54,7 @@
 export default {
   data() {
     return {
-        value: 3,
+        // value: 3,
         list1:[
           {name:'手续办理',show:[false,false,false,false,false]},
           {name:'车辆情况',show:[false,false,false,false,false]},
