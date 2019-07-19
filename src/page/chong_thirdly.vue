@@ -8,7 +8,8 @@
         <p>成功充值{{$store.state.addmoney}}元</p>
         <p>您以成功充值{{$store.state.addmoney}}元，可以去租车了</p>
     </div>
-        <button>立即租车</button>
+    <router-link to="/ok"><button>立即租车</button></router-link>
+        
   </div>
 </template>
 <script>

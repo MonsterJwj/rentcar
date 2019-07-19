@@ -14,21 +14,33 @@
        <p><input type="text" placeholder="密码为6-18位数字英文或组合"><span></span></p>
       </div>
        <div class="third">
-          <img src="./../assets/img/register/组 1@2x.png" alt="">
+          <img src="./../assets/img/register/组 1@2x.png" alt="" @click="dianji">
         </div>
-        <p> 　<input type="checkbox" /> 我已阅读并接受<span>《平驾分时租车会员注册协议》</span></p>
+        <p><input type="checkbox"/>我已阅读并接受<span>《平驾分时租车会员注册协议》</span></p>
   </div>
 </template>
 
 <script>
+import { Notify } from "vant";
 export default {
   data() {
     return {
-
+    
     }
   },
   methods: {
-
+       dianji(){
+          let shur =document.getElementsByTagName("input")[3];
+          if(shur.checked==true){
+            this.$router.push("/login")
+          }else{
+                  Notify({
+          message: "请您阅读租赁协议并同意",
+          duration: 2000,
+         background: '#1989fa',
+        });
+          }
+       }
   },
   components: {
 
