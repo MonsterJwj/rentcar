@@ -28,16 +28,16 @@
           <li>取还点</li>
         </ul>
         <ul>
-          <li>
-            <router-link to="/xuanz" @click="from">{{fcity}}</router-link>
+          <li @click='from'>
+            {{fcity}}
           <img src="../assets/img/dingdan/icon-03@2x.png"></li>
           <li>{{fcity}}国际广自助点</li>
         </ul>
         <ul>
-          <li>
-            <router-link to="/xuanz">{{fcity}}</router-link>
+          <li @click='to'>
+            {{tcity}}
             <img src="../assets/img/dingdan/icon-03@2x.png"></li>
-          <li>{{fcity}}国际广自助点</li>
+          <li>{{tcity}}国际广自助点</li>
         </ul>
         <ul>
           <li>
@@ -79,7 +79,7 @@
       </div>
       <!-- 提交 -->
       <div class="box6" @click="q3">提交订单</div>
-      <el-button :plain="true">错误</el-button>
+      <!-- <el-button :plain="true"></el-button> -->
   </div>
 </template>
 
@@ -91,6 +91,10 @@ export default {
     }
   },
   methods: {
+    to(){
+      this.$store.commit('changd','tcity');
+      this.$router.push('/xuanz');
+    },
     from(){
       this.$store.commit('changd','fcity');
       this.$router.push('/xuanz');
@@ -121,6 +125,9 @@ export default {
   computed:{
     fcity(){
       return this.$store.state.fcity;
+    },
+    tcity(){
+      return this.$store.state.tcity;
     }
   },
   mounted(){
@@ -237,8 +244,7 @@ export default {
           font-size:.32rem;
           color:#333333;
           img{
-            width:.30rem;
-            height:.25rem;
+            width:.5rem;
           }
         }
       }
@@ -251,8 +257,7 @@ export default {
           font-size:.32rem;
           color:#333333;
           img{
-            width:.30rem;
-            height:.25rem;
+            width:.5rem;
           }
         }
       }
