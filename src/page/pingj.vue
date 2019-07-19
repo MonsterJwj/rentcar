@@ -54,7 +54,6 @@
 export default {
   data() {
     return {
-        // value: 3,
         list1:[
           {name:'手续办理',show:[{ifshow:false},{ifshow:false},{ifshow:false},{ifshow:false},{ifshow:false}]},
           {name:'车辆情况',show:[{ifshow:false},{ifshow:false},{ifshow:false},{ifshow:false},{ifshow:false}]},

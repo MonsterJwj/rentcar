@@ -104,7 +104,7 @@ import axios from "axios"
 export default {
   data() {
     return {
-      text:[]
+     
     }
   },
   methods: {
