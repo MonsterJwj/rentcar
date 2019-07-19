@@ -1,11 +1,12 @@
 <template>
   <div class="box">
     <!-- 引导页swiper -->
+    <img src="../assets/img/guide/1启动页 .jpg" class="porr">
     <swiper :options="swiperOption" ref="mySwiper" class="box2">
     <!-- slides -->
     <swiper-slide class="por1"></swiper-slide>
     <swiper-slide class="por2"></swiper-slide>
-    <swiper-slide class="por3"><p>立即进入</p></swiper-slide>
+    <swiper-slide class="por3"><p><router-link to="/changz">立即进入</router-link></p></swiper-slide>
     <!-- Optional controls -->
     <div class="swiper-pagination"  slot="pagination"></div>
   </swiper>
@@ -30,6 +31,11 @@ export default {
   },
   components: {
 
+  },
+  mounted(){
+    setTimeout(()=>{
+      $('.porr').fadeOut();
+    },3000);
   }
 }
 </script>
@@ -39,6 +45,10 @@ export default {
     width:100%;
     height:100%;
     overflow:hidden;
+    .porr{
+      width:100%;
+      height:100%;
+    }
     .box2{
       width:100%;
       height:100%;

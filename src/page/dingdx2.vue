@@ -70,12 +70,16 @@
           <img src="../assets/img/dingdan/icon-07.png">
           <img src="../assets/img/dingdan/icon-08.png">
         </div>
-        <p><img src="../assets/img/dingdan/icon-09.png">       
+        <p class="poo">
+          <!-- <img src="../assets/img/dingdan/icon-09.png"> -->
+          <img src="../assets/img/dingdan/no.png" class="por1" @click="q1" value=123>
+          <img src="../assets/img/dingdan/okk.png" hidden class="por2" @click="q2">
           <span>同意评价分时租车租凭协议</span>
           </p>
       </div>
       <!-- 提交 -->
-      <div class="box6">提交订单</div>
+      <div class="box6" @click="q3">提交订单</div>
+      <el-button :plain="true">错误</el-button>
   </div>
 </template>
 
@@ -83,14 +87,33 @@
 export default {
   data() {
     return {
-
+      qwe:true
     }
   },
   methods: {
     from(){
       this.$store.commit('changd','fcity');
       this.$router.push('/xuanz');
+    },
+    q1(){
+      $('.por1').hide();
+      $('.por2').show();
+      this.qwe=false
+    },
+    q2(){
+      $('.por2').hide();
+      $('.por1').show();
+      this.qwe=true
+    },
+    q3(){
+      if(this.qwe==false){
+        this.$router.push('/dingd')
+      }else{
+        this.$message.error('请勾选相关协议！！');
+      }
     }
+
+
   },
   components: {
 
@@ -100,7 +123,7 @@ export default {
       return this.$store.state.fcity;
     }
   },
-  // mounted(){
+  mounted(){
   //   this.$axios.get('http://172.25.1.224:8080/carinfo/selectAll')
   // .then(function (res) {
   //   console.log(res);
@@ -108,7 +131,7 @@ export default {
   // .catch(function (err) {
   //   console.log(err);
   // });
-  // }
+  }
 }
 </script>
 
@@ -272,6 +295,18 @@ export default {
       background:rgba(255,255,255,1);
       border-radius:.2rem;
       margin:0 .32rem 0 .3rem;
+       .poo{
+         display: flex;
+        img{
+          margin-left:.1rem;
+          margin-top:.05rem;
+          width:.35rem;
+          height:.35rem;
+        }
+        span{
+          text-indent:.2rem;
+        }
+      }
       ul{
         list-style: none;
         font-size:.32rem;
@@ -314,5 +349,6 @@ export default {
         line-height:.88rem;
         margin:.72rem .33rem 0 .31rem;
       }
+     
 }
 </style>

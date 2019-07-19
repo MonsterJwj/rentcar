@@ -158,5 +158,5 @@ let a=new Router({
     },
   ]
 })
-a.push('/chong_second');
+a.push('/dingd');
 export default a
