@@ -4,7 +4,7 @@
       <ul class="uls">
         <li></li>
         <li>
-            <img src="../assets/img/route/向右@2x.png">
+            <img src="../assets/img/route/向右@2x.png" @click="q4">
             <span>订单信息</span>
         </li>
       </ul>
@@ -133,6 +133,7 @@
       <ul class="uls5">
         <li>￥3156</li>
         <li>支付</li>
+        <!-- <li @click="q3">支付</li> -->
       </ul>
       
   </div>
@@ -157,6 +158,12 @@ export default {
       $('.uls4').slideDown();
        $('.por1').show();
        $('.por2').hide();
+    },
+    // q3(){
+    //   this.router.replace('/chong_first');
+    // },
+    q4(){
+      this.router.push('/dingdax2');
     },
     getTime(){
         this.nowTime = new Date().toLocaleString();
