@@ -42,11 +42,9 @@
 
           <div contentEditable="true" class="text"></div>
 
-          <p>感谢你对评价的支持，来说说你的平架之旅吧</p>
-
-
+          <p>感谢你对评价的支持，来说说你的评价之旅吧</p>
         </div>
-        <p class="btn"> <router-link to="/pingjl">提交</router-link> </p>
+        <p class="btn"> <router-link to="/pingjw">提交</router-link> </p>
       </div>      
   </div>
 </template>
@@ -56,13 +54,14 @@ export default {
   data() {
     return {
         value: 3,
-        show:[
-          {boolen:false},
-          {boolen:false},
-          {boolen:false},
-          {boolen:false},
-          {boolen:false}
+          show:[
+          {boolen:true},
+          {boolen:true},
+          {boolen:true},
+          {boolen:true},
+          {boolen:true}
         ]
+      
     }
   },
   methods: {
@@ -72,8 +71,9 @@ export default {
       }
       for(let i=0;i<=a;i++){
         this.show[i].boolen=false
-      }
-    }
+      }    
+    },
+   
   },
   components: {
 
@@ -156,6 +156,7 @@ export default {
           background: url('./../assets/img/pingj/icon-2-png@2x.png')no-repeat center .11rem;
           background-size: cover;
         }
+
       }
     }
     .text{

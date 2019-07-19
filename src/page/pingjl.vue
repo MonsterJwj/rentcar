@@ -2,18 +2,16 @@
   <div>
     <ul class="header">
       <li>
-        <img src="./../assets/img/route/向右@2x.png" alt="" @click="fan">
+       <router-link to="pingw"><img src="./../assets/img/route/向右@2x.png" alt=""></router-link> 
       </li>
       <li>评价列表</li>
       <li class="di"></li>
     </ul>
-
     <div class="box">
       <div class="neirong" v-for="(item,index) in text" :key="index">
         <p><img src="./../assets/img/pingjl/img-02@2x.png" alt="" class="touxiang"></p>
         <p>
-          <!-- {{ item.result[index].name }} -->
-          {{ item }}
+          <span class="a">华华</span>
           <img src="./../assets/img/pingjl/icon-02@2x.png" alt="" class="ka">
           <span>07-06 10:20</span>
         </p>
@@ -25,9 +23,7 @@
           <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
           <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
         </p>
-
         <p class="pingj">该条为自动评价。</p>
-
       </div>
     </div>
     
@@ -43,14 +39,11 @@ export default {
     }
   },
   methods: {
-       fan(){
-      this.$router.go(-1)
-    }
   },
   components: {
 
   },
-  mounted:function(){
+  mounted(){
     axios({
       //请求接口地址
       url:'https://api.apiopen.top/getJoke?page=1&count=2&type=video',
@@ -94,6 +87,11 @@ export default {
     margin-top: .32rem;
     padding: .29rem 0rem .24rem 0rem;
     position: relative;
+    .a{
+      font-weight: 600;
+      font-size: .28rem;
+      color: black;
+    }
     .car{
       img{
         width: .48rem;
