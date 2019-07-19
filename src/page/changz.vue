@@ -34,28 +34,28 @@
           <p>长租说明</p>
         </div>
         <div class="chel">
-          <div class="che">
+          <div class="che" @click="mendl">
             <img src="../assets/img/hourrent/img-02@2x.png" alt="">
             <p class="name"><span>特惠</span>雷克萨斯-ES</p>
             <p class="price"><span>日租价</span>￥<span class="num">500</span></p>
           </div>
-          <div class="che">
+          <div class="che" @click="mendl">
             <img src="../assets/img/hourrent/img-01@2x.png" alt="">
             <p class="name"><span>特惠</span>大众朗逸</p>
             <p class="price"><span>日租价</span>￥<span class="num">100</span></p>
           </div>
-          <div class="che">
+          <div class="che" @click="mendl">
             <img src="../assets/img/hourrent/img-01@2x.png" alt="">
             <p class="name"><span>特惠</span>大众朗逸</p>
             <p class="price"><span>日租价</span>￥<span class="num">100</span></p>
           </div>
-          <div class="che">
+          <div class="che" @click="mendl">
             <img src="../assets/img/hourrent/img-02@2x.png" alt="">
             <p class="name"><span>特惠</span>雷克萨斯-ES</p>
             <p class="price"><span>日租价</span>￥<span class="num">500</span></p>
           </div>
         </div>
-        <div class="btn">立即选车</div>
+        <div class="btn" @click="mendl">立即租车</div>
       </div>
       <div class="timepic">
         
@@ -118,6 +118,9 @@ export default {
     },
   },
   methods: {
+    mendl(){
+      this.$router.push('/mendl')
+    },
     change(a){
       // console.log("年："+a.columns[0].values[a.children[0].currentIndex])
       // console.log("月："+a.columns[1].values[a.children[1].currentIndex])

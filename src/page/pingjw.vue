@@ -6,7 +6,7 @@
         </li>
         <li>评价完成</li>
         <li>
-        </li>
+        </li> 
     </ul>
 
     <div class="imgbox">
