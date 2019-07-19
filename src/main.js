@@ -46,9 +46,13 @@ let store=new Vuex.Store({
     fday:new Date(),
     tday:new Date(),
     money:0,
-    addmoney:0
+    addmoney:0,
+    rencar:{name:'雷克萨斯ES 2.8T',pri:'480'}
   },
   mutations: {
+    rentcar(state,a){
+      state.rencar=a;
+    },
     changd(state,a){
       state.deract=a;
     },

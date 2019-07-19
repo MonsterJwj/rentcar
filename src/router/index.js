@@ -42,9 +42,57 @@ import Md8 from '../page/md8'
 import Md9 from '../page/md9'
 import Md10 from '../page/md10'
 import Md11 from '../page/md11'
+//车型价格
+import Cartype from "../page/cartype.vue"
+import Car from "../page/car.vue"
+import Type from "../page/type.vue"
+import Shus from "../components/shus.vue"
+import Haoh from "../components/haoh.vue"
+import Zhongb from "../components/zhongb.vue"
+import Suv from "../components/suv.vue"
+import Bot from "../components/bot.vue"
+import Midb from "../components/midb.vue"
+import Midt from "../components/midt.vue"
+import Top from "../components/top.vue"
+
+//地图
+import Dit from "../page/dit.vue"
 Vue.use(Router)
 let a=new Router({
   routes: [
+    {
+      path:'/dit',
+      name:'Dit',
+      component:Dit,
+    },
+    {
+      path:'/cartype',
+      name:'cartype',
+      component:Cartype,
+      children: [
+        {path:'/',redirect: "type"},
+        { 
+          path: 'type', name: 'Type', component: Type,
+          children: [
+            {path:'/',redirect: "haoh"},
+            {path: 'shus', name: 'haoh', component: Shus},
+            {path: 'haoh', name: 'Haoh', component: Haoh},
+            {path: 'zhongb', name: 'Zhongb', component: Zhongb},
+            {path: 'suv', name: 'Suv', component: Suv}
+          ]
+        },
+        { 
+          path: 'car', name: 'Car', component: Car,
+          children: [
+            {path:'/',redirect: "bot"},
+            {path: 'top', name: 'Top', component: Top},
+            {path: 'midt', name: 'Midt', component: Midt},
+            {path: 'midb', name: 'Midb', component: Midb},
+            {path: 'bot', name: 'Bot', component: Bot},
+          ]
+        }
+      ]
+    },
     {
       path: '/guide',
       name: 'Guide',
@@ -190,5 +238,5 @@ let a=new Router({
     }
   ]
 })
-a.push('/dingdx2');
+a.push('/pingj');
 export default a
