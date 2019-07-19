@@ -15,7 +15,7 @@
             <li>取车门店 郑州金水路店</li>
             <li v-for="(a,b) in list1" :key="b">
               {{a.name}}
-              <span v-for="(m,n) in a.show" :key='n' @click="fn(b,n)" :class="{yellow:m.ifshow,yellow1:!m.ifshow}"></span>
+              <span v-for="(m,n) in a.show" :key='n' @click="fn(b,n)" :class="{yellow:m,yellow1:!m}"></span>
             </li>
             
             <!-- <li>
@@ -31,14 +31,14 @@
           <div contentEditable="true" class="text"></div>
           <ul>
             <li>换车门店 郑州郑汴路店</li>
-            <li>
-              手续办理
-              <span class="yellow" v-for="(item,index) in 5" :key='index'></span>
+            <li v-for="(a,b) in list2" :key="b">
+              {{a.name}}
+              <span v-for="(m,n) in a.show" :key='n' @click="fm(b,n)" :class="{yellow:m,yellow1:!m}"></span>
             </li>
-            <li>
+            <!-- <li>
               服务态度
               <span v-for="(item,index) in 5" :key='index'></span>
-            </li>
+            </li> -->
           </ul>
 
           <div contentEditable="true" class="text"></div>
@@ -55,30 +55,37 @@ export default {
   data() {
     return {
         list1:[
-          {name:'手续办理',show:[{ifshow:false},{ifshow:false},{ifshow:false},{ifshow:false},{ifshow:false}]},
-          {name:'车辆情况',show:[{ifshow:false},{ifshow:false},{ifshow:false},{ifshow:false},{ifshow:false}]},
-          {name:'服务态度',show:[{ifshow:false},{ifshow:false},{ifshow:false},{ifshow:false},{ifshow:false}]}
+          {name:'手续办理',show:[false,false,false,false,false]},
+          {name:'车辆情况',show:[false,false,false,false,false]},
+          {name:'服务态度',show:[false,false,false,false,false]}
         ],
-        
+        list2:[
+          {name:'手续办理',show:[false,false,false,false,false]},
+          {name:'服务态度',show:[false,false,false,false,false]}
+        ]
       
     }
   },
   methods: {
     fn(b,n){
-      // for(let i=0;i<this.show.length;i++){
-      //   this.show[i].boolen=true
-      // }
-      // for(let i=0;i<=a;i++){
-      //   this.show[i].boolen=false
-      // }    
-      console.log(b,n)
-      for(let i=0;i<this.list1[0].show.length;i++){
-        this.list1[b].show[i]=false;
+      let list=[];
+      for(let i=0;i<5;i++){
+        list[i]=false;
       }
-      for(let i=0;i<n;i++){
-        this.list1[b].show[i]=true;
+      for(let i=0;i<=n;i++){
+        list[i]=true;
       }
-      console.log(this.list1[b].show)
+      this.list1[b].show=list;
+    },
+    fm(b,n){
+      let list=[];
+      for(let i=0;i<5;i++){
+        list[i]=false;
+      }
+      for(let i=0;i<=n;i++){
+        list[i]=true;
+      }
+      this.list2[b].show=list;
     },
    
   },
@@ -94,6 +101,9 @@ export default {
     font-size: .4rem;
     color: #333333;
     background: #FFE009;
+    span{
+      display: block;
+    }
     li{
       flex: 1;
       text-align: center;
