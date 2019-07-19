@@ -13,18 +13,18 @@
         <div class="neirong">
           <ul>
             <li>取车门店 郑州金水路店</li>
-            <li>
-              手续办理
-              <span class="yellow" v-for="(item,index) in show" :key='index' @click="fn(index)" :class="{yellow1:item.boolen,yellow:!item.boolen}"></span>
+            <li v-for="(a,b) in list1" :key="b">
+              {{a.name}}
+              <span v-for="(m,n) in a.show" :key='n' @click="fn(b,n)" :class="{'yellow':m.ifshow,'yellow1':!m.ifshow}"></span>
             </li>
-            <li>
+            <!-- <li>
               车辆情况
               <span v-for="(item,index) in 5" :key='index'></span>
             </li>
             <li>
               服务态度
               <span v-for="(item,index) in 5" :key='index'></span>
-            </li>
+            </li> -->
           </ul>
 
           <div contentEditable="true" class="text"></div>
@@ -54,24 +54,30 @@ export default {
   data() {
     return {
         value: 3,
-          show:[
-          {boolen:true},
-          {boolen:true},
-          {boolen:true},
-          {boolen:true},
-          {boolen:true}
+        list1:[
+          {name:'手续办理',show:[{ifshow:false},{ifshow:false},{ifshow:false},{ifshow:false},{ifshow:false}]},
+          {name:'车辆情况',show:[{ifshow:false},{ifshow:false},{ifshow:false},{ifshow:false},{ifshow:false}]},
+          {name:'服务态度',show:[{ifshow:false},{ifshow:false},{ifshow:false},{ifshow:false},{ifshow:false}]}
         ]
       
     }
   },
   methods: {
-    fn(a){
-      for(let i=0;i<this.show.length;i++){
-        this.show[i].boolen=true
+    fn(b,n){
+      // for(let i=0;i<this.show.length;i++){
+      //   this.show[i].boolen=true
+      // }
+      // for(let i=0;i<=a;i++){
+      //   this.show[i].boolen=false
+      // }    
+      console.log(b,n)
+      for(let i=0;i<this.list1[0].show.length;i++){
+        this.list1[b].show[i]=false;
       }
-      for(let i=0;i<=a;i++){
-        this.show[i].boolen=false
-      }    
+      for(let i=0;i<n;i++){
+        this.list1[b].show[i]=true;
+      }
+      console.log(this.list1[b].show)
     },
    
   },
@@ -139,7 +145,7 @@ export default {
           width: .48rem;
           height: .48rem;
           display: inline-block;
-          background: url('./../assets/img/pingj/icon-2-png@2x.png')no-repeat center .11rem;
+          // background: url('./../assets/img/pingj/icon-2-png@2x.png')no-repeat center .11rem;
           background-size: cover;
         }
         .yellow{

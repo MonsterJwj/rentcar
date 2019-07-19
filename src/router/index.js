@@ -230,5 +230,5 @@ let a=new Router({
     }
   ]
 })
-a.push('/cartype');
+a.push('/pingj');
 export default a
