@@ -5,18 +5,18 @@
         <Map></Map>
       </div>
       <div class="chel">
-        <div class="che">
+        <div class="che" @click="mendl">
           <img src="../assets/img/hourrent/img-01@2x.png" alt="">
           <p class="name"><span>特惠</span>大众朗逸</p>
           <p class="price"><span>日租价</span>￥<span class="num">100</span></p>
         </div>
-        <div class="che">
+        <div class="che" @click="mendl">
           <img src="../assets/img/hourrent/img-02@2x.png" alt="">
           <p class="name"><span>特惠</span>雷克萨斯-ES</p>
           <p class="price"><span>日租价</span>￥<span class="num">500</span></p>
         </div>
       </div>
-      <router-link to="/mendl"><div class="btn">我要租车</div></router-link>
+      <div class="btn" @click="mendl">我要租车</div>
   </div>
 </template>
 
@@ -30,7 +30,9 @@ export default {
     }
   },
   methods: {
-
+    mendl(){
+      this.$router.push('/mendl')
+    },
   },
   components: {
     Pjsf,
