@@ -16,7 +16,7 @@
           <p class="price"><span>日租价</span>￥<span class="num">500</span></p>
         </div>
       </div>
-      <router-link to="/mendl"><div class="btn">我要租车</div></router-link>
+      <router-link to="/md"><div class="btn">我要租车</div></router-link>
   </div>
 </template>
 

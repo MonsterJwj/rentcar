@@ -8,7 +8,7 @@
         <p>成功充值{{$store.state.addmoney}}元</p>
         <p>您以成功充值{{$store.state.addmoney}}元，可以去租车了</p>
     </div>
-        <button>立即租车</button>
+        <button @click="q1">返回支付</button>
   </div>
 </template>
 <script>
@@ -17,7 +17,11 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    q1(){
+      this.$router.push('/dingd');
+    }
+  },
   components: {
     Chongz
   }

@@ -190,5 +190,5 @@ let a=new Router({
     }
   ]
 })
-a.push('/md');
+a.push('/dingdx2');
 export default a
