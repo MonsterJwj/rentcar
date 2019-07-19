@@ -26,7 +26,7 @@
       </ul>
       </div>
       <!-- <br><br><br><br><br><br><br><br><br> -->
-      <div class="box3">去评价</div>
+      <div class="box3" @click="q1">去评价</div>
 
   </div>
 </template>
@@ -39,7 +39,9 @@ export default {
     }
   },
   methods: {
-
+    q1(){
+      this.$router.push('/pingj');
+    }
   },
   components: {
 

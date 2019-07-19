@@ -54,9 +54,17 @@ import Bot from "../components/bot.vue"
 import Midb from "../components/midb.vue"
 import Midt from "../components/midt.vue"
 import Top from "../components/top.vue"
+
+//地图
+import Dit from "../page/dit.vue"
 Vue.use(Router)
 let a=new Router({
   routes: [
+    {
+      path:'/dit',
+      name:'Dit',
+      component:Dit,
+    },
     {
       path:'/cartype',
       name:'cartype',

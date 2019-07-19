@@ -1,9 +1,9 @@
 <template>
   <div class="mapbox"> 
-    <baidu-map :center="center" :zoom="zoom" @ready="handler" style="height:100%" @click="getClickInfo">    
-      <bm-navigation anchor="BMAP_ANCHOR_TOP_RIGHT" slot="nav"></bm-navigation>
-      <bm-map-type :map-types="['BMAP_NORMAL_MAP', 'BMAP_HYBRID_MAP']" anchor="BMAP_ANCHOR_TOP_LEFT" slot="type"> </bm-map-type>   
-      <bm-geolocation anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :showAddressBar="true" :autoLocation="true" slot="geo">    </bm-geolocation>
+    <baidu-map :center="center" :zoom="zoom" @ready="handler" style="height:100%" @click="getClickInfo"> 
+      <slot name="nav"></slot>
+      <slot name="geo"></slot>
+      <slot name="type"></slot>
       <bm-city-list anchor="BMAP_ANCHOR_TOP_LEFT"></bm-city-list>
     </baidu-map>
   </div>

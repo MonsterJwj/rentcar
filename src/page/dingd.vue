@@ -131,7 +131,7 @@
       </div>
  <!-- 按钮 -->
       <ul class="uls5">
-        <li>￥3156</li>
+        <li>￥3150</li>
         <!-- <li>支付</li> -->
         <li @click="q3">支付</li>
       </ul>
@@ -140,11 +140,11 @@
 </template>
 
 <script>
-
+import { Dialog } from 'vant'
 export default {
   data() {
     return {
-
+      qwe:this.$store.state.money
     }
   },
   methods: {
@@ -160,7 +160,22 @@ export default {
        $('.por2').hide();
     },
     q3(){
-      this.$router.push('/chong_first');
+      // window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx9ac80acc06aa2697&redirect_uri=window.location.href&response_type=code&scope=snsapi_base&#wechat_redirect";
+      if(this.$store.state.money<3150){
+        Dialog.confirm({
+          title:'您的当前余额为:￥'+this.qwe,
+          message: '是否进行充值',
+          confirmButtonText:"是",
+          cancelButtonText:"否",
+          }).then(() => {
+            // on confirm
+            this.$router.push('/chong_first');
+          }).catch(() => {
+            // on cancel
+          });
+      }else{
+      this.$router.push('/ok');
+      }
     },
     q4(){
       this.$router.push('/dingdx2');

@@ -28,31 +28,29 @@
           <li>取还点</li>
         </ul>
         <ul>
-          <li>
-            <router-link to="/xuanz" @click="from">{{fcity}}</router-link>
+          <li @click='from'>
+            {{fcity}}
           <img src="../assets/img/dingdan/icon-03@2x.png"></li>
           <li>{{fcity}}国际广自助点</li>
         </ul>
         <ul>
-          <li>
-            <router-link to="/xuanz">{{fcity}}</router-link>
+          <li @click='to'>
+            {{tcity}}
             <img src="../assets/img/dingdan/icon-03@2x.png"></li>
-          <li>{{fcity}}国际广自助点</li>
+          <li>{{tcity}}国际广自助点</li>
         </ul>
         <ul>
-          <li>
-            <p>07月10日</p>
+          <li @click="ftime">
+            <p>{{fday|yue}}</p>
             <p>
-              <span>周三</span>
-              <span>10:00</span>
+              <span>{{fday|day}}</span>
             </p>
           </li>
-          <li>3天</li>
-          <li>
-            <p>07月13日</p>
+          <li>{{time}}</li>
+          <li @click="ttime">
+            <p>{{tday|yue}}</p>
             <p>
-              <span>周六</span>
-              <span>10:00</span>
+              <span>{{tday|day}}</span>
             </p>
           </li>
         </ul>
@@ -79,7 +77,21 @@
       </div>
       <!-- 提交 -->
       <div class="box6" @click="q3">提交订单</div>
-      <el-button :plain="true">错误</el-button>
+
+    <van-popup
+          v-model="show"
+          position="bottom"
+          :style="{ height: '40%' }"
+        >
+        <van-datetime-picker
+          v-model="currentDate"
+          type="date"
+          :min-date="minDate"
+          @confirm='confirm'
+          @cancel="cancel"
+        /></van-popup>
+
+
   </div>
 </template>
 
@@ -87,10 +99,47 @@
 export default {
   data() {
     return {
-      qwe:true
+      qwe:true,
+      show:false,
+      minHour: 10,
+      maxHour: 20,
+      minDate: new Date(),
+      maxDate: new Date(2019, 12, 31),
+      currentDate: new Date(),
+      fday:new Date(),
+      tday:new Date(),
+      chose:'fday'
     }
   },
+  filters:{
+    year(a){
+      let date=new Date(a);
+      return date.getFullYear()+"年";
+    },
+    yue(a){
+      let date=new Date(a);
+      return date.getMonth()+1+"月"+date.getDate()+"日";
+    },
+    day(a){
+      let date=new Date(a);
+      // console.log(date.getDay())
+      switch (date.getDay()) {
+        case 1:return '星期一'
+        case 2:return '星期二'
+        case 3:return '星期三'
+        case 4:return '星期四'
+        case 5:return '星期五'
+        case 6:return '星期六'
+        case 0:return '星期日'
+        default:return "未知"
+      }
+    },
+  },
   methods: {
+    to(){
+      this.$store.commit('changd','tcity');
+      this.$router.push('/xuanz');
+    },
     from(){
       this.$store.commit('changd','fcity');
       this.$router.push('/xuanz');
@@ -111,16 +160,52 @@ export default {
       }else{
         this.$message.error('请勾选相关协议！！');
       }
-    }
-
-
+    },
+    ftime(){
+      $('.q4').show();
+    },
+    cancel(){
+      $('.q4').hide();
+    },
+    confirm(a){
+      if(this.chose=='tday'){
+        console.log(this.fday.getTime(),a.getTime())
+        a.getTime()-this.fday.getTime()<0?this.fday=a:a;
+        this.tday=a;
+        this.$store.commit('tt',a);
+        // console.log(this.$store.state.tday)
+      }else{
+        this.tday.getTime()-a.getTime()<0?this.tday=a:a;
+        this.fday=a;
+        this.$store.commit('ff',a)
+        // console.log(this.$store.state.fday)
+      }
+      // console.log(a);
+      this.show=false
+    },
+    ftime(){
+      this.chose='fday'
+      this.show=true;
+    },
+    ttime(){
+      this.chose='tday'
+      this.show=true;
+    },
   },
   components: {
 
   },
   computed:{
+    time(){
+      let a=new Date(this.fday);
+      let b=new Date(this.tday);
+      return Math.ceil((b.getTime()-a.getTime())/86400000)+'天';
+    },
     fcity(){
       return this.$store.state.fcity;
+    },
+    tcity(){
+      return this.$store.state.tcity;
     }
   },
   mounted(){
@@ -141,6 +226,14 @@ export default {
     overflow: auto;
     width:100%;
     height:100%;
+    .qwe{
+      height:500px;
+    }
+    .q4{
+      position: absolute;
+      bottom:0px;
+      width:100%;
+    }
     .uls{
       width:100%;
       height:1.28rem;
@@ -237,8 +330,7 @@ export default {
           font-size:.32rem;
           color:#333333;
           img{
-            width:.30rem;
-            height:.25rem;
+            width:.5rem;
           }
         }
       }
@@ -251,8 +343,7 @@ export default {
           font-size:.32rem;
           color:#333333;
           img{
-            width:.30rem;
-            height:.25rem;
+            width:.5rem;
           }
         }
       }
