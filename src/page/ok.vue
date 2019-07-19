@@ -36,7 +36,7 @@
               </li>
           </ul>
         <!-- 评价 -->
-      <div class="box3">立即评价</div>
+      <div class="box3" @click="q1">返回首页</div>
     </div>
 
 
@@ -52,7 +52,9 @@ export default {
     }
   },
   methods: {
-
+    q1(){
+      this.$router.push('/changz')
+    }
   },
   components: {
 

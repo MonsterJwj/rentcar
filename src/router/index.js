@@ -21,6 +21,7 @@ import Wod from '../page/wod'
 import Xuanz from '../page/xuanz'
 import Ok from '../page/ok'
 import Register from '../page/register'
+import Md from '../page/md'
 //充值
 import Chong_first from '../page/chong_first'
 import Chong_second from '../page/chong_second'
@@ -28,6 +29,19 @@ import Chong_thirdly from '../page/chong_thirdly'
 import Chong_fourthly from '../page/chong_fourthly'
 //评价
 import Pingjw  from './../page/pingjw'
+
+//门店路由
+import Md1 from '../page/md1'
+import Md2 from '../page/md2'
+import Md3 from '../page/md3'
+import Md4 from '../page/md4'
+import Md5 from '../page/md5'
+import Md6 from '../page/md6'
+import Md7 from '../page/md7'
+import Md8 from '../page/md8'
+import Md9 from '../page/md9'
+import Md10 from '../page/md10'
+import Md11 from '../page/md11'
 //车型价格
 import Cartype from "../page/cartype.vue"
 import Car from "../page/car.vue"
@@ -196,6 +210,24 @@ let a=new Router({
       name: 'Pingjw',
       component: Pingjw
     },
+    {
+      path:'/md',
+      name:'/Md',
+      component:Md,children:[
+        {path:"/",redirect:'md1'},
+        {path:"md1",component:Md1},
+        {path:"md2",component:Md2},
+        {path:"md3",component:Md3},
+        {path:"md4",component:Md4},
+        {path:"md5",component:Md5},
+        {path:"md6",component:Md6},
+        {path:"md7",component:Md7},
+        {path:"md8",component:Md8},
+        {path:"md9",component:Md9},
+        {path:"md10",component:Md10},
+        {path:"md11",component:Md11}
+    ]
+    }
   ]
 })
 a.push('/cartype');
