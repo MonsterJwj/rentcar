@@ -6,38 +6,55 @@
     <div class="conent">
       <img src="./../assets/img/recharge/img-1-png@2x.png" alt />
       <div class="my">
-        <p>我的余额 <span>5500</span></p>
-        <p>充值金额:<input type="text"><button>充值</button></p> 
+        <p>我的余额: <span>{{$store.state.money}}元</span></p>
+        <p>充值金额: <input type="text" v-model="num">
+        <button @click="tt">充值</button>
+           </p> 
       </div>
       <ul>
-        <li>
-          <p>1000元</p>
-          <p>送100积分</p>
-        </li>
-        <li>
-          <p>2000元</p>
-          <p>送300积分</p>
-        </li>
-        <li>
-          <p>5000元</p>
-          <p>送1000积分</p>
+        <li v-for="(item, index) in list" :key="index" @click="add(item.jine)">
+          <p><span>{{item.jine}}</span>元</p>
+          <p>送<span>{{item.jifen}}</span>积分</p>
         </li>
       </ul>
       <p class="explain">1积分=1元，每单最高可使用积分冲抵40%的租车费用</p>
     </div>
   </div>
 </template>
-
 <script>
 import Chongz from "./../components/chongz";
 export default {
   data() {
-    return {};
+    return {
+      num:0,
+      list:[{
+       jine:1000,
+       jifen:100
+      },
+      {
+       jine:2000,
+       jifen:300
+      },
+      {
+       jine:5000,
+       jifen:1000
+      }
+      ]
+    };
   },
-  methods: {},
+  methods: {
+      add(a){
+        this.num=a;
+      },
+      tt(){
+        this.$store.commit('addmoney',this.num)
+        this.$router.push('/chong_thirdly')
+      }
+  },
   components: {
     Chongz
   }
+
 };
 </script>
 <style scoped lang='less'>
@@ -77,6 +94,7 @@ export default {
              width: 1.54rem;
              height: .5rem;
               border: none;
+              margin-top:-.5rem;
               margin-right: .33rem;
              background:linear-gradient(90deg,rgba(251,236,129,1),rgba(255,224,9,1));
              border-radius: 25px;

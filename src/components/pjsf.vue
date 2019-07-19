@@ -2,7 +2,7 @@
   <div class="pjsf">
     <div class="top">
       <router-link to="/wod"><img src="../assets/img/my/img-2-png@2x.png" alt=""></router-link>
-      评价分时租车
+      平价分时租车
       <div class="pos">郑州<img src="../assets/img/mend/pos.png" alt=""></div>
     </div>
     <div class="list">

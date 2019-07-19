@@ -49,7 +49,6 @@ export default {
         {word:"H",list:[{name:'杭州',abb:"hz"},{name:'哈尔滨',abb:"heb"}]},
         {word:"J",list:[{name:'济南',abb:"jn"}]},
         {word:"N",list:[{name:'南京',abb:"nj"},{name:'宁波',abb:"nb"},{name:'南通',abb:"nt"}]},
-        {word:"O",list:[{name:'安徽',abb:"ah"}]},
         {word:"Q",list:[{name:'青岛',abb:"qd"}]},
         {word:"S",list:[{name:'上海',abb:"sh"},{name:'深圳',abb:"sz"},{name:'苏州',abb:"sz"},{name:'沈阳',abb:"sy"},{name:'石家庄',abb:"sjz"}]},
         {word:"T",list:[{name:'天津',abb:"tj"}]},
@@ -71,6 +70,7 @@ export default {
     bian(a){
       this.text=a;
       this.$store.commit('change',a);
+      this.$router.go(this.back);
     },
     add(){
       this.back--
@@ -95,19 +95,46 @@ export default {
     }
   },
   mounted () {
-    for(let i=0;i<this.city.length;i++){
-      for(let m=0;m<this.city[i].list.length;m++){
-        this.acity.push(this.city[i].list[m])
+    this.$axios('http://qaq12123.in.8866.org:30102/account/findAllCityMap').then(
+      (a)=>{
+        let lll=Object.keys(a.data);//所有键名
+        let ooo=Object.values(a.data);//所有键值
+        // console.log(a.data)
+        this.city=[]
+        for(let i=0;i<lll.length;i++){
+          let m=[];
+          let p='';//城市
+          let q='';//缩写
+          // console.log(ooo[i].length)
+          for(let x=0;x<ooo[i].length;x++){
+            if(x%2==1){
+              q=ooo[i][x];
+              m.push({name:p,abb:q})
+            }else{
+              p=ooo[i][x];
+            }
+          }
+          this.city.push({word:lll[i],list:m})
+        }
+        // console.log(this.city)
+      for(let i=0;i<this.city.length;i++){
+        for(let m=0;m<this.city[i].list.length;m++){
+          this.acity.push(this.city[i].list[m])
+        }
       }
-    }
+    },(a)=>{
+      console.log(a)
+      for(let i=0;i<this.city.length;i++){
+        for(let m=0;m<this.city[i].list.length;m++){
+          this.acity.push(this.city[i].list[m])
+        }
+      }
+    }).catch(
+      (err)=>{
+        console.log(err)
+    })
   },
   updated () {
-    if(this.time){
-      this.time=false;
-      
-    
-    }
-    setTimeout(()=>{this.time=true},500)
   },
   components: {
 

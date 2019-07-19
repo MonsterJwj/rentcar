@@ -132,8 +132,8 @@
  <!-- 按钮 -->
       <ul class="uls5">
         <li>￥3156</li>
-        <li>支付</li>
-        <!-- <li @click="q3">支付</li> -->
+        <!-- <li>支付</li> -->
+        <li @click="q3">支付</li>
       </ul>
       
   </div>
@@ -159,11 +159,11 @@ export default {
        $('.por1').show();
        $('.por2').hide();
     },
-    // q3(){
-    //   this.router.replace('/chong_first');
-    // },
+    q3(){
+      this.$router.push('/chong_first');
+    },
     q4(){
-      this.router.push('/dingdax2');
+      this.$router.push('/dingdx2');
     },
     getTime(){
         this.nowTime = new Date().toLocaleString();

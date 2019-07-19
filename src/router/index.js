@@ -26,10 +26,13 @@ import Chong_first from '../page/chong_first'
 import Chong_second from '../page/chong_second'
 import Chong_thirdly from '../page/chong_thirdly'
 import Chong_fourthly from '../page/chong_fourthly'
+//评价
+import Pingjw  from './../page/pingjw'
 Vue.use(Router)
 let a=new Router({
   routes: [
-    {path: '/guide',
+    {
+      path: '/guide',
       name: 'Guide',
       component: Guide
     },
@@ -90,7 +93,6 @@ let a=new Router({
     },
     {
       path: '/pingj',
-      name: 'Pingj',
       component: Pingj
     },
     {
@@ -148,6 +150,11 @@ let a=new Router({
       path: '/chong_fourthly',
       name: 'Chong_fourthly',
       component: Chong_fourthly
+    },
+    {
+      path: '/pingjw',
+      name: 'Pingjw',
+      component: Pingjw
     },
   ]
 })

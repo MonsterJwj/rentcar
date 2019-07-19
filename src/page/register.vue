@@ -73,6 +73,7 @@ export default {
          border: none;
          width: 7rem;
          outline: none;
+          font-size: .3rem;
        }
        }
          p:nth-child(2){
