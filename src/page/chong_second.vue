@@ -48,7 +48,7 @@ export default {
       },
       tt(){
         this.$store.commit('addmoney',this.num)
-        this.$router.push('/chong_thirdly')
+        this.$router.push('/chong_fourthly')
       }
   },
   components: {

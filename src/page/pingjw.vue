@@ -2,7 +2,7 @@
   <div class="pingjw">
     <ul class="header">
         <li>
-          <span class="fanhui"></span>
+          <span class="fanhui" @click="fa"></span>
         </li>
         <li>评价完成</li>
         <li>
@@ -20,7 +20,6 @@
             <span>感谢您的反馈，我们会继续努力给您提供更好的服务</span>
         </p>
     </div>
-
     <div class="box">
         <div class="neirong">
             <p>我的评价</p>
@@ -34,9 +33,11 @@
             <ul class="fen">
                 <li>
                     <img src="./../assets/img/pingjw/icon-03@2x.png" alt="">
+                    <span>朋友圈</span>
                 </li>
                 <li>
                     <img src="./../assets/img/pingjw/icon-04@2x.png" alt="">
+                    <span>微信好友</span>
                 </li>
             </ul>
         </div>
@@ -49,11 +50,19 @@
 export default {
   data() {
     return {
-
+       name:[
+            "./../assets/img/pingjw/icon-02@2x.png",
+             "./../assets/img/pingjw/icon-02@2x.png",
+             "./../assets/img/pingjw/icon-02@2x.png",
+              "./../assets/img/pingjw/icon-02@2x.png",
+              "./../assets/img/pingjw/icon-02@2x.png"
+           ] 
     }
   },
   methods: {
-
+         fa(){
+         this.$router.push("/changz")
+    }
   },
   components: {
 
@@ -138,17 +147,23 @@ export default {
             }
         }
         .fen{
-            overflow: hidden;
-            padding: 0rem 1rem 0rem 1rem;
-            margin-top: .57rem;
+              display: flex;
+              margin: .3rem auto;
             li{
-                width: 50%;
-                float: left;
+                  display: flex;
+                  flex: 1;
+                   flex-direction: row;
+                   justify-content: center;
+                   align-items: center;
                 img{
+                   width: .42rem;
+                   height: .42rem;
+                }
+                span{
+                    margin-left:.23rem; 
                     display: block;
-                    margin: 0 auto;
-                    width: .36rem;
-                    height: .36rem;
+                   font-size: .32rem;
+               
                 }
             }
         }
