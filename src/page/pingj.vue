@@ -15,8 +15,9 @@
             <li>取车门店 郑州金水路店</li>
             <li v-for="(a,b) in list1" :key="b">
               {{a.name}}
-              <span v-for="(m,n) in a.show" :key='n' @click="fn(b,n)" :class="{'yellow':m.ifshow,'yellow1':!m.ifshow}"></span>
+              <span v-for="(m,n) in a.show" :key='n' @click="fn(b,n)" :class="{yellow:m.ifshow,yellow1:!m.ifshow}"></span>
             </li>
+            
             <!-- <li>
               车辆情况
               <span v-for="(item,index) in 5" :key='index'></span>
@@ -53,12 +54,13 @@
 export default {
   data() {
     return {
-        value: 3,
+        // value: 3,
         list1:[
           {name:'手续办理',show:[{ifshow:false},{ifshow:false},{ifshow:false},{ifshow:false},{ifshow:false}]},
           {name:'车辆情况',show:[{ifshow:false},{ifshow:false},{ifshow:false},{ifshow:false},{ifshow:false}]},
           {name:'服务态度',show:[{ifshow:false},{ifshow:false},{ifshow:false},{ifshow:false},{ifshow:false}]}
-        ]
+        ],
+        
       
     }
   },
