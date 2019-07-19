@@ -26,7 +26,7 @@
       </ul>
       </div>
       <!-- <br><br><br><br><br><br><br><br><br> -->
-      <div class="box3">提交订单</div>
+      <div class="box3">去评价</div>
 
   </div>
 </template>
