@@ -50,7 +50,7 @@
           </div>
         </div>
       </div>
-      <p class="liji">立即选车</p>
+      <p class="liji" @click="xuan">立即选车</p>
 
 
       <div class="weibu">
@@ -102,8 +102,11 @@ export default {
     }
   },
   methods: {
+    xuan(){
+      this.$router.push('/cartype')
+    },
     q1(){
-       this.$router.push('/pingj');
+       this.$router.push('/pingjl');
     },
     q2(){
       this.$router.go(-1);

@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     mendl(){
-      this.$router.push('/mendl')
+      this.$router.push('/md')
     },
   },
   components: {

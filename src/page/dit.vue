@@ -1,7 +1,7 @@
 <template>
   <div class="map">
     <div class="top">
-      <img src="../assets/img/route/向右@2x.png" alt="">
+      <img src="../assets/img/route/向右@2x.png" alt="" @click='back'>
       地图
     </div>
     <div class="bot">
@@ -23,7 +23,9 @@ export default {
     }
   },
   methods: {
-
+    back(){
+      this.$router.go(-1);
+    }
   },
   components: {
     Map

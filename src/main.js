@@ -47,10 +47,20 @@ let store=new Vuex.Store({
     tday:new Date(),
     money:0,
     addmoney:0,
-    rencar:{name:'雷克萨斯ES 2.8T',pri:'480'},
     ifloging:false//默认未登录
+    back:'支付',
+    rencar:{name:'雷克萨斯ES 2.8T',pri:'480'},
+    backposi:'/wod'
   },
   mutations: {
+    pay(state,a){
+      state.money-=a;
+    },
+    cback(state,a){
+      // console.log(a);
+      state.back=a.cback;
+      state.backposi=a.cpos;
+    },
     rentcar(state,a){
       state.rencar=a;
     },
@@ -71,8 +81,8 @@ let store=new Vuex.Store({
       }
     },
     addmoney(state,b){
-      state.money+=b;
-      state.addmoney=b;
+      state.money+=Number(b);
+      state.addmoney=Number(b);
     },
   },
   getters:{

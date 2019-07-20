@@ -2,14 +2,14 @@
   <div>
     <ul class="header">
       <li>
-       <router-link to="pingw"><img src="./../assets/img/route/向右@2x.png" alt=""></router-link> 
+       <router-link to="./mend"><img src="./../assets/img/route/向右@2x.png" alt=""></router-link> 
       </li>
       <li>评价列表</li>
       <li class="di"></li>
     </ul>
     <div class="box">
-      <div class="neirong" v-for="(item,index) in text" :key="index">
-        <p><img src="./../assets/img/pingjl/img-02@2x.png" alt="" class="touxiang"></p>
+      <div class="neirong" >
+        <p><img src="./../assets/img/pingjl/img-07@2x.png" alt="" class="touxiang"></p>
         <p>
           <span class="a">华华</span>
           <img src="./../assets/img/pingjl/icon-02@2x.png" alt="" class="ka">
@@ -23,11 +23,80 @@
           <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
           <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
         </p>
+        <p class="pingj">已经是第N次租车了，依然让人很舒心，好评。</p>
+      </div>
+       <div class="neirong">
+        <p><img src="./../assets/img/pingjl/img-02@2x(1).png" alt="" class="touxiang"></p>
+        <p>
+          <span class="a">岩岩</span>
+          <img src="./../assets/img/pingjl/icon-02@2x.png" alt="" class="ka">
+          <span>07-06 10:30</span>
+        </p>
+        <br>
+        <p class="car">
+          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
+          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
+          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
+          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
+          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
+        </p>
         <p class="pingj">该条为自动评价。</p>
       </div>
-    </div>
-    
-  </div>
+       <div class="neirong">
+        <p><img src="./../assets/img/pingjl/img-02@2x.png" alt="" class="touxiang"></p>
+        <p>
+          <span class="a">多多</span>
+          <img src="./../assets/img/pingjl/icon-02@2x.png" alt="" class="ka">
+          <span>07-06 10:40</span>
+        </p>
+        <br>
+        <p class="car">
+          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
+          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
+          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
+          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
+          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
+        </p>
+        <p class="pingj">第一次租车，价格便宜，配置好。</p>
+      </div>
+       <div class="neirong">
+        <p><img src="./../assets/img/pingjl/img-03@2x.png" alt="" class="touxiang"></p>
+        <p>
+          <span class="a">点点</span>
+          <img src="./../assets/img/pingjl/icon-02@2x.png" alt="" class="ka">
+          <span>07-05 10:59</span>
+        </p>
+        <br>
+        <p class="car">
+          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
+          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
+          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
+          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
+          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
+        </p>
+        <p class="pingj">赞赞赞。</p>
+      </div>
+       <div class="neirong">
+        <p><img src="./../assets/img/pingjl/img-04@2x.png" alt="" class="touxiang"></p>
+        <p>
+          <span class="a">琴琴</span>
+          <img src="./../assets/img/pingjl/icon-02@2x.png" alt="" class="ka">
+          <span>07-06 10:20</span>
+        </p>
+        <br>
+        <p class="car">
+          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
+          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
+          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
+          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
+          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
+        </p>
+        <p class="pingj">车型多，服务态度好。</p>
+      </div>
+    </div>  
+ </div>
+
+
 </template>
 
 <script>
@@ -35,25 +104,15 @@ import axios from "axios"
 export default {
   data() {
     return {
-      text:[]
+     
     }
   },
   methods: {
+
   },
   components: {
 
   },
-  mounted(){
-    axios({
-      //请求接口地址
-      url:'https://api.apiopen.top/getJoke?page=1&count=2&type=video',
-      method:"get",
-      responseType: 'json'
-    }).then((obj)=>{
-      console.log(obj.data);
-      this.text = obj.data;
-    })
-  }
 }
 </script>
 

@@ -6,7 +6,7 @@
         <li>
             <img src="../assets/img/route/向右@2x.png" class="porr2" @click="q1">
             <span>订单信息</span>
-            <span class="font1">地图</span>
+            <span class="font1" @click='ddd'>地图</span>
         </li>
       </ul>
 
@@ -43,6 +43,9 @@ export default {
     }
   },
   methods: {
+    ddd(){
+      this.$router.push('/dit')
+    },
     q1(){
       this.$router.go(this.go);
     }

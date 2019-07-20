@@ -170,26 +170,14 @@ export default {
           cancelButtonText:"否",
           }).then(() => {
             // on confirm
-            this.$router.push('/login');
+            this.$store.commit('cback',{cback:'支付',cpos:"/dingd"});
+            this.$router.push('/chong_first');
           }).catch(() => {
             // on cancel
           });
-      }
-      else{
-      // this.$router.push('/ok');
-    if(this.$store.state.money<3150){
-            Dialog.confirm({
-              title:'您的当前余额为:￥'+this.qwe,
-              message: '是否进行充值',
-              confirmButtonText:"是",
-              cancelButtonText:"否",
-              }).then(() => {
-                // on confirm
-                this.$router.push('/chong_first');
-              }).catch(() => {
-                // on cancel
-              });
-          }
+      }else{
+        this.$store.commit('pay',3150)
+        this.$router.push('/ok');
       }
     },
     q4(){
