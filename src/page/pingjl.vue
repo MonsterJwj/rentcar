@@ -8,7 +8,7 @@
       <li class="di"></li>
     </ul>
     <div class="box">
-      <div class="neirong">
+      <div class="neirong" >
         <p><img src="./../assets/img/pingjl/img-07@2x.png" alt="" class="touxiang"></p>
         <p>
           <span class="a">华华</span>
@@ -104,7 +104,7 @@ import axios from "axios"
 export default {
   data() {
     return {
-      text:[]
+     
     }
   },
   methods: {
