@@ -16,9 +16,9 @@
       </ul>
       <!-- 车辆信息 -->
       <div class="box3">
-        <img src="../assets/img/dingdan/img-1-png.png">
+        <img src="../assets/img/dingdan/21331.png">
         <ul>
-          <li>丰田汉兰达</li>
+          <li>{{$store.state.rencar.name}}</li>
           <li>SUV/2.7自动/可乘坐5人</li>
         </ul>
       </div>
@@ -160,11 +160,12 @@ export default {
        $('.por2').hide();
     },
     q3(){
-      // window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx9ac80acc06aa2697&redirect_uri=window.location.href&response_type=code&scope=snsapi_base&#wechat_redirect";
-      if(this.$store.state.money<3150){
-        Dialog.confirm({
-          title:'您的当前余额为:￥'+this.qwe,
-          message: '是否进行充值',
+      // window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx9ac80acc06aa2697&redirect_uri=window.location.href&response_type=code&scope=snsapi_base&#wechat_redirect"
+      
+      if(this.$store.state.ifloging==false){
+         Dialog.confirm({
+          title:'请登录',
+          message: '',
           confirmButtonText:"是",
           cancelButtonText:"否",
           }).then(() => {
@@ -188,11 +189,11 @@ export default {
 		},
   },
   created(){
-			this.getTime();
+      this.getTime();
 		},
   components: {
 
-  }
+  },
 }
 </script>
 
@@ -256,6 +257,8 @@ export default {
         width:2.04rem;
         height:1.45rem;
         margin:.2rem .12rem 0 .34rem;
+        background:url('../assets/img/dingdan/21331.png');
+        // background-size:
       }
       ul{
         margin:.15rem;

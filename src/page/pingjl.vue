@@ -5,22 +5,18 @@
       <p>评价列表</p>
     </ul>
     <div class="box">
-      <div class="neirong"  v-for="(item,index) in list" :key="index">
-        <p><img src="./../assets/img/pingjl/img-07@2x.png" alt="" class="touxiang"></p>
+      <div class="neirong" v-for="(a,b) in list" :key="b">
+        <p><img :src="a.img" alt="" class="touxiang"></p>
         <p>
-          <span class="a">华华</span>
+          <span class="a">{{a.name}}</span>
           <img src="./../assets/img/pingjl/icon-02@2x.png" alt="" class="ka">
-          <span>07-06 10:20</span>
+          <span>{{a.time}}</span>
         </p>
         <br>
         <p class="car">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
+          <span v-for="(m,n) in a.score" :key="n" :class="{cho:m,nocho:!m}"></span>
         </p>
-        <p class="pingj">已经是第N次租车了，依然让人很舒心，好评。</p>
+        <p class="pingj">{{a.content}}</p>
       </div>
        <!-- <div class="neirong">
         <p><img src="./../assets/img/pingjl/img-02@2x(1).png" alt="" class="touxiang"></p>
@@ -101,17 +97,23 @@ import axios from "axios"
 export default {
   data() {
     return {
-        list:[
-          {
-            img:"./../assets/img/pingjl/img-07@2x.png",
-            name:"华华",
-            time:"07_06 10:30",
-            content:"第一次租车，价格便宜，配置好。"
-          },
-          {
-
-          },
-        ]
+      list:[
+        {img:require('../assets/img/pingjl/img-07@2x.png'),name:'华华',
+        score:[true,true,true,true,true],
+        time:'07-06 10:20',content:'已经是第N次租车了，依然很让人舒心，好评'},
+        {img:require('../assets/img/pingjl/img-02@2x(1).png'),name:'岩岩',
+        score:[true,true,true,true,false],
+        time:'07-06 10:20',content:'已经是第N次租车了，依然很让人舒心，好评'},
+        {img:require('../assets/img/pingjl/img-03@2x.png'),name:'青青',
+        score:[true,true,true,true,false],
+        time:'07-06 10:20',content:'已经是第N次租车了，依然很让人舒心，好评'},
+        {img:require('../assets/img/pingjl/img-04@2x.png'),name:'多多',
+        score:[true,false,false,false,false],
+        time:'07-06 10:20',content:'已经是第N次租车了，依然很让人舒心，好评'},
+        {img:require('../assets/img/pingjl/img-02@2x.png'),name:'点点',
+        score:[true,true,true,true,true],
+        time:'07-06 10:20',content:'已经是第N次租车了，依然很让人舒心，好评'}
+      ]
     }
   },
   methods: {
@@ -161,9 +163,18 @@ export default {
       color: black;
     }
     .car{
-      img{
+      span{
+        display: inline-block;
         width: .48rem;
         height: .48rem;
+      }
+      .nocho{
+        background: url('../assets/img/pingj/icon-2-png@2x.png') no-repeat;
+        background-size: contain;
+      }
+      .cho{
+        background: url('../assets/img/pingj/icon-1-png@2x.png') no-repeat;
+        background-size: contain;
       }
     }
     .pingj{
