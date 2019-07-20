@@ -185,10 +185,14 @@ export default {
               cancelButtonText:"否",
               }).then(() => {
                 // on confirm
+                this.$store.commit('cback',{cback:'支付',cpos:"/dingd"});
                 this.$router.push('/chong_first');
               }).catch(() => {
                 // on cancel
               });
+          }else{
+            this.$store.commit('pay',3150)
+            this.$router.push('/ok');
           }
       }
     },

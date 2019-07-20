@@ -30,8 +30,8 @@ export default {
     marker2.onclick=()=>{
       this.$router.push('/mend')
     }
-    map.addOverlay(marker2);      
-    }, 
+    map.addOverlay(marker2);
+    },
     getClickInfo (e) {
       // console.log(e.point.lng);
       // console.log(e.point.lat);

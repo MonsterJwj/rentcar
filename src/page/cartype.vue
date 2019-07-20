@@ -1,9 +1,12 @@
 <template>
   <div class="cartype">
     <div class="top">
+      <div class="ppp">选车</div>
+      <img src="../assets/img/route/向右@2x.png" alt="" @click="back">
+    </div>
+    <div class="ttt">
       <router-link to='/cartype/car'>按价格</router-link>
       <router-link to='/cartype/type'>按车型</router-link>
-      <img src="../assets/img/route/向右@2x.png" alt="" @click="back">
     </div>
     <div class="lei">
       <router-view></router-view>
@@ -15,13 +18,19 @@
 export default {
   data() {
     return {
-
+      go:-1
     }
   },
   methods: {
     back(){
-      this.$router.go(-1);
+      this.$router.push('/mend');
     }
+  },
+  updated () {
+    this.go--;
+  },
+  mounted () {
+    this.go=-1;
   },
   components: {
 
@@ -37,23 +46,33 @@ export default {
   position: relative;
   .top{
     position: relative;
+    padding-top: .4rem;
+    height: 1.28rem;
+    box-sizing: border-box;
+    text-align: center;
+    width: 100%;
+    font-size: .34rem;
+    background:rgb(255,224,9);
+    line-height: .88rem;
+    position: fixed;
+    top: 0;
+    z-index: 999;
     img{
       position: absolute;
       width: .2rem;
       top: .7rem;
       left: .32rem;
     }
-    padding-top: .4rem;
-    height: 1.28rem;
-    box-sizing: border-box;
+  }
+  .ttt{
+    position: fixed;
+    top: 1.28rem;
+    display: flex;
     width: 100%;
     font-size: .34rem;
-    background:rgb(255,224,9);
-    display: flex;
-    justify-content: space-around;
     line-height: .88rem;
-    position: fixed;
-    top: 0;
+    justify-content: space-around;
+    background: white;
     z-index: 999;
     a{
       position: relative;
@@ -68,7 +87,7 @@ export default {
       background: black;
       position: absolute;
       border-radius: .03rem;
-      bottom: .09rem;
+      bottom: 0;
       right: -.1rem;
     }
   }

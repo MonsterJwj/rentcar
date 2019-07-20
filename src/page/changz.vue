@@ -119,7 +119,7 @@ export default {
   },
   methods: {
     mendl(){
-      this.$router.push('/mendl')
+      this.$router.push('/md')
     },
     change(a){
       // console.log("年："+a.columns[0].values[a.children[0].currentIndex])
