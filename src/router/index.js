@@ -238,5 +238,5 @@ let a=new Router({
     }
   ]
 })
-a.push('/guide');
+a.push('/pingjl');
 export default a

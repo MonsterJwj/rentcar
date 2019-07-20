@@ -1,14 +1,11 @@
 <template>
   <div>
     <ul class="header">
-      <li>
        <router-link to="./mend"><img src="./../assets/img/route/向右@2x.png" alt=""></router-link> 
-      </li>
-      <li>评价列表</li>
-      <li class="di"></li>
+      <p>评价列表</p>
     </ul>
     <div class="box">
-      <div class="neirong" >
+      <div class="neirong"  v-for="(item,index) in list" :key="index">
         <p><img src="./../assets/img/pingjl/img-07@2x.png" alt="" class="touxiang"></p>
         <p>
           <span class="a">华华</span>
@@ -25,7 +22,7 @@
         </p>
         <p class="pingj">已经是第N次租车了，依然让人很舒心，好评。</p>
       </div>
-       <div class="neirong">
+       <!-- <div class="neirong">
         <p><img src="./../assets/img/pingjl/img-02@2x(1).png" alt="" class="touxiang"></p>
         <p>
           <span class="a">岩岩</span>
@@ -92,7 +89,7 @@
           <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
         </p>
         <p class="pingj">车型多，服务态度好。</p>
-      </div>
+      </div> -->
     </div>  
  </div>
 
@@ -104,7 +101,17 @@ import axios from "axios"
 export default {
   data() {
     return {
-     
+        list:[
+          {
+            img:"./../assets/img/pingjl/img-07@2x.png",
+            name:"华华",
+            time:"07_06 10:30",
+            content:"第一次租车，价格便宜，配置好。"
+          },
+          {
+
+          },
+        ]
     }
   },
   methods: {
@@ -118,19 +125,21 @@ export default {
 
 <style scoped lang="less">
 .header{
-  background: #FFE009;
-  display: flex;
   overflow: hidden;
-  li{
-    text-align: center;
-    flex: 1;
-    font-size: .36rem;
-    padding: .35rem .34rem .28rem .35rem;
-    img{
-      float: left;
-      width: .2rem;
-      height: .34rem;
-    }
+  background: #FFE009;
+  height: 1.28rem;
+  padding: .4rem .32rem 0 .32rem;
+  box-sizing: border-box;
+  img{
+    float: left;
+    margin-top: .25rem;
+    width: .20rem;
+    height: .34rem;
+  }
+  p{
+    font-size: .34rem;
+    line-height: .88rem;
+     text-align: center;
   }
 }
 .box{
