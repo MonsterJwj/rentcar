@@ -22,7 +22,7 @@
               <li>2、每单最高可使用积分冲抵40%的租车费用</li>
             </ul>
           </div>
-                <router-link to="chong_second"><button>充值</button></router-link>
+              <router-link to="chong_second"><button>充值</button></router-link>
   </div>
 </template>
 
@@ -35,10 +35,12 @@ export default {
     }
   },
   methods: {
-
   },
+  
   components: {
    Chongz
+  },
+  mounted () {
   }
 }
 </script>

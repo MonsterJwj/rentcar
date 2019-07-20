@@ -11,16 +11,22 @@
 export default {
   data() {
     return {
-
+      backposi:this.$store.state.backposi
     }
   },
   methods: {
       tt(){
-        this.$router.go(-1)
+        this.$router.push(this.backposi);
       }
   },
+  // beforeRouteEnter(to,from,next){
+  //   console.log(from.path)
+  // },
   components: {
 
+  },
+  mounted () {
+    // console.log(this.$router.history)
   }
 }
 </script>

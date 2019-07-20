@@ -4,7 +4,7 @@
       <ul class="uls">
         <li></li>
         <li>
-            <img src="../assets/img/route/向右@2x.png">
+            <img src="../assets/img/route/向右@2x.png" @click='back'>
             <span>订单信息</span>
             <img src="../assets/img/dingdan/icon-01.png">
         </li>
@@ -136,6 +136,9 @@ export default {
     },
   },
   methods: {
+    back(){
+      this.$router.go(-1);
+    },
     to(){
       this.$store.commit('changd','tcity');
       this.$router.push('/xuanz');

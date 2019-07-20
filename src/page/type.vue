@@ -37,7 +37,7 @@ export default {
     font-size: .26rem;
     justify-content: space-around;
     position: fixed;
-    top: 1.28rem;
+    top: 2.16rem;
     width: 100%;
     z-index: 999;
     background: white;
@@ -46,7 +46,7 @@ export default {
     }
   }
   .cont{
-    margin-top: 2.08rem;
+    margin-top: 2.96rem;
   }
 }
 </style>
