@@ -2,7 +2,7 @@
   <div>
        <ul class="header">
         <li>
-          <span class="fanhui"></span>
+          <span class="fanhui" @click='back'></span>
         </li>
         <li>评价</li>
         <li>
@@ -67,6 +67,9 @@ export default {
     }
   },
   methods: {
+    back(){
+      this.$router.go(-1);
+    },
     fn(b,n){
       let list=[];
       for(let i=0;i<5;i++){

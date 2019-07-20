@@ -73,7 +73,9 @@ export default {
       this.show = false;
     },
     yue(){
-      this.$router.push('/chong_first')
+      // this.$store.commit('cpos','/wod')
+      this.$store.commit('cback',{cback:'余额',cpos:'/wod'});
+      this.$router.push('/chong_first');
     }
   },
   components: {

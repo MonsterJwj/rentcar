@@ -6,9 +6,9 @@
     <div class="conent">
        <img src="./../assets/img/recharge/QQ图片20190711133106.png" alt />
         <p>成功充值{{$store.state.addmoney}}元</p>
-        <p>您以成功充值{{$store.state.addmoney}}元，可以去租车了</p>
+        <p>您已成功充值{{$store.state.addmoney}}元，可以去租车了</p>
     </div>
-        <button @click="q1">返回支付</button>
+        <button @click="q1">返回{{$store.state.back}}</button>
   </div>
 </template>
 <script>
@@ -19,7 +19,10 @@ export default {
   },
   methods: {
     q1(){
-      this.$router.push('/dingd');
+      // console.log(this.$store)
+      if(this.$store.state.back=='支付'){
+        this.$router.push('/dingd');
+      }else{this.$router.push('/chong_first')}
     }
   },
   components: {
