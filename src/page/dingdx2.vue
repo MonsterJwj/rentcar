@@ -334,6 +334,7 @@ export default {
           color:#333333;
           img{
             width:.5rem;
+            height:.5rem;
           }
         }
       }
@@ -347,6 +348,7 @@ export default {
           color:#333333;
           img{
             width:.5rem;
+            height:.5rem;
           }
         }
       }
