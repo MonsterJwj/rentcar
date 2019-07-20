@@ -238,5 +238,5 @@ let a=new Router({
     }
   ]
 })
-a.push('/pingj');
+a.push('/dingd');
 export default a

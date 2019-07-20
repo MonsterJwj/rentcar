@@ -47,7 +47,8 @@ let store=new Vuex.Store({
     tday:new Date(),
     money:0,
     addmoney:0,
-    rencar:{name:'雷克萨斯ES 2.8T',pri:'480'}
+    rencar:{name:'雷克萨斯ES 2.8T',pri:'480'},
+    ifloging:false//默认未登录
   },
   mutations: {
     rentcar(state,a){

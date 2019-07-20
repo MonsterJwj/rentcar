@@ -1,6 +1,6 @@
 <template>
   <div class="mend">
-      <ul class="header">
+      <!-- <ul class="header">
         <li>
           <span class="fanhui" @click="q2"></span>
         </li>
@@ -8,10 +8,18 @@
         <li>
           <span class="fanhui1"></span>
         </li>
+      </ul> -->
+ <!-- 头 -->
+      <ul class="uls">
+        <li></li>
+        <li>
+            <img src="../assets/img/route/向右@2x.png" @click="q4">
+            <span>订单信息</span>
+        </li>
       </ul>
-
-      <div class="imgbox">
-        <img src="./../assets/mend_img/img-01@2x.png" alt="">
+      <div class="bbooxx">
+        <div class="imgbox">
+        <img src="./../assets/mend_img/img-01@2x.png">
       </div>
 
       <div class="xinxi">
@@ -82,6 +90,7 @@
         </div>
       </div>
       <br>
+      </div>
   </div>
 </template>
 
@@ -98,6 +107,9 @@ export default {
     },
     q2(){
       this.$router.go(-1);
+    },
+    q4(){
+      this.$router.go(-1)
     }
   },
   components: {
@@ -109,6 +121,37 @@ export default {
 <style scoped lang='less'>
 .mend{
   background: #FAFAFA;
+  .bbooxx{
+    position: relative;
+    top:1.26rem;
+  }
+   .uls{
+      width:100%;
+      height:1.28rem;
+      background:rgba(255,224,9,1);
+      position: fixed;
+      z-index: 99999;
+      li:nth-child(1){
+        height:.34rem;
+        // border: 1px solid #000;
+      }
+      li:nth-child(2){
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        height:.92rem;
+        img{
+          width:.2rem;
+          height:.34rem;
+          position: relative;;
+          left:-2.57rem;
+        }
+        span{
+          font-size:.36rem;
+        }
+      }
+    }
   .header{
     display: flex;
     font-size: .4rem;
