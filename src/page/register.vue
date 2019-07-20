@@ -9,7 +9,7 @@
     <router-link to='/register'><span>注册</span></router-link>
     </div>
       <div class="input">
-       <p><input type="text" placeholder="请输入用户名"></p>
+       <p><input type="text" placeholder="请输入手机号"></p>
        <p><input type="text" placeholder="请输入验证码"><span>获取验证码</span></p>
        <p><input type="text" placeholder="密码为6-18位数字英文或组合"><span></span></p>
       </div>

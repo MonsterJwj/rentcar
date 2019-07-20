@@ -1,14 +1,9 @@
 <template>
-  <div>
-       <ul class="header">
-        <li>
-          <span class="fanhui" @click='back'></span>
-        </li>
-        <li>评价</li>
-        <li>
-        </li>
-      </ul>
-
+  <div>  
+ <ul class="header">
+       <router-link to="./mend"><img src="./../assets/img/route/向右@2x.png" alt=""></router-link> 
+      <p>评价列表</p>
+    </ul>
       <div class="box">
         <div class="neirong">
           <ul>
@@ -35,10 +30,7 @@
               {{a.name}}
               <span v-for="(m,n) in a.show" :key='n' @click="fm(b,n)" :class="{yellow:m,yellow1:!m}"></span>
             </li>
-            <!-- <li>
-              服务态度
-              <span v-for="(item,index) in 5" :key='index'></span>
-            </li> -->
+
           </ul>
 
           <div contentEditable="true" class="text"></div>
@@ -100,34 +92,22 @@ export default {
 
 <style scoped lang='less'>
 .header{
-    display: flex;
-    font-size: .4rem;
-    color: #333333;
-    background: #FFE009;
-    span{
-      display: block;
-    }
-    li{
-      flex: 1;
-      text-align: center;
-      overflow: hidden;
-      padding: .65rem .35rem .29rem .32rem;
-      .fanhui{
-        display: block;
-        width: .2rem;
-        height: .34rem;
-        background: url('./../assets/img/route/向右@2x.png')no-repeat center center;
-        background-size: cover;
-      }
-      .fanhui1{
-        float: right;
-        display: block;
-        width: .4rem;
-        height: .68rem;
-        background: url('./../assets/mend_img/icon-02@2x.png')no-repeat center center;
-        background-size: cover;
-      }
-    }
+  overflow: hidden;
+  background: #FFE009;
+  height: 1.28rem;
+  padding: .4rem .32rem 0 .32rem;
+  box-sizing: border-box;
+  img{
+    float: left;
+    margin-top: .25rem;
+    width: .20rem;
+    height: .34rem;
+  }
+  p{
+    font-size: .34rem;
+    line-height: .88rem;
+     text-align: center;
+  }
 }
 .box{
   background: #fafafa;
@@ -159,7 +139,7 @@ export default {
           width: .48rem;
           height: .48rem;
           display: inline-block;
-          // background: url('./../assets/img/pingj/icon-2-png@2x.png')no-repeat center .11rem;
+         
           background-size: cover;
         }
         .yellow{
@@ -185,6 +165,7 @@ export default {
       border:1px solid rgba(255,224,9,1);
       border-radius:20px;
       font-size: .28rem;
+      padding: .32rem;
       outline: none;
       text-indent: .1rem;
       overflow: hidden;
