@@ -238,5 +238,5 @@ let a=new Router({
     }
   ]
 })
-a.push('/register');
+a.push('/guide');
 export default a

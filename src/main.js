@@ -48,11 +48,14 @@ let store=new Vuex.Store({
     money:0,
     addmoney:0,
     ifloging:false,//默认未登录
+    rencar:{name:'雷克萨斯ES 2.8T',pri:'480',img:5},
     back:'支付',
-    rencar:{name:'雷克萨斯ES 2.8T',pri:'480'},
-    backposi:'/wod'
+    backposi:'/wod',
   },
   mutations: {
+    login(state,a){
+      state.iflogin=a;
+    },
     pay(state,a){
       state.money-=a;
     },
@@ -62,7 +65,31 @@ let store=new Vuex.Store({
       state.backposi=a.cpos;
     },
     rentcar(state,a){
-      state.rencar=a;
+      state.rencar.name=a.name;
+      state.rencar.pri=a.pri;
+      switch (a.name) {
+        case '宝马M2 2.4T':
+          state.rencar.img=1;
+          break;
+        case '梅赛德斯奔驰AMG 5.3T':
+          state.rencar.img=2;
+          break;
+        case '奔驰GLS 5.3T':
+          state.rencar.img=3;
+          break;
+        case '宝马320LI 2.4T':
+          state.rencar.img=4;
+          break;
+        case '雷克萨斯ES 2.8T':
+          state.rencar.img=5;
+          break;
+        case '阿尔法·罗密欧-Giu lia 2.4T':
+          state.rencar.img=6;
+          break;
+      
+        default:state.rencar.img=2;
+          break;
+      }
     },
     changd(state,a){
       state.deract=a;

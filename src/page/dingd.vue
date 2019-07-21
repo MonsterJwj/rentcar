@@ -162,7 +162,7 @@ export default {
     q3(){
       // window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx9ac80acc06aa2697&redirect_uri=window.location.href&response_type=code&scope=snsapi_base&#wechat_redirect"
       
-      if(this.$store.state.ifloging==false){
+      if(this.$store.state.iflogin==false){
          Dialog.confirm({
           title:'请登录',
           message: '',
@@ -171,13 +171,30 @@ export default {
           }).then(() => {
             // on confirm
             this.$store.commit('cback',{cback:'支付',cpos:"/dingd"});
-            this.$router.push('/chong_first');
+            this.$router.push('/login');
           }).catch(() => {
             // on cancel
           });
-      }else{
-        this.$store.commit('pay',3150)
-        this.$router.push('/ok');
+      }
+      else{
+      // this.$router.push('/ok');
+    if(this.$store.state.money<3150){
+            Dialog.confirm({
+              title:'您的当前余额为:￥'+this.qwe,
+              message: '是否进行充值',
+              confirmButtonText:"是",
+              cancelButtonText:"否",
+              }).then(() => {
+                // on confirm
+                this.$store.commit('cback',{cback:'支付',cpos:"/dingd"});
+                this.$router.push('/chong_first');
+              }).catch(() => {
+                // on cancel
+              });
+          }else{
+            this.$store.commit('pay',3150)
+            this.$router.push('/ok');
+          }
       }
     },
     q4(){
