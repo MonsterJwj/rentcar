@@ -23,7 +23,7 @@ export default {
     // console.log(BMap, map);
     this.center.lng =113.732723;
     this.center.lat =34.776484;
-    this.zoom =this.zoom    
+    this.zoom =this.zoom;  
     var pt = new BMap.Point(113.7307, 34.777);
     var myIcon = new BMap.Icon(require("../assets/img/hourrent/small.png"), new BMap.Size(23,29));
     var marker2 = new BMap.Marker(pt,{icon:myIcon});  // 创建标注

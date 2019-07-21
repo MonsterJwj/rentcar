@@ -71,6 +71,7 @@ export default {
     },
     tiaozhuan(){
       //  alert("登录成功");
+      this.$store.commit('login',true)
        this.$router.push("/changz")
     }
   },
