@@ -12,15 +12,6 @@
               {{a.name}}
               <span v-for="(m,n) in a.show" :key='n' @click="fn(b,n)" :class="{yellow:m,yellow1:!m}"></span>
             </li>
-            
-            <!-- <li>
-              车辆情况
-              <span v-for="(item,index) in 5" :key='index'></span>
-            </li>
-            <li>
-              服务态度
-              <span v-for="(item,index) in 5" :key='index'></span>
-            </li> -->
           </ul>
 
           <div contentEditable="true" class="text"></div>
@@ -30,7 +21,6 @@
               {{a.name}}
               <span v-for="(m,n) in a.show" :key='n' @click="fm(b,n)" :class="{yellow:m,yellow1:!m}"></span>
             </li>
-
           </ul>
 
           <div contentEditable="true" class="text"></div>
@@ -59,6 +49,7 @@ export default {
     }
   },
   methods: {
+
     back(){
       this.$router.go(-1);
     },
@@ -89,9 +80,11 @@ export default {
   }
 }
 </script>
-
 <style scoped lang='less'>
 .header{
+  position: fixed;
+  top:0;
+  width: 100%;
   overflow: hidden;
   background: #FFE009;
   height: 1.28rem;
@@ -110,9 +103,14 @@ export default {
   }
 }
 .box{
+  margin-top:1.28rem;
   background: #fafafa;
   padding: .32rem 0rem 0rem 0rem;
   .btn{
+    position: fixed;
+    bottom:.06rem;
+    right: .1rem;
+    margin: 0;
     width: 6.86rem;
     height: .88rem;
     font-size: .36rem;
