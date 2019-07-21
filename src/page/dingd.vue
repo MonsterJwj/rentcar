@@ -26,7 +26,7 @@
       <div class="box4">
         <ul>
           <li>取车时间</li>
-          <li>7月8日</li>
+          <li>{{$store.state.fday}}</li>
           <li>今天00:00</li>
         </ul>
         <p>3天</p>
@@ -42,7 +42,7 @@
         <ul>
           <li>
             <span>取车城市</span>
-            <span>郑州</span>
+            <span>{{$store.state.fcity}}</span>
           </li>
           <li>
             <span>取车门店</span>

@@ -5,7 +5,7 @@
         <li></li>
         <li>
             <img src="../assets/img/route/向右@2x.png" class="porr2" @click="q1">
-            <span>订单信息</span>
+            <span>门店列表</span>
             <span class="font1" @click='ddd'>地图</span>
         </li>
       </ul>
