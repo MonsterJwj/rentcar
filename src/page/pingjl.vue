@@ -18,78 +18,8 @@
         </p>
         <p class="pingj">{{a.content}}</p>
       </div>
-       <!-- <div class="neirong">
-        <p><img src="./../assets/img/pingjl/img-02@2x(1).png" alt="" class="touxiang"></p>
-        <p>
-          <span class="a">岩岩</span>
-          <img src="./../assets/img/pingjl/icon-02@2x.png" alt="" class="ka">
-          <span>07-06 10:30</span>
-        </p>
-        <br>
-        <p class="car">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-        </p>
-        <p class="pingj">该条为自动评价。</p>
-      </div>
-       <div class="neirong">
-        <p><img src="./../assets/img/pingjl/img-02@2x.png" alt="" class="touxiang"></p>
-        <p>
-          <span class="a">多多</span>
-          <img src="./../assets/img/pingjl/icon-02@2x.png" alt="" class="ka">
-          <span>07-06 10:40</span>
-        </p>
-        <br>
-        <p class="car">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-        </p>
-        <p class="pingj">第一次租车，价格便宜，配置好。</p>
-      </div>
-       <div class="neirong">
-        <p><img src="./../assets/img/pingjl/img-03@2x.png" alt="" class="touxiang"></p>
-        <p>
-          <span class="a">点点</span>
-          <img src="./../assets/img/pingjl/icon-02@2x.png" alt="" class="ka">
-          <span>07-05 10:59</span>
-        </p>
-        <br>
-        <p class="car">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-        </p>
-        <p class="pingj">赞赞赞。</p>
-      </div>
-       <div class="neirong">
-        <p><img src="./../assets/img/pingjl/img-04@2x.png" alt="" class="touxiang"></p>
-        <p>
-          <span class="a">琴琴</span>
-          <img src="./../assets/img/pingjl/icon-02@2x.png" alt="" class="ka">
-          <span>07-06 10:20</span>
-        </p>
-        <br>
-        <p class="car">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-          <img src="./../assets/img/pingjl/icon-03@2x.png" alt="">
-        </p>
-        <p class="pingj">车型多，服务态度好。</p>
-      </div> -->
     </div>  
  </div>
-
-
 </template>
 
 <script>
@@ -127,6 +57,10 @@ export default {
 
 <style scoped lang="less">
 .header{
+   position: fixed;
+   z-index: 2;
+   width: 100%;
+  top:0;
   overflow: hidden;
   background: #FFE009;
   height: 1.28rem;
@@ -145,6 +79,7 @@ export default {
   }
 }
 .box{
+   margin-top:1.28rem;
   background: #FAFAFA;
   padding: .25rem .32rem .24rem .32rem;
   .neirong{

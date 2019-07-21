@@ -1,146 +1,218 @@
 <template>
   <div class="register">
-    <img src="./../assets/img/register/矢量智能对象@2x.png" alt="" class="ico_arrows">
+    <img src="./../assets/img/register/矢量智能对象@2x.png" alt class="ico_arrows" />
     <div class="imgbox">
-     <img src="./../assets/img/register/矢量智能对象@2x(1).png" alt="">
+      <img src="./../assets/img/register/矢量智能对象@2x(1).png" alt />
     </div>
     <div class="user">
-    <router-link to='/login'><span>登录</span></router-link>
-    <router-link to='/register'><span>注册</span></router-link>
+      <router-link to="/login">
+        <span>登录</span>
+      </router-link>
+      <router-link to="/register">
+        <span>注册</span>
+      </router-link>
     </div>
-      <div class="input">
-       <p><input type="text" placeholder="请输入手机号"></p>
-       <p><input type="text" placeholder="请输入验证码"><span>获取验证码</span></p>
-       <p><input type="text" placeholder="密码为6-18位数字英文或组合"><span></span></p>
-      </div>
-       <div class="third">
-          <img src="./../assets/img/register/组 1@2x.png" alt="" @click="dianji">
-        </div>
-        <p><input type="checkbox"/>我已阅读并接受<span>《平驾分时租车会员注册协议》</span></p>
+    <div class="input">
+      <p>
+        <input type="text" placeholder="请输入手机号" @blur="shouji" />
+      </p>
+      <p>
+        <input type="text" placeholder="请输入验证码" />
+        <span @click="btnCheck">{{yz}}</span>
+      </p>
+      <p>
+        <input type="password" placeholder="密码为6-18位数字英文或组合" @blur="mima"/>
+        <span></span>
+      </p>
+    </div>
+    <div class="third">
+      <img src="./../assets/img/register/组 1@2x.png" @click="dianji" />
+    </div>
+    <p>
+      <input type="checkbox" />我已阅读并接受
+      <span>《平驾分时租车会员注册协议》</span>
+    </p>
   </div>
 </template>
-
 <script>
 import { Notify } from "vant";
 export default {
   data() {
     return {
-    
-    }
+      yz: "获取验证码",
+      a:true,
+      phone:null,
+      password:null
+    };
   },
   methods: {
-       dianji(){
-          let shur =document.getElementsByTagName("input")[3];
-          if(shur.checked==true){
-            this.$router.push("/login")
-          }else{
-                  Notify({
+    btnCheck(){
+      this.$axios(
+           "http://172.25.5.205:8080/phone/phones?phone="+this.phone
+      ).then(res=>{
+        
+      }).catch(err=>{
+        console.log(err);
+      })
+      if(this.a){
+        this.a=false;
+        let a=60;
+        let b=setInterval(() => {
+          this.yz=a+'s';
+          a--;
+        if(a==0){
+          this.yz="获取验证码";
+          clearInterval(b);
+          this.a=true;
+        }
+      }, 1000);
+      }
+    },
+    shouji(){
+      var iphone = document.getElementsByTagName("input")[0];
+      var user =/^[1][3,4,5,7,8,6,4,9][0-9]{9}$/; 
+      if(user.test(iphone)){
+         
+      }else{
+        this.$message.error('请输入正确手机号！！');
+      }
+    },
+    mima(){
+      var pas = document.getElementsByTagName("input")[2];
+      var pas1 =/^\d+$/;
+       if(pas1.test(pas)){
+         
+      }else{
+        this.$message.error('密码不正确！！');
+      }
+    },
+    dianji() {
+      let shur = document.getElementsByTagName("input")[2];
+      this.phone=document.getElementsByTagName("input")[0];
+      this.password=document.getElementsByTagName("input")[1];
+      if (shur.checked == true) {
+        this.$axios(
+          "http://172.25.5.205:8080/user/saveUser?"+"phone="+this.phone+"password=" +this.password
+         ).then(res=>{
+         if(res.data){
+             this.$router.push("/login")
+         }else{
+             alert('租车失败')
+         }
+       }
+       ,(err)=>{
+         console.log(err)
+       }).catch(err=>{
+         console.log(err);
+       })
+      } else {
+        Notify({   
           message: "请您阅读租赁协议并同意",
           duration: 2000,
-         background: '#1989fa',
+          background: "#1989fa"
         });
-          }
-       }
+      }
+    }
   },
   components: {
-
+    
   }
-}
+};
 </script>
 
 <style scoped lang='less'>
-  .register{
-   padding: .5rem 0rem 0rem .28rem;
-   font-size: 0;
-    .ico_arrows{
-      width: .2rem;
-      height: .34rem;
+.register {
+  padding: 0.5rem 0rem 0rem 0.28rem;
+  font-size: 0;
+  .ico_arrows {
+    width: 0.2rem;
+    height: 0.34rem;
+  }
+  .imgbox {
+    width: 2.68rem;
+    margin: 0.74rem auto;
+    img {
+      width: 2.68rem;
+      height: 1.55rem;
     }
-    .imgbox{
-      width:2.68rem; 
-       margin:.74rem auto ;
-      img{
-        width: 2.68rem;
-        height: 1.55rem;
-       }
-    }
-    .user{
-        width: 4rem;
-        display: flex;
-        margin: 0 auto;
-       a{
-         flex:1;
-         text-decoration: none;
-         text-align: center;
-         font-size: .36rem;
-         color: #666666;
-       }
-    }
-    .input{
-      margin: .86rem .31rem 0 .03rem;
-       p{
-          border-bottom: 1px solid #cccccc;
-          margin-top:.9rem;
-       input{
-         border: none;
-         width: 7rem;
-         outline: none;
-          font-size: .3rem;
-       }
-       }
-         p:nth-child(2){
-            overflow: hidden;
-            input{
-              width: 5rem;
-              float: left;
-            }
-        span{
-           font-size: .25rem;
-           float: right;
-           color: #f8df2f;
-           width: 1.71rem;
-           height: .36rem;
-           text-align: center;
-           margin-bottom:.12rem; 
-           border: 1px solid #f8df2f;
-           border-radius:.06rem;
-        }
-       }
-         p:nth-child(3){
-            overflow: hidden;
-            input{
-              width: 6rem;
-              float: left;
-            }
-        span{
-          float:right;
-          width: .43rem;
-          height: .26rem;
-           background: url('./../assets/img/register/矢量智能对象@2x(2).png')no-repeat center center;
-           background-size: cover;
-        }
-       }
-    }
-    .third{
-        display: flex;
-       img{
-         width: 1.38rem;
-         height: 1.38rem;
-         margin: .7rem auto 1.79rem;
-       } 
-    }
-    p{
-      font-size: .19rem;
+  }
+  .user {
+    width: 4rem;
+    display: flex;
+    margin: 0 auto;
+    a {
+      flex: 1;
+      text-decoration: none;
       text-align: center;
-      span{
-        color: #f8df2f;
-      
+      font-size: 0.36rem;
+      color: #666666;
+    }
+  }
+  .input {
+    margin: 0.86rem 0.31rem 0 0.03rem;
+    p {
+      border-bottom: 1px solid #cccccc;
+      margin-top: 0.9rem;
+      input {
+        border: none;
+        width: 7rem;
+        outline: none;
+        font-size: 0.3rem;
       }
     }
-     .router-link-active{
-    span{
-     color: #f8df2f;
+    p:nth-child(2) {
+      overflow: hidden;
+      input {
+        width: 5rem;
+        float: left;
+      }
+      span {
+        font-size: 0.25rem;
+        float: right;
+        color: #f8df2f;
+        width: 1.71rem;
+        height: 0.36rem;
+        text-align: center;
+        margin-bottom: 0.12rem;
+        border: 1px solid #f8df2f;
+        border-radius: 0.06rem;
+      }
+    }
+    p:nth-child(3) {
+      overflow: hidden;
+      input {
+        width: 6rem;
+        float: left;
+      }
+      span {
+        float: right;
+        width: 0.43rem;
+        height: 0.26rem;
+        background: url("./../assets/img/register/矢量智能对象@2x(2).png")
+          no-repeat center center;
+        background-size: cover;
+      }
     }
   }
+  .third {
+    display: flex;
+    img {
+      width: 1.38rem;
+      height: 1.38rem;
+      margin: 0.7rem auto 1.79rem;
+    }
   }
+  p {
+    font-size: 0.19rem;
+    text-align: center;
+    span {
+      color: #f8df2f;
+    }
+  }
+  .router-link-active {
+    span {
+      color: #f8df2f;
+    }
+  }
+}
 </style>
