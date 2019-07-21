@@ -1,11 +1,8 @@
 <template>
   <div>
     <ul class="header">
-      <li>
        <router-link to="./mend"><img src="./../assets/img/route/向右@2x.png" alt=""></router-link> 
-      </li>
-      <li>评价列表</li>
-      <li class="di"></li>
+      <p>评价列表</p>
     </ul>
     <div class="box">
       <div class="neirong" v-for="(a,b) in list" :key="b">
@@ -130,19 +127,21 @@ export default {
 
 <style scoped lang="less">
 .header{
-  background: #FFE009;
-  display: flex;
   overflow: hidden;
-  li{
-    text-align: center;
-    flex: 1;
-    font-size: .36rem;
-    padding: .35rem .34rem .28rem .35rem;
-    img{
-      float: left;
-      width: .2rem;
-      height: .34rem;
-    }
+  background: #FFE009;
+  height: 1.28rem;
+  padding: .4rem .32rem 0 .32rem;
+  box-sizing: border-box;
+  img{
+    float: left;
+    margin-top: .25rem;
+    width: .20rem;
+    height: .34rem;
+  }
+  p{
+    font-size: .34rem;
+    line-height: .88rem;
+     text-align: center;
   }
 }
 .box{

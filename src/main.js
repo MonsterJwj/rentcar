@@ -47,10 +47,10 @@ let store=new Vuex.Store({
     tday:new Date(),
     money:0,
     addmoney:0,
-    iflogin:false,//默认未登录
-    back:'支付',
+    ifloging:false,//默认未登录
     rencar:{name:'雷克萨斯ES 2.8T',pri:'480'},
-    backposi:'/wod'
+    back:'支付',
+    backposi:'/wod',
   },
   mutations: {
     login(state,a){

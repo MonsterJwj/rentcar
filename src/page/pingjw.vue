@@ -1,14 +1,9 @@
 <template>
   <div class="pingjw">
-    <ul class="header">
-        <li>
-          <span class="fanhui" @click="fa"></span>
-        </li>
-        <li>评价完成</li>
-        <li>
-        </li> 
+  <ul class="header">
+       <router-link to="./mend"><img src="./../assets/img/route/向右@2x.png" alt=""></router-link> 
+      <p>评价列表</p>
     </ul>
-
     <div class="imgbox">
         <img src="./../assets/img/pingjw/icon-05@2x.png" alt="">
     </div>
@@ -76,31 +71,22 @@ export default {
     min-height: 100%;
 }
 .header{
-    display: flex;
-    font-size: .4rem;
-    color: #333333;
-    background: #FFE009;
-    li{
-      flex: 1;
-      text-align: center;
-      overflow: hidden;
-      padding: .65rem .35rem .29rem .32rem;
-      .fanhui{
-        display: block;
-        width: .2rem;
-        height: .34rem;
-        background: url('./../assets/img/route/向右@2x.png')no-repeat center center;
-        background-size: cover;
-      }
-      .fanhui1{
-        float: right;
-        display: block;
-        width: .4rem;
-        height: .68rem;
-        background: url('./../assets/mend_img/icon-02@2x.png')no-repeat center center;
-        background-size: cover;
-      }
-    }
+  overflow: hidden;
+  background: #FFE009;
+  height: 1.28rem;
+  padding: .4rem .32rem 0 .32rem;
+  box-sizing: border-box;
+  img{
+    float: left;
+    margin-top: .25rem;
+    width: .20rem;
+    height: .34rem;
+  }
+  p{
+    font-size: .34rem;
+    line-height: .88rem;
+     text-align: center;
+  }
 }
 .imgbox{
     width: 1.48rem;
