@@ -12,6 +12,8 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
+Vue.config.devtools = process.env.NODE_ENV === 'development'
+
 // vant
 // import {Rate} from 'vant';
 // import 'vant/lib/index.css';
