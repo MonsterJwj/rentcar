@@ -238,5 +238,5 @@ let a=new Router({
     }
   ]
 })
-a.push('/dingdx2');
+a.push('/guide');
 export default a
