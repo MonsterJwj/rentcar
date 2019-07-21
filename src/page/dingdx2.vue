@@ -11,13 +11,14 @@
       </ul>
 
       <!-- 大图 -->
-      <div class="box2"></div>
+      <div :class="{box2_1:1==$store.state.rentcar.img,box2_2:2==$store.state.rentcar.img,box2_3:3==$store.state.rentcar.img,
+      box2_4:4==$store.state.rentcar.img,box2_5:5==$store.state.rentcar.img,box2_6:6==$store.state.rentcar.img}"></div>
       <!-- 车名 -->
       <div class="box3">
         <ul>
           <li>
             <img src="../assets/img/dingdan/85.png">
-            雷克萨斯-ES<span>￥500/日均</span></li>
+            <span class="zxc">{{$store.state.rencar.name}}</span><span>{{$store.state.rencar.pri}}/日均</span></li>
           <li><span>中型轿车</span><span>2.7L自动</span><span>乘坐5人</span></li>
         </ul>
       </div>
@@ -168,7 +169,8 @@ export default {
       $('.q4').show();
     },
     cancel(){
-      $('.q4').hide();
+      // $('.q4').hide();
+      this.show=false;  
     },
     confirm(a){
       if(this.chose=='tday'){
@@ -270,11 +272,41 @@ export default {
         }
       }
     }
-    .box2{
-      width:rem;
+    .box2_1{
+      width:100%;
       height:2.34rem;
-      background:url(../assets/img/dingdan/21331.png)no-repeat center center;
-      background-size:7.5rem 2.34rem;
+      background:url(../assets/img/dingdan/21331.png) no-repeat center center;
+      background-size:cover;
+    }
+    .box2_2{
+      width:100%;
+      height:2.34rem;
+      background:url(../assets/img/dingdan/21331.png) no-repeat center center;
+      background-size:cover;
+    }
+    .box2_3{
+      width:100%;
+      height:2.34rem;
+      background:url(../assets/img/dingdan/21331.png) no-repeat center center;
+      background-size:cover;
+    }
+    .box2_4{
+      width:100%;
+      height:2.34rem;
+      background:url(../assets/img/dingdan/21331.png) no-repeat center center;
+      background-size:cover;
+    }
+    .box2_5{
+      width:100%;
+      height:2.34rem;
+      background:url(../assets/img/dingdan/21331.png) no-repeat center center;
+      background-size:cover;
+    }
+    .box2_6{
+      width:100%;
+      height:2.34rem;
+      background:url(../assets/img/dingdan/21331.png) no-repeat center center;
+      background-size:cover;
     }
     .box3{
       width:6.86rem;
@@ -290,13 +322,15 @@ export default {
         li:nth-child(1){
           background-size:.48rem;
           display: flex;
+          justify-content:space-between;
           img{
             width:.48rem;
             height:.48rem;
           }
-          span{
+          .zxc{
+            display: inline-block;
             position: relative;
-            left:2.25rem;
+            left:-.4rem;
           }
         }
         li:nth-child(2){
