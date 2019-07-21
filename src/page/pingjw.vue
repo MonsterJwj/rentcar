@@ -1,7 +1,7 @@
 <template>
   <div class="pingjw">
   <ul class="header">
-       <router-link to="./mend"><img src="./../assets/img/route/向右@2x.png" alt=""></router-link> 
+       <router-link to="./changz"><img src="./../assets/img/route/向右@2x.png" alt=""></router-link> 
       <p>评价列表</p>
     </ul>
     <div class="imgbox">
