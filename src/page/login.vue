@@ -10,9 +10,9 @@
     </div>
       <div class="input">
        <span class="ico_1"></span>
-       <p><input type="text"  placeholder="请输入用户名" id="str" @blur="checkname"></p>
+       <p><input type="text"  placeholder="请输入手机号" v-model="phone"></p>
        <span class="ico_2"></span>
-       <p><input type="password" placeholder="请输入密码" id="pwd" @blur="checkpwd"></p>
+       <p><input type="password" placeholder="请输入密码" v-model="password"></p>
       </div>
            <p class="password">忘记密码</p>
         <div class="third">
@@ -24,55 +24,46 @@
             <li><img src="./../assets/img/login/组 1@2x(2).png" alt=""></li>
             <li><img src="./../assets/img/login/组 1@2x(3).png" alt=""></li>
         </ul>
-         <div id='warning' v-show="wt_show">
-           <p id='wt_'></p><span @click="wt_show=false">x</span>
-         </div>
-         <div id='hint' v-show="hint">
-           <p id='wt_'></p><span @click="wt_show=false">x</span>
-         </div>
   </div>
 </template>
 
 <script>
- 
 export default {
   data() {
     return {
       wt_show:false,
-      hint:false
+      hint:false,
+      phone:null,
+      password:null
     }
   },
   methods: {
-    checkname(str){
-        var str = document.getElementById('str').value;
-        var warning=document.getElementById('wt_')
-        var user =/[\u4e00-\u9fa5]/gm;
-        if (user.test(str))
-         {
-           warning.innerHTML="";
-            }
-        else {
-         
-              warning.innerHTML="请输入正确的用户名";
-            this.wt_show=true
-        } 
-    },
-    checkpwd(pwd){
-       var pwd = document.getElementById('pwd').value;
-        var hint=document.getElementById('wt_')
-         var pwds =/^[a-z0-9]+$/i;
-        if(pwds.test(pwd)){
-             hint.innerHTML="";
-        }
-       else{
-          hint.innerHTML="请输入正确的密码";
-          this.wt_show=true
-       }
-    },
     tiaozhuan(){
-      //  alert("登录成功");
-      this.$store.commit('login',true)
-      this.$router.push(this.$store.state.loginto)
+        let user =/^[1][3,5,7,8,6,4,9][0-9]{9}$/;
+        let pass=/^\w{6,18}$/;
+        // console.log(user.test(this.phone)&&pass.test(this.password))
+        //验证账号密码格式 
+        if(user.test(this.phone)&&pass.test(this.password)){
+          //验证账号密码
+          this.$axios(
+            "http://wlz.in.8866.org:30167/user/loginUser?phone="+this.phone+"&&password=" +this.password
+          ).then(res=>{
+            console.log(res.data); 
+            if(res.data){
+              this.$store.commit('login',true)
+              this.$router.push(this.$store.state.loginto)
+            }else{
+              this.$message.err('账号密码错误');
+            }
+          }
+          ,(err)=>{
+            console.log(err)
+          }).catch(err=>{
+            console.log(err);
+          })
+          }else{
+              this.$message.error('请输入正确的手机号和密码');
+          }
     }
   },
   components: {
@@ -186,65 +177,6 @@ export default {
     span{
 color: #f8df2f;
     }
-  }
-  //弹出层
-  #warning{
-    position: fixed;
-    top:0;
-    left:0;
-   background: rgba(0, 0, 0, .3);
-   width: 100%;
-   height: 100%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-    span{
-      position:absolute;
-      top:40%;
-      right:80%;
-      font-size: .4rem;
-    }
-  }
-  #wt_{
-    height: 20%;
-    width: 70%;
-    font-size: .24rem;
-     display: flex;
-   justify-content: center;
-   align-items: center;
-    border-radius: 20px;
-    background: #ffffff;
-  }
-
-
-
-
-  #hint{
-    position: fixed;
-    top:0;
-    left:0;
-   background: rgba(0, 0, 0, .3);
-   width: 100%;
-   height: 100%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-    span{
-      position:absolute;
-      top:40%;
-      right:80%;
-      font-size: .4rem;
-    }
-  }
-  #wt_{
-    height: 20%;
-    width: 70%;
-    font-size: .24rem;
-     display: flex;
-   justify-content: center;
-   align-items: center;
-    border-radius: 20px;
-    background: #ffffff;
   }
   }
 </style>

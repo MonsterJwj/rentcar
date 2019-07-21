@@ -66,7 +66,7 @@ export default {
     }
   },
   mounted(){
-    console.log(this.$refs.gra);
+    // console.log(this.$refs.gra);
     this.$refs.gra.style.width=this.exp+'%'
   },
   computed:{

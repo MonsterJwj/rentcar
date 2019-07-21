@@ -19,11 +19,7 @@
         <div class="neirong">
             <p>我的评价</p>
             <p class="pin">
-                <img src="./../assets/img/pingjw/icon-02@2x.png" alt="">
-                <img src="./../assets/img/pingjw/icon-02@2x.png" alt="">
-                <img src="./../assets/img/pingjw/icon-02@2x.png" alt="">
-                <img src="./../assets/img/pingjw/icon-02@2x.png" alt="">
-                <img src="./../assets/img/pingjw/icon-02@2x.png" alt="">
+                 <span v-for="(m,n) in score" :key="n" :class="{cho:m,nocho:!m}"></span>
             </p>
             <ul class="fen">
                 <li>
@@ -45,13 +41,7 @@
 export default {
   data() {
     return {
-       name:[
-            "./../assets/img/pingjw/icon-02@2x.png",
-             "./../assets/img/pingjw/icon-02@2x.png",
-             "./../assets/img/pingjw/icon-02@2x.png",
-              "./../assets/img/pingjw/icon-02@2x.png",
-              "./../assets/img/pingjw/icon-02@2x.png"
-           ] 
+      score:[true,,true,true,true,false] 
     }
   },
   methods: {
@@ -111,7 +101,7 @@ export default {
     }
 }
 .box{
-    margin-top: .55rem;
+
     .neirong{
         padding: .24rem 0rem 0rem 0rem;
         background: #fff;
@@ -126,11 +116,19 @@ export default {
         }
         .pin{
             margin-top: .33rem;
-            img{
-                width: .4rem;
-                height: .29rem;
-                padding: 0rem .12rem 0rem .12rem;                
-            }
+            span{
+        display: inline-block;
+        width: .48rem;
+        height: .48rem;
+      }
+      .nocho{
+        background: url('../assets/img/pingj/icon-2-png@2x.png') no-repeat;
+        background-size: contain;
+      }
+      .cho{
+        background: url('../assets/img/pingj/icon-1-png@2x.png') no-repeat;
+        background-size: contain;
+      }
         }
         .fen{
               display: flex;
