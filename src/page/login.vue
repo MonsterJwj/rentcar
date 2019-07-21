@@ -38,8 +38,8 @@
 export default {
   data() {
     return {
-   wt_show:false,
-   hint:false
+      wt_show:false,
+      hint:false
     }
   },
   methods: {
@@ -65,14 +65,14 @@ export default {
              hint.innerHTML="";
         }
        else{
-           hint.innerHTML="请输入正确的密码";
-            this.wt_show=true
+          hint.innerHTML="请输入正确的密码";
+          this.wt_show=true
        }
     },
     tiaozhuan(){
       //  alert("登录成功");
       this.$store.commit('login',true)
-       this.$router.push("/changz")
+      this.$router.push(this.$store.state.loginto)
     }
   },
   components: {

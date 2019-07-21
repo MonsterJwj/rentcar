@@ -11,8 +11,12 @@
       </ul>
 
       <!-- 大图 -->
-      <div :class="{box2_1:1==$store.state.rentcar.img,box2_2:2==$store.state.rentcar.img,box2_3:3==$store.state.rentcar.img,
-      box2_4:4==$store.state.rentcar.img,box2_5:5==$store.state.rentcar.img,box2_6:6==$store.state.rentcar.img}"></div>
+      <div :class="{box2_1:1==$store.state.rencar.img,
+      box2_2:2==$store.state.rencar.img,
+      box2_3:3==$store.state.rencar.img,
+      box2_4:4==$store.state.rencar.img,
+      box2_5:5==$store.state.rencar.img,
+      box2_6:6==$store.state.rencar.img}"></div>
       <!-- 车名 -->
       <div class="box3">
         <ul>
@@ -98,6 +102,16 @@
 
 <script>
 export default {
+  mounted(){
+    // console.log(this.$store.state.rencar.img)
+  //   this.$axios.get('http://172.25.1.224:8080/carinfo/selectAll')
+  // .then(function (res) {
+  //   console.log(res);
+  // })
+  // .catch(function (err) {
+  //   console.log(err);
+  // });
+  },
   data() {
     return {
       qwe:true,
@@ -213,15 +227,6 @@ export default {
       return this.$store.state.tcity;
     }
   },
-  mounted(){
-  //   this.$axios.get('http://172.25.1.224:8080/carinfo/selectAll')
-  // .then(function (res) {
-  //   console.log(res);
-  // })
-  // .catch(function (err) {
-  //   console.log(err);
-  // });
-  }
 }
 </script>
 
@@ -275,37 +280,37 @@ export default {
     .box2_1{
       width:100%;
       height:2.34rem;
-      background:url(../assets/img/dingdan/21331.png) no-repeat center center;
+      background:url('../assets/img/jiag/jiage-img-3.png@2x.png') no-repeat center center;
       background-size:cover;
     }
     .box2_2{
       width:100%;
       height:2.34rem;
-      background:url(../assets/img/dingdan/21331.png) no-repeat center center;
+      background:url('../assets/img/chex/img-1-png@2x.png') no-repeat center center;
       background-size:cover;
     }
     .box2_3{
       width:100%;
       height:2.34rem;
-      background:url(../assets/img/dingdan/21331.png) no-repeat center center;
+      background:url('../assets/img/jiag/jiage-img-2.png@2x.png') no-repeat center center;
       background-size:cover;
     }
     .box2_4{
       width:100%;
       height:2.34rem;
-      background:url(../assets/img/dingdan/21331.png) no-repeat center center;
+      background:url('../assets/img/chex/img-3-png@2x.png') no-repeat center center;
       background-size:cover;
     }
     .box2_5{
       width:100%;
       height:2.34rem;
-      background:url(../assets/img/dingdan/21331.png) no-repeat center center;
+      background:url('../assets/img/chex/img-4-png@2x.png') no-repeat center center;
       background-size:cover;
     }
     .box2_6{
       width:100%;
       height:2.34rem;
-      background:url(../assets/img/dingdan/21331.png) no-repeat center center;
+      background:url('../assets/img/chex/img-2-png@2x.png') no-repeat center center;
       background-size:cover;
     }
     .box3{
