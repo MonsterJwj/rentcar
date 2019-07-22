@@ -50,6 +50,13 @@ export default {
   },
   methods: {
     btnCheck(){
+      this.$axios(
+           "http://wlz.in.8866.org:30167/phone/phones?phone="+this.phone
+      ).then(res=>{
+        console.log(res)
+      }).catch(err=>{
+        console.log(err);
+      })
       if(this.a){
         this.$axios("http://wlz.in.8866.org:30167/phone/phones?phone="+this.phone).then(
           res=>{

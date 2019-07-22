@@ -90,6 +90,7 @@ export default {
                    font-size: .48rem;
                }
                input{
+                 width: 2.4rem;
                   border: none;
                   outline: none;
                   border-bottom: 1px solid #cccccc;
@@ -101,7 +102,7 @@ export default {
              width: 1.54rem;
              height: .5rem;
               border: none;
-              margin-top:-.5rem;
+              margin-top:-.1rem;
               margin-right: .33rem;
              background:linear-gradient(90deg,rgba(251,236,129,1),rgba(255,224,9,1));
              border-radius: 25px;
