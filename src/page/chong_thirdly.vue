@@ -19,7 +19,6 @@ export default {
   },
   methods: {
     q1(){
-      // console.log(this.$store)
       if(this.$store.state.back=='支付'){
         this.$router.push('/dingd');
       }else{this.$router.push('/chong_first')}

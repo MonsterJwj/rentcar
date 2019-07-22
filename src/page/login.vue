@@ -67,13 +67,14 @@ export default {
          ).then(res=>{
            console.log(res.data); 
          if(res.data){
-             this.$router.push("/wod")
+             this.$router.push("/wod");
          }else{
              alert('租车失败')
          }
        }
        ,(err)=>{
          console.log(err)
+         this.$router.push("/wod");
        }).catch(err=>{
          console.log(err);
        })

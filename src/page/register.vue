@@ -48,9 +48,9 @@ export default {
   methods: {
     btnCheck(){
       this.$axios(
-           "http://172.25.5.205:8080/phone/phones?phone="+this.phone
+           "http://wlz.in.8866.org:30167/phone/phones?phone="+this.phone
       ).then(res=>{
-        
+        console.log(res)
       }).catch(err=>{
         console.log(err);
       })
@@ -69,22 +69,23 @@ export default {
       }
     },
     shouji(){
-      var iphone = document.getElementsByTagName("input")[0];
+      var iphone = document.getElementsByTagName("input")[0].value;
       var user =/^[1][3,4,5,7,8,6,4,9][0-9]{9}$/; 
       if(user.test(iphone)){
-         
+          
       }else{
         this.$message.error('请输入正确手机号！！');
       }
     },
     mima(){
       var pas = document.getElementsByTagName("input")[2];
-      var pas1 =/^\d+$/;
-       if(pas1.test(pas)){
-         
-      }else{
-        this.$message.error('密码不正确！！');
-      }
+        this.$router.push("/login");
+      // var pas1 =/^\d+$/;
+      //  if(pas1.test(pas)){
+      //       this.$router.push("/login");
+      // }else{
+      //   this.$message.error('密码不正确！！');
+      // }
     },
     dianji() {
       let shur = document.getElementsByTagName("input")[2];
@@ -92,8 +93,9 @@ export default {
       this.password=document.getElementsByTagName("input")[1];
       if (shur.checked == true) {
         this.$axios(
-          "http://172.25.5.205:8080/user/saveUser?"+"phone="+this.phone+"password=" +this.password
+          "http://wlz.in.8866.org:30167/user/saveUser?"+"phone="+this.phone+"password=" +this.password
          ).then(res=>{
+           console.log(res.data);
          if(res.data){
              this.$router.push("/login")
          }else{
