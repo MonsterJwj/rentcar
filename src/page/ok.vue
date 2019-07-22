@@ -16,11 +16,11 @@
           <ul>
               <li>
                   <span>交易金额</span>
-                  <span>3156元</span>
+                  <span>￥{{2600+Number($store.state.rencar.pri)*this.time}}</span>
               </li>
               <li>
                   <span>支付方式</span>
-                  <span>支付宝</span>
+                  <span>钱包支付</span>
               </li>
               <li>
                   <span>商品说明</span>
@@ -28,11 +28,11 @@
               </li>
               <li>
                   <span>创建时间</span>
-                  <span>2019-5-13</span>
+                  <span>{{this.nowTime}}</span>
               </li>
               <li>
-                  <span>创建时间</span>
-                  <span>2019-5-13</span>
+                  <span>支付时间</span>
+                  <span>{{this.toTime}}</span>
               </li>
           </ul>
         <!-- 评价 -->
@@ -51,6 +51,13 @@ export default {
 
     }
   },
+   computed:{
+     time(){
+      let a=new Date(this.$store.state.fday);
+      let b=new Date(this.$store.state.tday);
+      return Math.ceil((b.getTime()-a.getTime())/86400000);
+    },
+  },
   methods: {
     q1(){
       this.$router.push('/dingdx');
@@ -58,6 +65,12 @@ export default {
     q2(){
       this.$router.go(-1);
     }
+  },
+  created () {
+    this.nowTime = new Date().toLocaleString();
+    this.nowTime=this.nowTime.slice(0,9);
+    this.toTime = new Date().toLocaleString();
+    this.toTime=this.toTime.slice(-8);
   },
   components: {
 

@@ -95,7 +95,7 @@ export default {
     }
   },
   mounted () {
-    this.$axios('http://qaq12123.in.8866.org:30102/account/findAllCityMap').then(
+    this.$axios('http://wlz.in.8866.org:30167/city/findAllCityMap').then(
       (a)=>{
         let lll=Object.keys(a.data);//所有键名
         let ooo=Object.values(a.data);//所有键值

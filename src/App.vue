@@ -23,6 +23,7 @@ export default {
 body,html,#app{
   width:100%;
   height:100%;
+  overflow: hidden;
 }
 /* 样式重置文件 */
 body,html,h1,h2,h3,h4,h5,h6,ul,p{

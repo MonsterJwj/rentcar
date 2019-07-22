@@ -72,7 +72,7 @@ export default {
           background-color: #f8b827;
           color:#fff;
           border-radius:.4rem;
-          opacity:.58;
+          opacity:.7;
           margin-left:50%;
           transform: translateX(-2.125rem);
           position: absolute;

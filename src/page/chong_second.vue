@@ -7,7 +7,7 @@
       <img src="./../assets/img/recharge/img-1-png@2x.png" alt />
       <div class="my">
         <p>我的余额: <span>{{$store.state.money}}元</span></p>
-        <p>充值金额: <input type="text" v-model="num">
+        <p>充值金额: <input type="text" v-model="num" class="qww">
         <button @click="tt">充值</button>
            </p> 
       </div>
@@ -23,6 +23,7 @@
 </template>
 <script>
 import Chongz from "./../components/chongz";
+import { Notify } from "vant";
 export default {
   data() {
     return {
@@ -47,8 +48,14 @@ export default {
         this.num=a;
       },
       tt(){
-        this.$store.commit('addmoney',this.num)
-        this.$router.push('/chong_fourthly')
+        console.log(Number(this.num));
+        if(Number(this.num)){
+          this.$store.commit('addmoney',this.num)
+          this.$router.push('/chong_fourthly')
+        }else{
+          this.$message.error('请输入正确的')
+        }
+
       }
   },
   components: {

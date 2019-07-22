@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="all">
     <ul class="header">
        <router-link to="./mend"><img src="./../assets/img/route/向右@2x.png" alt=""></router-link> 
       <p>评价列表</p>
@@ -56,6 +56,11 @@ export default {
 </script>
 
 <style scoped lang="less">
+.all{
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
 .header{
    position: fixed;
    z-index: 2;

@@ -47,7 +47,7 @@ export default {
       this.$router.push('/dit')
     },
     q1(){
-      this.$router.go(this.go);
+      this.$router.push('/changz');
     }
   },
   mounted () {

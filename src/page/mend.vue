@@ -13,8 +13,8 @@
       <ul class="uls">
         <li></li>
         <li>
-            <img src="../assets/img/route/向右@2x.png" @click="q4">
-            <span>订单信息</span>
+            <img src="../assets/img/route/向右@2x.png" @click="q4" class="qqqqqq">
+            <span>门店</span>
         </li>
       </ul>
       <div class="bbooxx">
@@ -118,7 +118,7 @@ export default {
       this.$router.go(-1);
     },
     q4(){
-      this.$router.go(-1)
+      this.$router.push('/md');
     }
   },
   components: {
@@ -153,8 +153,8 @@ export default {
         img{
           width:.2rem;
           height:.34rem;
-          position: relative;;
-          left:-2.57rem;
+          position: absolute;
+          left:.32rem;
         }
         span{
           font-size:.36rem;

@@ -1,18 +1,18 @@
 <template>
-  <div class="changz">
+  <div class="changz" ref='aaa'>
       <Pjsf></Pjsf>
       <div class="all">
         <div class="list">
           <div class="fromto" v-for="(a,b) in slist" :key="b">
             <div class="from">
               <p class="city">{{a.from}}</p>
-              <p class="tian">{{a.fromtime}}</p>
+              <p class="tian">{{a.fromtime|day}}</p>
               <p class="chezi"><img :src="a.carimg" alt=""></p>
             </div>
             <div class="time"><span>{{a.day}}</span>天</div>
             <div class="to">
               <p class="city">{{a.to}}</p>
-              <p class="tian">{{a.totime}}</p>
+              <p class="tian">{{a.totime|day}}</p>
               <p class="chezi">{{a.cartype}}</p>
             </div>
           </div>
@@ -25,15 +25,48 @@
 <script>
 import Pjsf from "../components/pjsf"
 export default {
+  filters: {
+    day(a){
+      let day=new Date(a.slice(0,10));
+      let zhou;
+      switch (day.getDay()) {
+        case 0:
+          zhou='周日'
+          break;
+        case 1:
+          zhou='周一'
+          break;
+        case 2:
+          zhou='周二'
+          break;
+        case 3:
+          zhou='周三'
+          break;
+        case 4:
+          zhou='周四'
+          break;
+        case 5:
+          zhou='周五'
+          break;
+        case 6:
+          zhou='周六'
+          break;
+        default:
+          zhou='未知'
+          break;
+      }
+      return day.getMonth()+1+'月'+day.getDate()+'日 '+zhou
+    }
+  },
   data() {
     return {
       list:[
-        {from:'郑州',fromtime:'07年10日 周一',carimg:require("../assets/img/shunfeng/dazo.png"),day:"30",to:"广州",totime:"08年10日 周三",cartype:"大众朗逸"},
-        {from:'郑州',fromtime:'07年11日 周二',carimg:require("../assets/img/shunfeng/leike.png"),day:"30",to:"广州",totime:"08年10日 周三",cartype:"雷克萨斯-ES"},
-        {from:'郑州',fromtime:'07年10日 周一',carimg:require("../assets/img/shunfeng/dazo.png"),day:"30",to:"广州",totime:"08年10日 周三",cartype:"大众朗逸"},
-        {from:'郑州',fromtime:'07年10日 周一',carimg:require("../assets/img/shunfeng/leike.png"),day:"30",to:"广州",totime:"08年10日 周三",cartype:"雷克萨斯-ES"},
-        {from:'郑州',fromtime:'07年10日 周一',carimg:require("../assets/img/shunfeng/dazo.png"),day:"30",to:"广州",totime:"08年10日 周三",cartype:"大众朗逸"},
-        {from:'郑州',fromtime:'07年10日 周一',carimg:require("../assets/img/shunfeng/leike.png"),day:"30",to:"广州",totime:"08年10日 周三",cartype:"雷克萨斯-ES"}
+        {from:'郑州',fromtime:'2019-07-22 00-00-00',carimg:require("../assets/img/shunfeng/dazo.png"),day:"30",to:"广州",totime:"2019-07-22 00-00-00",cartype:"大众朗逸"},
+        {from:'郑州',fromtime:'2019-07-22 00-00-00',carimg:require("../assets/img/shunfeng/leike.png"),day:"30",to:"广州",totime:"2019-07-22 00-00-00",cartype:"雷克萨斯-ES"},
+        {from:'郑州',fromtime:'2019-07-22 00-00-00',carimg:require("../assets/img/shunfeng/dazo.png"),day:"30",to:"广州",totime:"2019-07-22 00-00-00",cartype:"大众朗逸"},
+        {from:'郑州',fromtime:'2019-07-22 00-00-00',carimg:require("../assets/img/shunfeng/leike.png"),day:"30",to:"广州",totime:"2019-07-22 00-00-00",cartype:"雷克萨斯-ES"},
+        {from:'郑州',fromtime:'2019-07-22 00-00-00',carimg:require("../assets/img/shunfeng/dazo.png"),day:"30",to:"广州",totime:"2019-07-22 00-00-00",cartype:"大众朗逸"},
+        {from:'郑州',fromtime:'2019-07-22 00-00-00',carimg:require("../assets/img/shunfeng/leike.png"),day:"30",to:"广州",totime:"2019-07-22 00-00-00",cartype:"雷克萨斯-ES"}
       ],
       slist:[]
     }
@@ -55,14 +88,14 @@ export default {
       for(let i=0;i<ran.length;i++){
         this.slist.push(this.list[ran[i]])
       }
-      document.documentElement.scrollTop=0;
-      // console.log(ran)
+      this.$refs.aaa.scrollTop=0;
+      // console.log(this.$refs.aaa.scrollTop)
     }
   },
   mounted () {
-    this.$axios.get('http://qaq12123.in.8866.org:30102/account/findOrderList').then(
+    this.$axios.get('http://wlz.in.8866.org:30167/city/findOrderList').then(
       (a)=>{
-        // console.log(a)
+        // console.log(a.data)
         this.list=[];
         a.data.forEach((b)=>{
           let img;
@@ -73,35 +106,35 @@ export default {
             case '雪佛兰':
               img=require('../assets/img/shunfeng/xuef.jpg')
             break;
-            case '保时捷':
+            case '金龙':
               img=require('../assets/img/shunfeng/luh.jpg')
             break;
-            case '别克GL8':
+            case '宝马':
               img=require('../assets/img/shunfeng/luhu.jpg')
             break;
-            case '比亚迪':
+            case '沃尔沃':
               img=require('../assets/img/shunfeng/kaidi.jpg')
             break;
-            case '奥迪A4':
+            case '奥迪':
               img=require('../assets/img/shunfeng/aodi.jpg')
             break;
-            case '一汽大众':
+            case '大众':
               img=require('../assets/img/shunfeng/dazo.png')
             break;
-            case '雪弗兰科麦罗':
+            case '雪佛兰':
               img=require('../assets/img/shunfeng/xuef.jpg')
             break;
-            case '福特':
+            case '宇通':
               img=require('../assets/img/shunfeng/fengt.jpg')
             break;
-            case '欧拓':
+            case '本田':
               img=require('../assets/img/shunfeng/kaidi.jpg')
             break;
             case '奔驰':
               img=require('../assets/img/shunfeng/benc.jpg')
             break;
             default:
-              img=require('../assets/img/shunfeng/luhu.jpg')
+              img=require('../assets/img/shunfeng/xuef.jpg')
               break;
           }
           this.list.push({from:b.collectionCity,fromtime:b.startday,carimg:img,day:b.rentTime,to:b.returnCity,totime:b.endday,cartype:b.brand})
@@ -145,6 +178,8 @@ export default {
     display: flex;
     flex-direction: column;
     height: 100%;
+    width: 100%;
+    overflow-y: auto;
     .all{
       flex: 1;
       background: rgb(250,250,250);

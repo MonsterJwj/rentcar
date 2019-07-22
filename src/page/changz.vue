@@ -189,8 +189,9 @@ export default {
   .changz{
     display: flex;
     flex-direction: column;
-    min-height: 100%;
+    height: 100%;
     width: 100%;
+    overflow-y: auto;
     .timepic{
       // position: fixed;
       // top: 0;

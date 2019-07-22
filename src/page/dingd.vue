@@ -36,7 +36,7 @@
           <li>{{$store.state.fday|yue}}</li>
           <li>{{$store.state.fday|day}}</li>
         </ul>
-        <p>{{time}}</p>
+        <p>{{time}}天</p>
         <ul>
           <li>还车时间</li>
           <li>{{$store.state.tday|yue}}</li>
@@ -73,22 +73,27 @@
       </ul>
       <!-- 下拉菜单 -->
       <ul class="uls4">
+        <li class="lis">
+          <span>车费：</span>
+          <span>{{$store.state.rencar.pri}}*{{time}}</span>
+          <span>￥{{$store.state.rencar.pri*time}}</span>
+        </li>
         <li>
-          <span>定金:</span>
-          <span>￥1500</span>
+          <span>押金:</span>
+          <span>￥500</span>
         </li>
         <li>
           <span>预授权金额:</span>
-          <span>￥1500</span>
+          <span>￥500</span>
         </li>
         <li>
           <span>补给免赔服务费</span>
-          <span>￥150</span>
+          <span>￥50</span>
         </li>
         <li class="lis">
           <span>使用费</span>
-          <span>480*2</span>
-          <span>￥960</span>
+          <span>120*2</span>
+          <span>￥240</span>
         </li>
         <li class="lis">
           <span>GPS服务费:</span>
@@ -102,7 +107,7 @@
         </li>
         <li>
           <span>异地换车服务:</span>
-          <span>￥150</span>
+          <span>￥50</span>
         </li>
         <li>
           <span>违章预授权金额:</span>
@@ -114,7 +119,7 @@
         </li>
         <li>
           <span>车辆损失费:</span>
-          <span>￥150</span>
+          <span>￥0~9999</span>
         </li>
         <li>
           <span>儿童座椅服务费:</span>
@@ -130,7 +135,7 @@
         </li>
         <li>
           <span>加油服务费:</span>
-          <span>￥300</span>
+          <span>￥50</span>
         </li>
 
       </ul>
@@ -138,7 +143,7 @@
       </div>
  <!-- 按钮 -->
       <ul class="uls5">
-        <li>￥3150</li>
+        <li>￥{{2600+Number($store.state.rencar.pri)*this.time}}</li>
         <!-- <li>支付</li> -->
         <li @click="q3">支付</li>
       </ul>
@@ -153,7 +158,7 @@ export default {
      time(){
       let a=new Date(this.$store.state.fday);
       let b=new Date(this.$store.state.tday);
-      return Math.ceil((b.getTime()-a.getTime())/86400000)+'天';
+      return Math.ceil((b.getTime()-a.getTime())/86400000);
     },
   },
     filters:{
@@ -217,7 +222,7 @@ export default {
       }
       else{
       // this.$router.push('/ok');
-    if(this.$store.state.money<3150){
+    if(this.$store.state.money<(2600+Number(this.$store.state.rencar.pri)*this.time)){
             Dialog.confirm({
               title:'您的当前余额为:￥'+this.qwe,
               message: '是否进行充值',
@@ -231,17 +236,17 @@ export default {
                 // on cancel
               });
           }else{
-            this.$store.commit('pay',3150)
+            this.$store.commit('pay',(2600+Number(this.$store.state.rencar.pri)*this.time))
             this.$router.push('/ok');
           }
       }
     },
     q4(){
-      this.$router.push('/dingdx2');
+      this.$router.go(-1);
     },
     getTime(){
         this.nowTime = new Date().toLocaleString();
-        this.nowTime=this.nowTime.slice(0,9);
+        this.nowTime=this.nowTime.slice(0,9); 
 		},
   },
   created(){

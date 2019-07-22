@@ -121,8 +121,8 @@ export default {
       minDate: new Date(),
       maxDate: new Date(2019, 12, 31),
       currentDate: new Date(),
-      fday:new Date(),
-      tday:new Date(),
+      fday:this.$store.state.fday,
+      tday:this.$store.state.tday,
       chose:'fday'
     }
   },
