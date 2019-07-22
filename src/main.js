@@ -12,6 +12,8 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
+Vue.config.devtools = process.env.NODE_ENV === 'development'
+
 // vant
 // import {Rate} from 'vant';
 // import 'vant/lib/index.css';
@@ -47,12 +49,21 @@ let store=new Vuex.Store({
     tday:new Date(),
     money:0,
     addmoney:0,
-    ifloging:false,//默认未登录
+    iflogin:false,//默认未登录
     rencar:{name:'雷克萨斯ES 2.8T',pri:'480',img:5},
     back:'支付',
     backposi:'/wod',
+    loginto:'/wod',
+    pingf:[true,true,true,true,true],
+    
   },
   mutations: {
+    cpingf(state,a){
+      state.pingf=a;
+    },
+    cloginto(state,a){
+      state.loginto=a;
+    },
     login(state,a){
       state.iflogin=a;
     },

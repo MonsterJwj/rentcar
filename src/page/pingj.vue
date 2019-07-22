@@ -1,5 +1,5 @@
 <template>
-  <div>  
+  <div class="all">  
  <ul class="header">
        <router-link to="./mend"><img src="./../assets/img/route/向右@2x.png" alt=""></router-link> 
       <p>评价列表</p>
@@ -27,12 +27,13 @@
 
           <p>感谢你对评价的支持，来说说你的评价之旅吧</p>
         </div>
-        <p class="btn"> <router-link to="/pingjw">提交</router-link> </p>
+        <p class="btn" @click='tj'>提交</p>
       </div>      
   </div>
 </template>
 
 <script>
+import { Notify } from "vant";
 export default {
   data() {
     return {
@@ -49,7 +50,19 @@ export default {
     }
   },
   methods: {
-
+    tj(){
+      let i=0;
+      this.list1.forEach((a)=>{
+        a.show.every((x)=>{return x===false;})?i+=1:i;
+      })
+      this.list2.forEach((a)=>{
+        a.show.every((x)=>{return x===false;})?i+=1:i;
+      })
+      if(i==0){
+        this.$store.commit('cpingf',this.list1[1].show);
+        this.$router.push('/pingjw');
+      }else{this.$message.error('请评价后再提交')};
+    },
     back(){
       this.$router.go(-1);
     },
@@ -81,6 +94,13 @@ export default {
 }
 </script>
 <style scoped lang='less'>
+.all{
+  padding-top: 1.28rem;
+  height: 100%;
+  background: rgb(250,250,250);
+  overflow: hidden;
+  box-sizing: border-box;
+}
 .header{
   position: fixed;
   top:0;
@@ -103,13 +123,15 @@ export default {
   }
 }
 .box{
-  margin-top:1.28rem;
+  // margin-top:1.28rem;
   background: #fafafa;
-  padding: .32rem 0rem 0rem 0rem;
+  padding: .32rem;
+  box-sizing: border-box;
+  width: 100%;
   .btn{
     position: fixed;
-    bottom:.06rem;
-    right: .1rem;
+    bottom:.16rem;
+    right: .32rem;
     margin: 0;
     width: 6.86rem;
     height: .88rem;
@@ -117,17 +139,17 @@ export default {
     text-align: center;
     line-height: .88rem;
     border-radius:44px;
-    margin: 1rem auto;
+    // margin: 1rem auto;
     color: #333333FF;
     background:linear-gradient(90deg,rgba(251,236,129,1),rgba(255,224,9,1));
   }
   .neirong{
     background: #ffffff;
-    width: 6.86rem;
+    // width: 100%;
     height: 9.56rem;
     border-radius:20px;
-    margin: 0 auto;
-    padding: .23rem 0rem .55rem .32rem;
+    // margin: 0 auto;
+    padding: .23rem 0.32rem .55rem .32rem;
     ul{
       font-size:.28rem;
       margin-top: .32rem;
@@ -158,7 +180,8 @@ export default {
       }
     }
     .text{
-      width: 6.22rem;
+      width: 100%;
+      box-sizing: border-box;
       height: 1.89rem;
       border:1px solid rgba(255,224,9,1);
       border-radius:20px;
@@ -167,6 +190,7 @@ export default {
       outline: none;
       text-indent: .1rem;
       overflow: hidden;
+      
       margin-top: .32rem;
     }
     p{

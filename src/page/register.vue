@@ -14,14 +14,14 @@
     </div>
     <div class="input">
       <p>
-        <input type="text" placeholder="请输入手机号" @blur="shouji" />
+        <input type="text" v-model="phone" placeholder="请输入手机号"/>
       </p>
       <p>
-        <input type="text" placeholder="请输入验证码" />
+        <input type="text" v-model="ccc" placeholder="请输入验证码" />
         <span @click="btnCheck">{{yz}}</span>
       </p>
       <p>
-        <input type="password" placeholder="密码为6-18位数字英文或组合" @blur="mima"/>
+        <input type="password" v-model="password" placeholder="密码为6-18位数字英文或组合"/>
         <span></span>
       </p>
     </div>
@@ -29,7 +29,7 @@
       <img src="./../assets/img/register/组 1@2x.png" @click="dianji" />
     </div>
     <p>
-      <input type="checkbox" />我已阅读并接受
+      <input v-model='check' type="checkbox" />我已阅读并接受
       <span>《平驾分时租车会员注册协议》</span>
     </p>
   </div>
@@ -42,7 +42,10 @@ export default {
       yz: "获取验证码",
       a:true,
       phone:null,
-      password:null
+      password:null,
+      yzm:111111,
+      check:false,
+      ccc:''
     };
   },
   methods: {
@@ -55,6 +58,15 @@ export default {
         console.log(err);
       })
       if(this.a){
+        this.$axios("http://wlz.in.8866.org:30167/phone/phones?phone="+this.phone).then(
+          res=>{
+            console.log(res.data);
+            this.yzm=res.data;
+          },err=>{
+            this.$message.error('请检查您的网络');
+          }).catch(err=>{
+            console.log(err);
+        })
         this.a=false;
         let a=60;
         let b=setInterval(() => {
@@ -68,45 +80,37 @@ export default {
       }, 1000);
       }
     },
-    shouji(){
-      var iphone = document.getElementsByTagName("input")[0].value;
-      var user =/^[1][3,4,5,7,8,6,4,9][0-9]{9}$/; 
-      if(user.test(iphone)){
-          
-      }else{
-        this.$message.error('请输入正确手机号！！');
-      }
-    },
-    mima(){
-      var pas = document.getElementsByTagName("input")[2];
-        this.$router.push("/login");
-      // var pas1 =/^\d+$/;
-      //  if(pas1.test(pas)){
-      //       this.$router.push("/login");
-      // }else{
-      //   this.$message.error('密码不正确！！');
-      // }
-    },
     dianji() {
-      let shur = document.getElementsByTagName("input")[2];
-      this.phone=document.getElementsByTagName("input")[0];
-      this.password=document.getElementsByTagName("input")[1];
-      if (shur.checked == true) {
-        this.$axios(
-          "http://wlz.in.8866.org:30167/user/saveUser?"+"phone="+this.phone+"password=" +this.password
-         ).then(res=>{
-           console.log(res.data);
-         if(res.data){
-             this.$router.push("/login")
-         }else{
-             alert('租车失败')
-         }
-       }
-       ,(err)=>{
-         console.log(err)
-       }).catch(err=>{
-         console.log(err);
-       })
+      // console.log(this.check);
+      //是否勾选协议
+      if(this.check){
+        //验证账号密码
+        let user =/^[1][3,5,7,8,6,4,9][0-9]{9}$/;
+        let pass=/^\w{6,18}$/;
+        // console.log(user.test(this.phone)&&pass.test(this.password))
+        if(user.test(this.phone)&&pass.test(this.password)){
+          //验证验证码
+          if(this.yzm==this.ccc){
+            this.$axios("http://wlz.in.8866.org:30167/user/saveUser?phone="+this.phone+"&&password=" +this.password).then(
+            res=>{
+              // console.log(res.data)
+              if(res.data){
+                this.$router.push("/login")
+              }else{
+                this.$message.error('该账号已被注册');
+              }
+            },(err)=>{
+              console.log(err)
+            }).catch(err=>{
+              console.log(err);
+            })
+        }else{
+          this.$message.error('请输入正确的验证码');
+        }
+
+        }else{
+          this.$message.error('请输入正确的手机号和密码');
+        }
       } else {
         Notify({   
           message: "请您阅读租赁协议并同意",

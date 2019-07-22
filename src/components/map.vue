@@ -31,6 +31,8 @@ export default {
       this.$router.push('/mend')
     }
     map.addOverlay(marker2);
+    
+    
     },
     getClickInfo (e) {
       // console.log(e.point.lng);

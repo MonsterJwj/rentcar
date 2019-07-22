@@ -16,7 +16,14 @@
       </ul>
       <!-- 车辆信息 -->
       <div class="box3">
-        <img src="../assets/img/dingdan/21331.png">
+        <!-- <img src="../assets/img/dingdan/21331.png"> -->
+           <div :class="{box2_1:1==$store.state.rencar.img,
+      box2_2:2==$store.state.rencar.img,
+      box2_3:3==$store.state.rencar.img,
+      box2_4:4==$store.state.rencar.img,
+      box2_5:5==$store.state.rencar.img,
+      box2_6:6==$store.state.rencar.img}" class="pooo">
+        </div>
         <ul>
           <li>{{$store.state.rencar.name}}</li>
           <li>SUV/2.7自动/可乘坐5人</li>
@@ -26,14 +33,14 @@
       <div class="box4">
         <ul>
           <li>取车时间</li>
-          <li>{{$store.state.fday}}</li>
-          <li>今天00:00</li>
+          <li>{{$store.state.fday|yue}}</li>
+          <li>{{$store.state.fday|day}}</li>
         </ul>
-        <p>3天</p>
+        <p>{{time}}</p>
         <ul>
           <li>还车时间</li>
-          <li>7月10日</li>
-          <li>周三12:00</li>
+          <li>{{$store.state.tday|yue}}</li>
+          <li>{{$store.state.tday|day}}</li>
         </ul>
       </div>
 
@@ -142,6 +149,37 @@
 <script>
 import { Dialog } from 'vant'
 export default {
+  computed:{
+     time(){
+      let a=new Date(this.$store.state.fday);
+      let b=new Date(this.$store.state.tday);
+      return Math.ceil((b.getTime()-a.getTime())/86400000)+'天';
+    },
+  },
+    filters:{
+    year(a){
+      let date=new Date(a);
+      return date.getFullYear()+"年";
+    },
+    yue(a){
+      let date=new Date(a);
+      return date.getMonth()+1+"月"+date.getDate()+"日";
+    },
+    day(a){
+      let date=new Date(a);
+      // console.log(date.getDay())
+      switch (date.getDay()) {
+        case 1:return '星期一'
+        case 2:return '星期二'
+        case 3:return '星期三'
+        case 4:return '星期四'
+        case 5:return '星期五'
+        case 6:return '星期六'
+        case 0:return '星期日'
+        default:return "未知"
+      }
+    },
+  },
   data() {
     return {
       qwe:this.$store.state.money
@@ -171,6 +209,7 @@ export default {
           }).then(() => {
             // on confirm
             this.$store.commit('cback',{cback:'支付',cpos:"/dingd"});
+            this.$store.commit('cloginto','/dingd')
             this.$router.push('/login');
           }).catch(() => {
             // on cancel
@@ -270,6 +309,42 @@ export default {
     } 
     .box3{
       display: flex;
+      .box2_1{
+      width:2.04rem;
+      height:1.45rem;
+      background:url('../assets/img/jiag/jiage-img-3.png@2x.png') no-repeat center center;
+      background-size:cover;
+    }
+    .box2_2{
+      width:2.04rem;
+      height:1.45rem;
+      background:url('../assets/img/chex/img-1-png@2x.png') no-repeat center center;
+      background-size:cover;
+    }
+    .box2_3{
+      width:2.04rem;
+      height:1.45rem;
+      background:url('../assets/img/jiag/jiage-img-2.png@2x.png') no-repeat center center;
+      background-size:cover;
+    }
+    .box2_4{
+      width:2.04rem;
+      height:1.45rem;
+      background:url('../assets/img/chex/img-3-png@2x.png') no-repeat center center;
+      background-size:cover;
+    }
+    .box2_5{
+     width:2.04rem;
+      height:1.45rem;
+      background:url('../assets/img/chex/img-4-png@2x.png') no-repeat center center;
+      background-size:cover;
+    }
+    .box2_6{
+     width:2.04rem;
+      height:1.45rem;
+      background:url('../assets/img/chex/img-2-png@2x.png') no-repeat center center;
+      background-size:cover;
+    }
       img{
         width:2.04rem;
         height:1.45rem;
@@ -394,6 +469,8 @@ export default {
       }
   }
 
-
+  .pooo{
+    margin-left:.3rem;
+  }
 }
 </style>

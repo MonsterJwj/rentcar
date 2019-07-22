@@ -10,9 +10,9 @@
     </div>
       <div class="input">
        <span class="ico_1"></span>
-       <p><input type="text"  placeholder="请输入手机号" id="str" @blur="checkname"></p>
+       <p><input type="text"  placeholder="请输入手机号" v-model="phone"></p>
        <span class="ico_2"></span>
-       <p><input type="password" placeholder="请输入密码" id="pwd" @blur="checkpwd"></p>
+       <p><input type="password" placeholder="请输入密码" v-model="password"></p>
       </div>
            <p class="password">忘记密码</p>
         <div class="third">
@@ -31,55 +31,40 @@
 export default {
   data() {
     return {
-       wt_show:false,
-       hint:false,
-        phone:null,
-       password:null
+      wt_show:false,
+      hint:false,
+      phone:null,
+      password:null
     }
   },
   methods: {
-    checkname(str){
-        var str = document.getElementById('str').value;
-         var user =/^[1][3,4,5,7,8,6,4,9][0-9]{9}$/; 
-        if (user.test(str))
-         {
-        
-            }
-        else {
-         this.$message.error('请输入正确手机号！！');
-         
-        } 
-    },
-    checkpwd(pwd){
-       var pwd = document.getElementById('pwd').value;
-         var pas1 =/^\d+$/;
-        if(pas1.test(pwd)){  
-        }
-       else{
-           this.$message.error('密码不正确！！');
-       }
-    },
     tiaozhuan(){
-       this.phone=document.getElementsByTagName("input")[0];
-       this.password=document.getElementsByTagName("input")[1];
-        this.$axios(
-          "http://172.25.5.205:8080/user/loginUser?"+"phone="+this.phone+"password=" +this.password
-         ).then(res=>{
-           console.log(res.data); 
-         if(res.data){
-             this.$router.push("/wod");
-         }else{
-             alert('租车失败')
-         }
-       }
-       ,(err)=>{
-         console.log(err)
-         this.$router.push("/wod");
-       }).catch(err=>{
-         console.log(err);
-       })
-      }
-    
+        let user =/^[1][3,5,7,8,6,4,9][0-9]{9}$/;
+        let pass=/^\w{6,18}$/;
+        // console.log(user.test(this.phone)&&pass.test(this.password))
+        //验证账号密码格式 
+        if(user.test(this.phone)&&pass.test(this.password)){
+          //验证账号密码
+          this.$axios(
+            "http://wlz.in.8866.org:30167/user/loginUser?phone="+this.phone+"&&password=" +this.password
+          ).then(res=>{
+            console.log(res.data); 
+            if(res.data){
+              }else{
+                this.$message.err('账号密码错误');
+            }
+          }
+          ,(err)=>{
+            this.$store.commit('login',true)
+            this.$router.push(this.$store.state.loginto)
+            console.log(err)
+          }).catch(err=>{
+            console.log(err);
+          })
+          }else{
+              this.$message.error('请输入正确的手机号和密码');
+          }
+    }
   },
   components: {
 

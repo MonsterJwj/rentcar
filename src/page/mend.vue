@@ -33,7 +33,7 @@
 
       <div class="pingjia">
         <div class="text">
-          <h1>用户评价（88）</h1>
+          <h1>用户评价（88</h1>
           <p class="haoping">好评度99% <span class="ping_icon"></span> </p>
           <div class="biaoqian">
             <span>服务周到</span>
@@ -43,7 +43,13 @@
           <div class="yonghu">
             <div class="touxiang"></div>
             <h1>朗逸</h1>
-            <p class="car"> <span class="icon_car"></span> <span class="icon_car"></span> <span class="icon_car"></span> <span class="icon_car"></span> <span class="icon_car"></span> </p>
+            <p class="car"> 
+              <span class="icar"></span> 
+              <span class="icar"></span> 
+              <span class="icar"></span> 
+              <span class="icar"></span> 
+              <span class="icon_car"></span>
+            </p>
             <span class="pin">租车很方便，服务态度热情，车型多，价格也很便宜。</span>
             <br>
             <p class="quanbu" @click="q1">查看全部评价</p>
@@ -269,6 +275,16 @@ export default {
           height: .29rem;
           margin-top: .12rem;
           background: url('./../assets/img/pingjl/icon-03@2x.png')no-repeat center center;
+          background-size:cover; 
+          float: left;
+          margin-left: .1rem;
+        }
+        .icar{
+          display: block;
+          width: .42rem;
+          height: .29rem;
+          margin-top: .12rem;
+          background: url('./../assets/img/pingj/icon-1-png@2x.png')no-repeat center center;
           background-size:cover; 
           float: left;
           margin-left: .1rem;

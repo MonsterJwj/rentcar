@@ -5,14 +5,14 @@
         <div class="tou">
           <img src="../assets/img/longrent/img-01@2x.png" alt="">
         </div>
-        <div class="name">
-          <p>陈先生</p>
+        <div class="name"  @click="yue">
+          <p>{{name}}</p>
           <div class="gra">
             <span>等级</span>
             <div class="out">
-              <div class="in"></div>
+              <div class="in" ref='gra'></div>
             </div>
-            <span>34/90</span>
+            <span>Lv.{{gra}}</span>
           </div>
         </div>
         <div class="right">
@@ -65,6 +65,25 @@ export default {
       show: false
     }
   },
+  mounted(){
+    // console.log(this.$refs.gra);
+    this.$refs.gra.style.width=this.exp+'%'
+  },
+  computed:{
+    gra(){
+      return 1+Math.floor(this.$store.state.money/1000);
+    },
+    exp(){
+      return Math.floor(this.$store.state.money%1000/10);
+    },
+    name(){
+      if(this.$store.state.iflogin){
+        return "用户16374724645"
+      }else{
+        return '请登录'
+      }
+    }
+  },
   methods: {
     showPopup() {
       this.show = true;
@@ -74,8 +93,13 @@ export default {
     },
     yue(){
       // this.$store.commit('cpos','/wod')
-      this.$store.commit('cback',{cback:'余额',cpos:'/wod'});
-      this.$router.push('/chong_first');
+      if(this.$store.state.iflogin){
+        this.$store.commit('cback',{cback:'余额',cpos:'/wod'});
+        this.$router.push('/chong_first');
+        }else{
+          this.$router.push('/login');
+          this.$store.commit('cloginto','/wod');
+        }
     }
   },
   components: {
