@@ -125,10 +125,11 @@ export default {
         },
       (a)=>{
         console.log(a)
-        this.slist=this.list
+        this.slist=this.list;
         })
       .catch(
         (err)=>{
+          this.slist=this.list;
           console.log(err)
         })
   },

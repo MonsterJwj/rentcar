@@ -53,9 +53,14 @@ let store=new Vuex.Store({
     rencar:{name:'雷克萨斯ES 2.8T',pri:'480',img:5},
     back:'支付',
     backposi:'/wod',
-    loginto:'/wod'
+    loginto:'/wod',
+    pingf:[true,true,true,true,true],
+    
   },
   mutations: {
+    cpingf(state,a){
+      state.pingf=a;
+    },
     cloginto(state,a){
       state.loginto=a;
     },

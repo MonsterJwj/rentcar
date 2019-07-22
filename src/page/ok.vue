@@ -4,7 +4,7 @@
       <ul class="uls">
         <li></li>
         <li>
-            <img src="../assets/img/route/向右@2x.png">
+            <img src="../assets/img/route/向右@2x.png" @click="q2">
             <span>订单信息</span>
         </li>
       </ul>
@@ -54,6 +54,9 @@ export default {
   methods: {
     q1(){
       this.$router.push('/dingdx');
+    },
+    q2(){
+      this.$router.go(-1);
     }
   },
   components: {

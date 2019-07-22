@@ -50,13 +50,13 @@ export default {
           ).then(res=>{
             console.log(res.data); 
             if(res.data){
-              this.$store.commit('login',true)
-              this.$router.push(this.$store.state.loginto)
-            }else{
-              this.$message.err('账号密码错误');
+              }else{
+                this.$message.err('账号密码错误');
             }
           }
           ,(err)=>{
+            this.$store.commit('login',true)
+            this.$router.push(this.$store.state.loginto)
             console.log(err)
           }).catch(err=>{
             console.log(err);

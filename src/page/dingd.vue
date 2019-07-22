@@ -22,7 +22,7 @@
       box2_3:3==$store.state.rencar.img,
       box2_4:4==$store.state.rencar.img,
       box2_5:5==$store.state.rencar.img,
-      box2_6:6==$store.state.rencar.img}">
+      box2_6:6==$store.state.rencar.img}" class="pooo">
         </div>
         <ul>
           <li>{{$store.state.rencar.name}}</li>
@@ -469,6 +469,8 @@ export default {
       }
   }
 
-
+  .pooo{
+    margin-left:.3rem;
+  }
 }
 </style>

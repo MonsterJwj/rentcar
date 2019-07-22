@@ -16,7 +16,7 @@
       box2_3:3==$store.state.rencar.img,
       box2_4:4==$store.state.rencar.img,
       box2_5:5==$store.state.rencar.img,
-      box2_6:6==$store.state.rencar.img}"></div>
+      box2_6:6==$store.state.rencar.img} "></div>
       <!-- 车名 -->
       <div class="box3">
         <ul>
@@ -280,37 +280,37 @@ export default {
     .box2_1{
       width:100%;
       height:2.34rem;
-      background:url('../assets/img/jiag/jiage-img-3.png@2x.png') no-repeat center center;
+      background:url('../assets/img/jiag/jiage-img-3.png@2x.png') no-repeat center top;
       background-size:cover;
     }
     .box2_2{
       width:100%;
       height:2.34rem;
-      background:url('../assets/img/chex/img-1-png@2x.png') no-repeat center center;
+      background:url('../assets/img/chex/img-1-png@2x.png') no-repeat center top;
       background-size:cover;
     }
     .box2_3{
       width:100%;
       height:2.34rem;
-      background:url('../assets/img/jiag/jiage-img-2.png@2x.png') no-repeat center center;
+      background:url('../assets/img/jiag/jiage-img-2.png@2x.png') no-repeat center top;
       background-size:cover;
     }
     .box2_4{
       width:100%;
       height:2.34rem;
-      background:url('../assets/img/chex/img-3-png@2x.png') no-repeat center center;
+      background:url('../assets/img/chex/img-3-png@2x.png') no-repeat center top;
       background-size:cover;
     }
     .box2_5{
       width:100%;
       height:2.34rem;
-      background:url('../assets/img/chex/img-4-png@2x.png') no-repeat center center;
+      background:url('../assets/img/chex/img-4-png@2x.png') no-repeat center top;
       background-size:cover;
     }
     .box2_6{
       width:100%;
       height:2.34rem;
-      background:url('../assets/img/chex/img-2-png@2x.png') no-repeat center center;
+      background:url('../assets/img/chex/img-2-png@2x.png') no-repeat center top;
       background-size:cover;
     }
     .box3{
@@ -484,6 +484,6 @@ export default {
         line-height:.88rem;
         margin:.72rem .33rem 0 .31rem;
       }
-     
+ 
 }
 </style>

@@ -19,7 +19,7 @@
         <div class="neirong">
             <p>我的评价</p>
             <p class="pin">
-                 <span v-for="(m,n) in score" :key="n" :class="{cho:m,nocho:!m}"></span>
+                 <span v-for="(m,n) in $store.state.pingf" :key="n" :class="{cho:m,nocho:!m}"></span>
             </p>
             <ul class="fen">
                 <li>
@@ -41,13 +41,15 @@
 export default {
   data() {
     return {
-      score:[true,,true,true,true,false] 
     }
   },
   methods: {
          fa(){
          this.$router.push("/changz")
     }
+  },
+  mounted () {
+    // console.log(this.$store.state.pingf);
   },
   components: {
 
